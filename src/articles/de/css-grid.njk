@@ -10,9 +10,12 @@ title: CSS-Grid
     nach einem unsichtbaren Raster (engl.: grid, Abb. 1). Diese Verteilung wird bislang üblicherweise mittels Floats
     realisiert. Insbesondere das Grid von Bootstrap hat diesbezüglich Bekanntheit und eine große Nutzerschar erlangt.
 </p>
-<mark>@@BILD: beispiel-grid.png@@</mark>
-<figcaption>Abb. 1: Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden
-    mittels Floats darauf platziert.</figcaption>
+<figure class="card">
+    <img src="../../../images/css-grid/beispiel-grid.png" alt="" class="card-img-top">  
+    <figcaption class="card-footer">Abb. 1: Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden
+        mittels Floats darauf platziert.</figcaption>  
+</figure>
+
 <p>Floats waren niemals für Seitenlayouts vorgesehen. Sie werden nur mangels besserer Alternativen am Häufigsten
     genutzt. Alternativ kommen gelegentlich auch absolute Positionierung oder display: inline-block zum Einsatz. Als
     2011 mit der Spezifikation von CSS-Grids begonnen wurde, hatten Webworker schon Erfahrungen mit teils komplizierten
@@ -25,9 +28,12 @@ title: CSS-Grid
 <p>Bei den CSS-Grids werden die einzelnen Layoutblöcke Grid-Items genannt. Der sie umgebende Container ist der
     Grid-Container. Das Grid wird durchzogen von Grid-Lines, also Linien, die die Grid-Items umgeben. Diese Linien
     werden im Grid-Inspector von Firefox (Teil der Developer Tools) visualisiert (Abb. 2)</p>
-<mark>@@BILD: grid-inspector-2.png@@</mark>
-<figcaption>Abb. 2: Sie müssen im Grid-Inspector erst auswählen, für welchen Grid-Container der Inspector die
-    Markierungen anzeigen soll.</figcaption>
+
+<figure class="card">
+    <img src="../../../images/css-grid/grid-inspector-2.png" alt="" class="card-img-top"> 
+    <figcaption class="card-footer">Abb. 2: Sie müssen im Grid-Inspector erst auswählen, für welchen Grid-Container der Inspector die
+        Markierungen anzeigen soll.</figcaption>
+</figure>
 
 <p>Sie sehen in diesem Beispiel, dass die äußeren Enden des Grids immer mit Linien versehen sind. Es existieren deshalb
     immer eine Linie mehr als Reihen oder Spalten.</p>
@@ -36,9 +42,13 @@ title: CSS-Grid
     auch als Grid-Track bezeichnet. Die kleinste Einheit, vergleichbar mit einer Tabellenzelle, ist die Grid-Cell. Und
     ein Bereich aus einer oder mehrerer Grid-Zellen, die zusammen von vier Grid-Lines begrenzt werden, ist eine
     Grid-Area. Ein Grid-Item ist immer Teil einer Grid-Area.</p>
-<mark>@@BILD: track-area-cell.png@@</mark>
-<figcaption>Abb. 3: Die schwarzen Elemente symbolisieren die jeweiligen Begriffe.</figcaption>
-<p>Ein entscheidender Unterschied zwischen CSS-Grids und Flexbox ist, dass die Grids zweidimensional konstruiert sind.
+
+    <figure class="card">
+        <img src="../../../images/css-grid/track-area-cell.png" alt="" class="card-img-top"> 
+        <figcaption class="card-footer">Abb. 3: Die schwarzen Elemente symbolisieren die jeweiligen Begriffe.</figcaption>
+    </figure>
+
+    <p>Ein entscheidender Unterschied zwischen CSS-Grids und Flexbox ist, dass die Grids zweidimensional konstruiert sind.
     Eventuell macht die Spezifikation deshalb sprachliche Anleihen an Tabellen. Flexbox ist hingegen eindimensional. Um
     dies zu unterstreichen spricht die Spezifikation nur von Haupt- und Kreuzachse, nutzt also eine recht neutrale
     Sprache.</p>
@@ -94,7 +104,7 @@ title: CSS-Grid
 }
 {% endhighlight %}
 
-<p>Selbstverständlich können Sie auch Einheiten mischen [cdpn.io/e/VyeGxJ]:</p>
+<p>Selbstverständlich können Sie auch <a href="cdpn.io/e/VyeGxJ">Einheiten mischen</a>:</p>
 
 {% highlight "css" %}
 .grid-container {
@@ -144,23 +154,34 @@ title: CSS-Grid
     [cdpn.io/e/ZvWaNp].</p>
 <p>Sie können nun mit sehr wenig Code das Bootstrap-Grid (12 Spalten) nachbauen [cdpn.io/e/LeRPrK]:</p>
 
-<h3>Bootstrap-Grid - Ausgangsposition</h3>
-{% highlight "css" %}
-.grid-12col {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 10px;
-}
-{% endhighlight %}
+<figure class="card">
+    {% highlight "css" %}
+    .grid-12col {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 10px;
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Bootstrap-Grid - Ausgangsposition
+    </figcaption>
+</figure>
 
-<h3>Vier gleich große Spalten</h3>
-{% highlight "css" %}
-.grid-4-12 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-}
-{% endhighlight %}
+
+<figure class="card">
+    {% highlight "css" %}
+    .grid-4-12 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+    }
+    {% endhighlight %}
+    <figcaption class="card-footer">
+        Vier gleich große Spalten
+    </figcaption>
+</figure>
+
 
 <h2>Die Einheit "Fraction"</h2>
 <p>Eine echte Neuerung im CSS-Grid-Modul ist die Einheit fraction. Sie ermöglicht die Verteilung von Inhalten auf den
@@ -197,12 +218,17 @@ title: CSS-Grid
     den Grid-Items verteilen. Selbstverständlich kann der Platz auch ungleich verteilt werden.</p>
 <p>Das Beispiel mit den Prozentwerten müsste der Web-Autor mittels calc() folgendermassen korrigieren:</p>
 
-<h3>Breitenkorrektur mit calc()</h3>
-{% highlight "css" %}
-.grid-prozent-2 {
-    grid-template-columns: calc(25% - 10px) calc(25% - 20px) calc(25% - 20px) calc(25% - 10px);
-}
-{% endhighlight %}
+<figure class="card">
+    {% highlight "css" %}
+    .grid-prozent-2 {
+        grid-template-columns: calc(25% - 10px) calc(25% - 20px) calc(25% - 20px) calc(25% - 10px);
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Breitenkorrektur mit calc()
+    </figcaption>
+</figure>
 
 <p>Diese Vorgehensweise ist umständlich, schlecht lesbar und fehleranfällig. Schließlich muss der Webworker dran denken,
     dass die Grid-Items am Rand nur ein halbes grid-gap auf einer Seite besitzen, während alle anderen auf beiden Seiten
@@ -213,18 +239,24 @@ title: CSS-Grid
 <p>Selbstverständlich kann die Einheit fr mit anderen Einheiten vermischt werden. Es geht schließlich hierbei in
     gewisserweise um „Resteverwertung“ [cdpn.io/e/vpKxNa].</p>
 
-<h3>Andere mögliche Breiten-Kombinationen</h3>
-{% highlight "css" %}
-.grid-fr-1 {
-    grid-template-columns: 100px 1fr 1fr 3fr;
-}
-.grid-fr-2 {
-    grid-template-columns: 100px 20% 1fr 3fr;
-}
-.grid-fr-3 {
-    grid-template-columns: 1fr 30% 15rem 100px;
-}
-{% endhighlight %}
+
+<figure class="card">
+    {% highlight "css" %}
+    .grid-fr-1 {
+        grid-template-columns: 100px 1fr 1fr 3fr;
+    }
+    .grid-fr-2 {
+        grid-template-columns: 100px 20% 1fr 3fr;
+    }
+    .grid-fr-3 {
+        grid-template-columns: 1fr 30% 15rem 100px;
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Andere mögliche Breiten-Kombinationen
+    </figcaption>
+</figure>
 
 <h2>minmax</h2>
 <p>Für flexible, responsive Layouts kann es manchmal wichtig sein, eine minimale und eine maximale Breite – respektive
@@ -243,12 +275,18 @@ title: CSS-Grid
     versteckt [cdpn.io/e/BJzwBj]. Durch Klick auf den Button können Sie ihn erscheinen und wieder verschwinden lassen.
     Die zweite Zeile verändert dadurch ihre Höhe. Die Bedingungen dafür sind folgendermaßen gesetzt:</p>
 
-<h3>Minimale und maximale Höhe</h3>
-{% highlight "css" %}
-.grid-minmax-2 {
-    grid-template-rows: 150px minmax(80px, 2fr) 1fr 1fr;
-}
-{% endhighlight %}
+
+<figure class="card">
+    {% highlight "css" %}
+    .grid-minmax-2 {
+        grid-template-rows: 150px minmax(80px, 2fr) 1fr 1fr;
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Minimale und maximale Höhe
+    </figcaption>
+</figure>
 <p>In der Funktion minmax() darf die Einheit fr nur als Maximalwert, nicht als Minimalwert eingesetzt werden.
     Schließlich ist „fr“ ein relativer Wert. Ein definitiver Minimalwert liesse sich damit nie erstellen. Zusätzlich
     gibt es noch die Schlüsselbegriffe auto, min-content und max-content. Mit min-content ist die Mindestbreite gemeint,
@@ -256,45 +294,63 @@ title: CSS-Grid
     dementsprechend das Maximum an für den Inhalt notwendigem Platz gemeint. Für den Maximalwert, also den zweiten Wert
     in der minmax()-Funktion, sind max-content und auto identisch. So ergeben sich folgende Varianten:</p>
 
-<h3>Schlüsselbegriffe bei minmax()</h3>
-{% highlight "css" %}
-.grid-minmax-3 {
-    grid-template-columns: 150px minmax(100px, auto) 1fr 1fr;
-}
-.grid-minmax-4 {
-    grid-template-columns: 150px minmax(min-content, 360px) 1fr 1fr;
-}
-.grid-minmax-5 {
-    grid-template-columns: 150px minmax(150px, max-content) 3fr 1fr;
-}
-{% endhighlight %}
+
+<figure class="card">
+    {% highlight "css" %}
+    .grid-minmax-3 {
+        grid-template-columns: 150px minmax(100px, auto) 1fr 1fr;
+    }
+    .grid-minmax-4 {
+        grid-template-columns: 150px minmax(min-content, 360px) 1fr 1fr;
+    }
+    .grid-minmax-5 {
+        grid-template-columns: 150px minmax(150px, max-content) 3fr 1fr;
+    }
+    {% endhighlight %}
+        
+    <figcaption class="card-footer">
+        Schlüsselbegriffe bei minmax()
+    </figcaption>
+</figure>
 
 <h2>Autofit und Autofill</h2>
 <p>Der erste Parameter der repeat()-Funktion ist die Anzahl der Wiederholungen des darauffolgenden Breiten-Musters.
     Anstatt einen konkreten Wert einzugeben, können Sie auch die Schlüsselworte auto-fit und auto-fill benutzen.</p>
-<h3>auto-fill und auto-fit im Einsatz</h3>
-{% highlight "css" %}
-.grid-container-autofill {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
-    grid-gap: 10px;
-}
-.grid-container-autofit {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
-    grid-gap: 10px;
-}
-{% endhighlight %}
+
+<figure class="card">
+    {% highlight "css" %}
+    .grid-container-autofill {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+        grid-gap: 10px;
+    }
+    .grid-container-autofit {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+        grid-gap: 10px;
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        auto-fill und auto-fit im Einsatz
+    </figcaption>
+</figure>
 <p>Mit dem Schlüsselwort auto-fill versucht der Browser, so viele Grid-Items wie möglich in eine visuelle Zeile zu
     bekommen. Er richtet sich danach an der angegebenen Minimalgröße aus. Eventuell frei bleibender Platz wird nicht
     gefüllt.</p>
-<mark>@@BILD: auto-fill.png@@</mark>
 
-<figcaption>Abb. 4: Die auto-fill-Eigenschaft im Einsatz.</figcaption>
+    <figure class="card">
+        <img src="../../../images/css-grid/auto-fill.png" alt="" class="card-img-top"> 
+        <figcaption class="card-footer">Abb. 4: Die auto-fill-Eigenschaft im Einsatz.</figcaption>
+    </figure>
 <p>Auch bei auto-fit versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt kein freier
     Platz übrig [cdpn.io/e/xpOvmW].</p>
-<mark>@@BILD: auto-fit.png@@</mark>
-<figcaption>Abb. 5: Die auto-fit-Eigenschaft im Einsatz.</figcaption>
+
+    <figure class="card">
+        <img src="../../../images/css-grid/auto-fit.png" alt="" class="card-img-top"> 
+        <figcaption class="card-footer">Abb. 5: Die auto-fit-Eigenschaft im Einsatz.</figcaption>
+
+    </figure>
 
 <h2>Areas definieren</h2>
 <p>Die einzelnen Zellen eines Grids können Webworker mit der Eigenschaft grid-template-areas benamen. Dabei können
@@ -305,63 +361,92 @@ title: CSS-Grid
     Deshalb ist es leider nicht möglich, ein Grid-Item in einer L-Form innerhalb eines Grids zu platzieren.</p>
 <p>Diese Eigenschaften werden übrigens vom IE nicht unterstützt, egal ob nun benamt oder ohne expliziten Namen.</p>
 
-<h3>Benannte Bereiche (areas)</h3>
-{% highlight "css" %}
-.grid-with-a-name {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: repeat(3, 80px);
-    grid-gap: 10px;
-    grid-template-areas:
-    "kopf kopf kopf"
-    "navigation hauptinhalt werbung"
-    "fuss fuss fuss";
-}
-{% endhighlight %}
+<figure class="card">
+    {% highlight "css" %}
+    .grid-with-a-name {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: repeat(3, 80px);
+        grid-gap: 10px;
+        grid-template-areas:
+        "kopf kopf kopf"
+        "navigation hauptinhalt werbung"
+        "fuss fuss fuss";
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Benannte Bereiche (areas)
+    </figcaption>
+</figure>
 <p>Nachdem die Bereiche des Grids benannt worden sind, müssen diese noch mit Inhalten befüllt werden. Dazu können Sie
     Ihre Inhalte nun bequem anhand der Namen der Areas verteilen.</p>
 
-<h3>Den Inhalten die Grid-Areas zuweisen</h3>
-{% highlight "css" %}
-.main-header {
-    grid-area: kopf;
-}
-.main-navigation {
-    grid-area: navigation;
-}
-.main-content {
-    grid-area: hauptinhalt;
-}
-.main-aside {
-    grid-area: werbung;
-}
-.main-footer {
-    grid-area: fuss;
-}
-{% endhighlight %}
-<mark>@@BILD: grid-area-1.png@@</mark>
-<figcaption>Abb. 6: Die Inhalte sind den passenden Grid-Areas zugewiesen.</figcaption>
+<figure class="card">
+    {% highlight "css" %}
+    .main-header {
+        grid-area: kopf;
+    }
+    .main-navigation {
+        grid-area: navigation;
+    }
+    .main-content {
+        grid-area: hauptinhalt;
+    }
+    .main-aside {
+        grid-area: werbung;
+    }
+    .main-footer {
+        grid-area: fuss;
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Den Inhalten die Grid-Areas zuweisen
+    </figcaption>
+</figure>
+
+
+<figure class="card">
+    <img src="../../../images/css-grid/grid-area-1.png" alt="" class="card-img-top"> 
+    <figcaption class="card-footer">Abb. 6: Die Inhalte sind den passenden Grid-Areas zugewiesen.</figcaption>
+
+</figure>
+
 <p>Der charmante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der
     Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für
     unterschiedliche Breakpoints einer responsiven Seite [cdpn.io/e/GyjpMM].</p>
 <p>Beachten Sie, dass die Anzahl der Namen mit der Anzahl der zur Verfügung stehenden Grid-Items pro visueller Zeile
     übereinstimmen muss. Eventuell gewünschte Auslassungen werden mit einem Punkt realisiert:</p>
-<h3>Auslassung einer Zelle</h3>
 
-{% highlight "css" %}
-.grid-with-a-name-2 {
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas:
-                        "kopf kopf kopf"
-                        "navigation hauptinhalt werbung"
-                        "fuss fuss .";
-}
-{% endhighlight %}
-<mark>@@BILD: grid-area-2.png@@</mark>
-<figcaption>Abb. 7: Die rechte Zelle des Fusses wurde ausgelassen.</figcaption>
+<figure class="card">
+    {% highlight "css" %}
+    .grid-with-a-name-2 {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas:
+                            "kopf kopf kopf"
+                            "navigation hauptinhalt werbung"
+                            "fuss fuss .";
+    }
+    {% endhighlight %}
+    
+    <figcaption class="card-footer">
+        Auslassung einer Zelle
+    </figcaption>
+</figure>
+
+
+<figure class="card">
+    <img src="../../../images/css-grid/grid-area-2.png" alt="" class="card-img-top"> 
+    <figcaption class="card-footer">Abb. 7: Die rechte Zelle des Fusses wurde ausgelassen.</figcaption>
+</figure>
 <p>Der kreative Umgang mit benamten Grid-Areas kann zu interessanten Layoutlösungen führen [cdpn.io/e/EgNXyo]:</p>
-<mark>@@BILD: grid-area-3.png@@</mark>
-<figcaption>Abb. 8: Eine interessante Navigationsidee dank CSS-Grids.</figcaption>
+
+<figure class="card">
+    <img src="../../../images/css-grid/grid-area-3.png" alt="" class="card-img-top"> 
+    <figcaption class="card-footer">Abb. 8: Eine interessante Navigationsidee dank CSS-Grids.</figcaption>
+</figure>
+
 <p>Der dahinter stehende Code ist gekürzt folgender:</p>
 {% highlight "css 4-12" %}
 .gridcontainer {
@@ -416,8 +501,11 @@ title: CSS-Grid
     oder Afrika zum Einsatz kommt – unterstützt Grids auch in der aktuellen Version nicht. Es liegt also an Ihren
     Projekten, ob Sie ohne Gewissensbisse mit der neuen Technik arbeiten können. Ein Blick in die eigene Statistik lohnt
     immer.</p>
-<mark>@@BILD: caniuse.png@@</mark>
-<figcaption>Abb. 9: Can I Use gibt hoffnungsvolle Signale.</figcaption>
+
+    <figure class="card">
+        <img src="../../../images/css-grid/caniuse.png" alt="" class="card-img-top"> 
+        <figcaption class="card-footer">Abb. 9: Can I Use gibt hoffnungsvolle Signale.</figcaption>
+    </figure>
 
 <h2>Progressive Enhancement</h2>
 <p>Es gibt keinen Polyfill für CSS-Grids und wird wohl auch nie einen geben. Es kann also kein Ziel sein, optisch das
@@ -459,27 +547,31 @@ title: CSS-Grid
     sinnvoller Anwendungsfall für eine Feature Query.</p>
 
 
-<h2>ZweidimensionalL</h2>
+<h2>Zweidimensional</h2>
 <p>Sie stellen sich möglicherweise die Frage, ob nicht der Einsatz von Flexbox vollkommen ausreichend ist. Der
     Komplexitätsgrad von CSS-Grid wirkt schon innerhalb dieses Artikels recht groß, ist aber in Wahrheit noch viel
     größer.</p>
 <p>Der große Unterschied von CSS-Grids zu Floats und dem ebenfalls recht neuen Flexbox ist, dass CSS-Grids
     zwei-dimensional agieren können. Floats funktionieren nur horizontal, Flexbox nur horizontal oder vertikal. Bei den
     CSS-Grids können die Grid-Items horizontal und vertikal verteilt werden:</p>
-<h3>Zwei-Dimensionale Verteilung mit CSS-Grids</h3>
 
-{% highlight "css" %}
-.container{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas:
-        "header header"
-        "main sidebar"
-        "footer sidebar";
-    grid-gap: 60px;
-}
-
-{% endhighlight %}
+<figure class="card">
+    {% highlight "css" %}
+    .container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "header header"
+            "main sidebar"
+            "footer sidebar";
+        grid-gap: 60px;
+    }
+    
+    {% endhighlight %}
+    <figure class="card-footer">
+        Zwei-Dimensionale Verteilung mit CSS-Grids
+    </figure>
+</figure>
 
 <p>Im obigen Beispiel wird ein Grid-Item horizontal als „header“ und ein anderes als „footer“ verteilt. In der gleichen
     Regel wird ein weiteres Element vertikal als „sidebar“ ausgerichtet. Diese Flexibilität innerhalb einer Regel bietet
@@ -505,27 +597,31 @@ title: CSS-Grid
     CSS-Grid-Variante [cdpn.io/e/jZEaQJ] wird der Wrapper nicht benötigt. Die grobe Struktur beider Varianten sieht
     folgendermaßen aus:</p>
 
-<h3>Struktur einer einfachen Seite im Vergleich: Flexbox und CSS-Grid</h3>
-{% highlight "html" %}
-    <!-- Die Flexbox-Variante -->
-    <div class="container">
-        <header class="page-header"> </header>
-        <main class="main-and-sidebar">
-            <section class="main"> </section>
+<figure class="card">
+        {% highlight "html" %}
+        <!-- Die Flexbox-Variante -->
+        <div class="container">
+            <header class="page-header"> </header>
+            <main class="main-and-sidebar">
+                <section class="main"> </section>
+                <aside class="sidebar"> </aside>
+            </main>
+            <footer class="page-footer"> </footer>
+        </div>
+    
+        <!-- Die CSS-Grid-Variante -->
+        <div class="container">
+            <header class="page-header"> </header>
+            <main class="main"> </main>
             <aside class="sidebar"> </aside>
-        </main>
-        <footer class="page-footer"> </footer>
-    </div>
-
-    <!-- Die CSS-Grid-Variante -->
-    <div class="container">
-        <header class="page-header"> </header>
-        <main class="main"> </main>
-        <aside class="sidebar"> </aside>
-        <footer class="page-footer"> </footer>
-    </div>
-
-{% endhighlight %}
+            <footer class="page-footer"> </footer>
+        </div>
+    
+    {% endhighlight %}
+    <figcaption class="card-footer">
+        Struktur einer einfachen Seite im Vergleich: Flexbox und CSS-Grid
+    </figcaption>
+</figure>
 
 <p>Der Browser berechnet bei Flexbox primär in eine Richtung – horizontal oder vertikal. Bei CSS-Grids hingegen rechnet
     er in zwei Richtungen – horizontal und vertikal. Deshalb sind mit CSS-Grids komplexere Layouts einfacher möglich.
