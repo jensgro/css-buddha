@@ -6,12 +6,14 @@
 	<title>{{ title }}</title>
 	<link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
 </head>
-<body>
-	<header class="container">
-		<h1>{{ title }}</h1>
-	</header>
+<body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+  {% include "partials/site-head.njk" %}
 	<main class="container">
 	{{ content | safe }}
 	</main>
+  {% include "partials/site-foot.njk" %}
+  {% block foot %}
+  {% endblock %}
+
 </body>
 </html>
