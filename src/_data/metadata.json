@@ -1,0 +1,14 @@
+{
+  "title": "CSS Buddha",
+  "url": "http://css-buddha.de",
+  "description": "Artikel rund ums Frontend - vor allem CSS.",
+  "feed": {
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "http://css-buddha.de"
+  },
+  "author": {
+    "name": "Jens Grochtdreis",
+    "email": "jens@grochtdreis.de"
+  }
+}
