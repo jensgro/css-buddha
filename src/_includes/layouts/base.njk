@@ -11,6 +11,9 @@
 <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
   {% include "partials/site-head.njk" %}
 	<main class="container">
+	{% if lead %}
+	<p class="lead">{{ lead }}</p>
+	{% endif %}
 	{{ content | safe }}
 	</main>
   {% include "partials/site-footer.njk" %}

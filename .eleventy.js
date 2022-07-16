@@ -25,13 +25,17 @@ module.exports = function (eleventyConfig) {
   // keine Ahnung, was das tut :-)
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addPassthroughCopy({"./src/assets/img": "/img"});
+  eleventyConfig.addPassthroughCopy({
+    "./src/assets/images": "/images"
+  });
   eleventyConfig.addPassthroughCopy("css");
   // eleventyConfig.addPassthroughCopy({"./src/assets/scss/fonts": "css/fonts"});
-  eleventyConfig.addPassthroughCopy({"./src/static/":"/"});
+  eleventyConfig.addPassthroughCopy({
+    "./src/static/": "/"
+  });
 
   eleventyConfig.addPlugin(syntaxHighlight);
-  
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
@@ -46,6 +50,13 @@ module.exports = function (eleventyConfig) {
   // Watch CSS files for changes
   eleventyConfig.setBrowserSyncConfig({
     files: './_site/css/**/*.css'
+  });
+
+  eleventyConfig.addShortcode("figImg", function (img, figCaption, alt=false) {
+    return `<figure class="card">
+      <img src="../../../images/${img}" class="card-img-top" alt="${alt}">  
+      <figcaption class="card-footer">${figCaption}</figcaption>  
+    </figure>`;
   });
 
   return {
