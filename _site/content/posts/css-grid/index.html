@@ -19,25 +19,21 @@
 	
 	<p>Der Begriff „Grid“ ist schon lange in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Diese Verteilung wird bislang üblicherweise mittels Floats realisiert. Insbesondere das Grid von Bootstrap hat diesbezüglich Bekanntheit und eine große Nutzerschar erlangt.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/beispiel-grid.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/beispiel-grid.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden mittels Floats darauf platziert.</figcaption>  
     </figure>
-<figure class="card">
-      <img src="../../../images/css-grid/beispiel-grid.png" class="card-img-top" alt="false">
-      <figcaption class="card-footer">Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden mittels Floats darauf platziert.</figcaption>
-      </figure>
 <p>Floats waren niemals für Seitenlayouts vorgesehen. Sie werden nur mangels besserer Alternativen am Häufigsten genutzt. Alternativ kommen gelegentlich auch absolute Positionierung oder display: inline-block zum Einsatz. Als 2011 mit der Spezifikation von CSS-Grids begonnen wurde, hatten Webworker schon Erfahrungen mit teils komplizierten Layouts gemacht. Es waren auch Limitierungen der bislang verwendeten Techniken bekannt.</p>
 <h2>Andere Herangehensweise</h2>
 <p>Wie schon bei Flexbox haben wir es bei CSS-Grids mit einer anderen als der gewohnten Herangehensweise und Benamung zu tun. Bislang waren wir es gewohnt, mit links, rechts, oben und unten zu arbeiten. Schon bei Flexbox wurde dieses Schema durch zwei Achsen ersetzt, die man in der Richtung drehen konnte.</p>
 <p>Bei den CSS-Grids werden die einzelnen Layoutblöcke Grid-Items genannt. Der sie umgebende Container ist der Grid-Container. Das Grid wird durchzogen von Grid-Lines, also Linien, die die Grid-Items umgeben. Diese Linien werden im Grid-Inspector von Firefox (Teil der Developer Tools) visualisiert.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/grid-inspector-2.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/grid-inspector-2.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Sie müssen im Grid-Inspector erst auswählen, für welchen Grid-Container der Inspector die Markierungen anzeigen soll.</figcaption>  
     </figure>
 <p>Sie sehen in diesem Beispiel, dass die äußeren Enden des Grids immer mit Linien versehen sind. Es existieren deshalb immer eine Linie mehr als Reihen oder Spalten.</p>
 <p>Im Gegensatz zu Flexbox, das richtungsagnostische Begriffe verwendet, wird bei Grids von Spalten und Reihen gesprochen, ganz wie bei Tabellen. Eine Reihe oder auch eine Spalte, also der Bereich zwischen zwei Grid-Lines, wird auch als Grid-Track bezeichnet. Die kleinste Einheit, vergleichbar mit einer Tabellenzelle, ist die Grid-Cell. Und ein Bereich aus einer oder mehrerer Grid-Zellen, die zusammen von vier Grid-Lines begrenzt werden, ist eine Grid-Area. Ein Grid-Item ist immer Teil einer Grid-Area.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/track-area-cell.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/track-area-cell.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die schwarzen Elemente symbolisieren die jeweiligen Begriffe.</figcaption>  
     </figure>
 <p>Ein entscheidender Unterschied zwischen CSS-Grids und Flexbox ist, dass die Grids zweidimensional konstruiert sind. Eventuell macht die Spezifikation deshalb sprachliche Anleihen an Tabellen. Flexbox ist hingegen eindimensional. Um dies zu unterstreichen spricht die Spezifikation nur von Haupt- und Kreuzachse, nutzt also eine recht neutrale Sprache.</p>
@@ -123,12 +119,12 @@ relative Breitenangaben sinnvoller.</p>
 </figure>
 <p>Mit dem Schlüsselwort auto-fill versucht der Browser, so viele Grid-Items wie möglich in eine visuelle Zeile zu bekommen. Er richtet sich danach an der angegebenen Minimalgröße aus. Eventuell frei bleibender Platz wird nicht gefüllt.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/auto-fill.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/auto-fill.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die auto-fill-Eigenschaft im Einsatz.</figcaption>  
     </figure>
 <p>Auch bei auto-fit versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt <a href="https://cdpn.io/e/xpOvmW">kein freier Platz übrig</a>.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/auto-fit.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/auto-fit.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die auto-fit-Eigenschaft im Einsatz.</figcaption>  
     </figure>
 <h2>Areas definieren</h2>
@@ -148,7 +144,7 @@ relative Breitenangaben sinnvoller.</p>
     </figcaption>
 </figure>
 <figure class="card">
-      <img src="../../../images/css-grid/grid-area-1.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/grid-area-1.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die Inhalte sind den passenden Grid-Areas zugewiesen.</figcaption>  
     </figure>
 <p>Der charmante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für <a href="https://cdpn.io/e/GyjpMM">unterschiedliche Breakpoints einer responsiven Seite</a>.</p>
@@ -160,12 +156,12 @@ relative Breitenangaben sinnvoller.</p>
     </figcaption>
 </figure>
 <figure class="card">
-      <img src="../../../images/css-grid/grid-area-2.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/grid-area-2.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Die rechte Zelle des Fusses wurde ausgelassen.</figcaption>  
     </figure>
 <p>Der kreative Umgang mit benamten Grid-Areas kann zu <a href="https://cdpn.io/e/EgNXyo">interessanten Layoutlösungen</a> führen:</p>
 <figure class="card">
-      <img src="../../../images/css-grid/grid-area-3.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/grid-area-3.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Eine interessante Navigationsidee dank CSS-Grids.</figcaption>  
     </figure>
 <p>Der dahinter stehende Code ist gekürzt folgender:</p>
@@ -178,7 +174,7 @@ relative Breitenangaben sinnvoller.</p>
 <p>Doch mit Autoprefixer allein ist uns beim Umgang mit dem IE nicht geholfen. Rachel Andrew führt <a href="https://goo.gl/RGDTLj">in einer Tabelle</a> alle Grid-Eigenschaften und ihre möglichen IE-spezifischen Pendants auf. Dabei fällt auf, dass viele aktuelle Eigenschaften keine Entsprechung in der alten Version haben und andere wiederum so gelöst werden, dass Autoprefixer leider keine Hilfe ist. Wenn Sie ein einfaches Grid-Layout erstellen, ist die Chance hoch, dass Sie es auch für den IE zum Laufen bekommen. Im Extremfall erstellen Sie ein Float-Layout für Nicht-Grid-Browser, ein einfaches Grid für den IE und ein ausgefeiltes Grid für alle modernen Browser. Es hört sich schlimmer an, als es am Ende sein wird.</p>
 <p>Abseits des guten alten IE: der UC Browser - ein mobiler Browser, der vor allem auf schwachen Endgeräten in Indien oder Afrika zum Einsatz kommt – unterstützt Grids auch in der aktuellen Version nicht. Es liegt also an Ihren Projekten, ob Sie ohne Gewissensbisse mit der neuen Technik arbeiten können. Ein Blick in die eigene Statistik lohnt immer.</p>
 <figure class="card">
-      <img src="../../../images/css-grid/caniuse.png" alt="" class="card-img-top">  
+      <img src="../../../images/css-grid/caniuse.png" class="card-img-top" alt="false">  
       <figcaption class="card-footer">Can I Use gibt hoffnungsvolle Signale.</figcaption>  
     </figure>
 <h2>Progressive Enhancement</h2>
