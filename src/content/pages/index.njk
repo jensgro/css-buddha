@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: CSS-Buddha neu
+permalink: /index.html
+bodyClass: index
+eleventyNavigation:
+  key: home
+  order: 1
+---
+
+{%- for item in categories %}
+    <h2>{{ item.title }}</h2>
+    {% if "post" in item.cat %}
+      {% for post in collections.post %}
+        {% if loop.first %}<ul>{% endif %}
+          <li>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    {% endif %}
+
+{% endfor -%}

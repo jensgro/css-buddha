@@ -1,13 +1,13 @@
 {# -------- #}
 <div class="container no-print">
   <footer class="sitefooter">
-    <ul>
+    <ul class="nav">
       {% if templateClass != "tmpl-home" %}
-      <li class="getback__link"><a href="{{ '/' | url }}">zurück zur Startseite</a></li>
+      <li class="nav-link getback__link"><a href="{{ '/' | url }}">zurück zur Startseite</a></li>
       {% endif %}
-      <li><a href="/impressum/">Impressum</a></li>
-      <li><a href="/kolophon/">Kolophon</a></li>
-      <li><a href="/bilderrechte/">Bilderrechte</a></li>
+      <li class="nav-link"><a href="/impressum/">Impressum</a></li>
+      <li class="nav-link"><a href="/kolophon/">Kolophon</a></li>
+      {# <li class="nav-link"><a href="/bilderrechte/">Bilderrechte</a></li> #}
     </ul>
   </footer>
 </div>

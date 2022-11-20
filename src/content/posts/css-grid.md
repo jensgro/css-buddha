@@ -5,7 +5,7 @@ lead: Erst seit Kurzem gibt es mit Flexbox ein erstes, echtes Layoutmodul in CSS
 ---
 
 
-Der Begriff „Grid“ ist schon lange in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Diese Verteilung wird bislang üblicherweise mittels Floats realisiert. Insbesondere das Grid von Bootstrap hat diesbezüglich Bekanntheit und eine große Nutzerschar erlangt.
+Der Begriff "Grid" ist schon lange in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Diese Verteilung wird bislang üblicherweise mittels Floats realisiert. Insbesondere das Grid von Bootstrap hat diesbezüglich Bekanntheit und eine große Nutzerschar erlangt.
 
 {% figImg "css-grid/beispiel-grid.png", "Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden mittels Floats darauf platziert." %}
 
@@ -167,7 +167,7 @@ Das Beispiel mit den Prozentwerten müsste der Web-Autor mittels `calc()` folgen
     .grid-prozent-2 {
         grid-template-columns: calc(25% - 10px) calc(25% - 20px) calc(25% - 20px) calc(25% - 10px);
     }
-    {% endhighlight %}    
+    {% endhighlight %}
     <figcaption class="card-footer">
         Breitenkorrektur mit calc()
     </figcaption>
@@ -383,7 +383,7 @@ Doch mit Autoprefixer allein ist uns beim Umgang mit dem IE nicht geholfen. Rach
 Abseits des guten alten IE: der UC Browser - ein mobiler Browser, der vor allem auf schwachen Endgeräten in Indien oder Afrika zum Einsatz kommt – unterstützt Grids auch in der aktuellen Version nicht. Es liegt also an Ihren Projekten, ob Sie ohne Gewissensbisse mit der neuen Technik arbeiten können. Ein Blick in die eigene Statistik lohnt immer.
 
 {% figImg "css-grid/caniuse.png", "Can I Use gibt hoffnungsvolle Signale." %}
-    
+
 ## Progressive Enhancement
 
 Es gibt keinen Polyfill für CSS-Grids und wird wohl auch nie einen geben. Es kann also kein Ziel sein, optisch das gleiche Ergebnis für alte Browser zu servieren. Im Geiste von Progressive Enhancement oder Graceful Degredation können Sie entweder auf eine bestehende Layoutlösung die neue Technik draufsetzen, um für moderne Browser eine leicht andere Experience zu schaffen. Oder Sie geben allen Nicht-Könnern ein linearisiertes Layout. Das Gute an CSS ist ja, dass Browser ihnen unbekannte Eigenschaften einfach ignorieren, anstatt die Verarbeitung wie bei JavaScript mit einem Fehler abzubrechen.
@@ -476,7 +476,7 @@ Der Browser berechnet bei Flexbox primär in eine Richtung – horizontal oder v
 
 Sie sollten eine Navigation mit Flexbox realisieren, nicht mit CSS-Grids. Und vergessen Sie bitte nicht die alten, traditionellen Techniken, die trotz dieser beiden neuen Techniken noch immer ihre Berechtigung haben. Wenn Ihre Navigation mit display: inline-block oder Floats wunderbar und ohne Nachteile funktioniert, gibt es keinen vernünftigen Grund, auf eine andere Technik umzusteigen. Diese lohnt nur, wenn Sie einen Vorteil bekommen. Sie sollten dann Flexbox und CSS-Grids als Progressive Enhancement nutzen. Dadurch liefern Sie immer ein angenehmes Layout aus, das sich allerdings im Detail unterscheiden kann.
 
-Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen. Aber sie sind nicht allmächtig. Die beliebten Masonry-Layouts, die Inhalte – meist Bilder – vertikal anordnen und automatisch in eine neue Spalte verschieben, sind nicht mit CSS-Grids realisierbar [goo.gl/ezVNXT]. Die inneren Mechanismen der Grids stehen dagegen. 
+Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen. Aber sie sind nicht allmächtig. Die beliebten Masonry-Layouts, die Inhalte – meist Bilder – vertikal anordnen und automatisch in eine neue Spalte verschieben, sind nicht mit CSS-Grids realisierbar [goo.gl/ezVNXT]. Die inneren Mechanismen der Grids stehen dagegen.
 
 ## Informationsquellen
 
