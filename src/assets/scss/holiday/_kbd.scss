@@ -1,0 +1,40 @@
+kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    max-width: calc(100% - 0.1rem * 2);
+    min-height: 1.5rem;
+    padding: 0 0.25rem;
+    margin: 0 0.1rem;
+    overflow: hidden;
+  }
+
+  kbd kbd {
+    min-width: unset;
+    min-height: unset;
+    padding: 0;
+    margin: 0;
+  }
+
+  kbd kbd:not(:first-child) {
+    padding-left: 0.25rem;
+  }
+
+  kbd kbd:not(:last-child) {
+    padding-right: 0.25rem;
+  }
+
+  kbd {
+    background-color: var(--highlighted-background-color);
+    border: var(--border-width) solid var(--border-hover-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 0 0.2rem var(--background-color);
+  }
+
+  kbd kbd {
+    border: unset;
+    border-radius: 0;
+    box-shadow: inset 0 -0.2rem 0 0 var(--background-color),
+      inset 0 0.2rem 0 0 var(--background-color);
+  }
