@@ -48,7 +48,11 @@
     }
   }
 
-
 :root {
-    --textColor: #000;
+  --max-body-width: 48rem;
+  --bodyColor: rgb(58, 58, 58);
+  --mainColor: #fff;
+  --space: 10px;
+  --textColor: #000;
+  --siteHeaderBG: rgb(22, 134, 255);
 }

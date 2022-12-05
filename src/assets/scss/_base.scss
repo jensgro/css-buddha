@@ -16,19 +16,23 @@ https://github.com/EvgenyOrekhov/holiday.css
 
 */
 
-
 *,
 ::before,
 ::after {
 	box-sizing: border-box;
 }
 
-
-:root                                                         { quotes: '\201c' '\201d' '\2018' '\2019' } /* “ ” ‘ ’ */
-:root:lang(de),       :not(:lang(de)) > :lang(de)             { quotes: '\201e' '\201c' '\201a' '\2018' } /* „ “ ‚ ‘ */
-:root:lang(en),       :not(:lang(en)) > :lang(en)             { quotes: '\201c' '\201d' '\2018' '\2019' } /* “ ” ‘ ’ */
-:root:lang(fr),       :not(:lang(fr)) > :lang(fr)             { quotes: '\00ab' '\00bb' '\00ab' '\00bb' } /* « » « » */
-
+// “ ” ‘ ’ 
+:root { quotes: '\201c' '\201d' '\2018' '\2019' } 
+// „ “ ‚ ‘ 
+:root:lang(de),
+:not(:lang(de)) > :lang(de) { quotes: '\201e' '\201c' '\201a' '\2018' } 
+// “ ” ‘ ’
+:root:lang(en), 
+:not(:lang(en)) > :lang(en) { quotes: '\201c' '\201d' '\2018' '\2019' } 
+// « » « »
+:root:lang(fr),       
+:not(:lang(fr)) > :lang(fr) { quotes: '\00ab' '\00bb' '\00ab' '\00bb' } 
 
 html {
   font-size: 16px;
@@ -44,22 +48,29 @@ html {
 body {
   margin: 0;
   font-size: 1rem;
+  background-color: var(--bodyColor);
   color: var(--textColor, #000);
-	font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
+
+// Headlines
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+}
+
+h1 { font-size: 2rem; margin: 0.67em 0;}
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.17rem; }
+h4 { font-size: 1.00rem; }
+h5 { font-size: 0.83rem; }
+h6 { font-size: 0.67rem; }
 
 hr {
   border-style: solid;
@@ -93,7 +104,32 @@ pre {
 }
 
 pre {
+  background-color: var(--code-background-color);
+  padding: var(--space);
   white-space: pre-wrap;
+
+  /* Prism hack */
+  /* stylelint-disable declaration-no-important */
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  /* stylelint-enable */
+  overflow-x: auto;
+  line-height: 1.15;
+
+  /* Prism Dracula theme hack */
+  /* stylelint-disable-next-line declaration-no-important */
+  border-radius: 0 !important;
+}
+
+code {
+  padding: var(--space);
+  color: var(--code-text-color);
+  background-color: var(--code-background-color);
+}
+
+pre code {
+  padding: unset;
+  background-color: inherit;
 }
 
 small {
@@ -116,39 +152,16 @@ sup {
 	top: -0.5em;
 }
 
-table {
-	text-indent: 0;
-	border-color: inherit;
-}
-
 // forms ==> ausgelagert
 // @import "holiday/forms";
 
 summary {
 	display: list-item;
 }
+
 abbr {
   cursor: help;
 }
-
-:root {
-  --max-body-width: 48rem;
-}
-
-
-h1,
-h2,
-h3 {
-  line-height: 1.15;
-}
-
-
-h1 { font-size: 2rem; margin: 0.67em 0;}
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.17rem; }
-h4 { font-size: 1.00rem; }
-h5 { font-size: 0.83rem; }
-h6 { font-size: 0.67rem; }
 
 img, svg, video, canvas, audio, iframe, embed, object {
   display: block;
@@ -166,33 +179,20 @@ svg {
 
 img {
   max-width: 100%;
-  max-height: 100vh;
   border-style: none;
 }
 
 table {
   display: block;
   overflow-x: auto;
+  text-indent: 0;
+	border-color: inherit;
 }
 
-pre {
-  padding: 1rem;
-
-  /* Prism hack */
-  /* stylelint-disable declaration-no-important */
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-  /* stylelint-enable */
-  overflow-x: auto;
-  line-height: 1.15;
-}
-
-code {
-  padding: 0.25rem;
-}
-
-pre code {
-  padding: unset;
+td,
+th,
+details {
+  padding: 0.5rem;
 }
 
 // @import "holiday/kbd";
@@ -214,14 +214,6 @@ embed,
 object {
   width: 100%;
 }
-
-
-td,
-th,
-details {
-  padding: 0.5rem;
-}
-
 
 /* stylelint-disable-next-line plugin/stylelint-group-selectors */
 blockquote > p:first-child,
@@ -311,10 +303,6 @@ picture {
   }
 }
 @media (hover: hover) {
-  body {
-    overflow-x: hidden;
-  }
-
   nav {
     display: flex;
     background-color: var(--background-color);
@@ -353,7 +341,7 @@ picture {
     white-space: nowrap;
   }
 
-  nav ul li ul {
+  nav ul ul {
     position: absolute;
     left: -9999px;
     z-index: 1;
@@ -425,29 +413,6 @@ picture {
       background-image: url('data:image/svg+xml;utf8,<svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="%23fff" d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>');
     }
   }
-}
-
-
-body {
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-pre {
-  background-color: var(--code-background-color);
-
-  /* Prism Dracula theme hack */
-  /* stylelint-disable-next-line declaration-no-important */
-  border-radius: 0 !important;
-}
-
-code {
-  color: var(--code-text-color);
-  background-color: var(--code-background-color);
-}
-
-pre code {
-  background-color: inherit;
 }
 
 a,

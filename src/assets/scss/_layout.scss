@@ -1,18 +1,25 @@
 body {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 1rem);
+    // width: calc(100% - 1rem);
     max-width: var(--max-body-width);
     min-height: 100%;
     margin: 0 auto;
     overflow-wrap: break-word;
 }
 
-// main {
+main {
+    padding: var(--space) calc(var(--space)*4);
+    background-color: var(--mainColor);
 //     flex-grow: 1;
-// }
+}
 
 .container {
     max-width: 1000px;
-    margin-inline: auto;
+    // margin-inline: auto;
+}
+
+.site-header {
+    background-color: var(--siteHeaderBG);
+    padding: var(--space) calc(var(--space)*2);
 }
