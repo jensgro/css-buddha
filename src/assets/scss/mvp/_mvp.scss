@@ -13,7 +13,7 @@
     --color-shadow: #f4f4f4;
     --color-table: #118bee;
     --color-text: #000;
-    --color-text-secondary: #999;
+    --color-text-secondary: #666;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --hover-brightness: 1.2;
     --justify-important: center;
@@ -23,6 +23,12 @@
     --width-card-medium: 460px;
     --width-card-wide: 800px;
     --width-content: 1080px;
+    --space1: 0.5em;
+    --space2: 1em;
+    --space3: 1.5em;
+    --space4: 2em;
+    --space5: 2.5em;
+    --space6: 3em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,7 +68,7 @@ header,
 main {
     margin: 0 auto;
     max-width: var(--width-content);
-    padding: 3rem 1rem;
+    padding: var(--space3) var(--space2);
 }
 
 hr {
@@ -316,15 +322,22 @@ a {
 
 // Images 
 figure {
-    margin: 0;
+    margin: 2em 0;
     padding: 0;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-text-secondary);
 
     img {
+        width: 100%;
         max-width: 100%;
+        height: auto;
+        display: block;
     }
 
     figcaption {
         color: var(--color-text-secondary);
+        padding: var(--space1);
+        border-top: 1px solid var(--color-text-secondary);
     }
 }
 
