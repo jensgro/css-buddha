@@ -1,5 +1,5 @@
 {
-    "layout": "layouts/base.njk",
+    "layout": "post.njk",
     "permalink": "post/{{title | slugify}}.html",
     "bodyClass": "post",
     "tags": "post"

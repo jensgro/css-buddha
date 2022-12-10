@@ -1,0 +1,9 @@
+---
+layout: base.njk
+---
+<main class="container">	
+{% if lead %}
+<p class="lead">{{ lead }}</p>
+{% endif %}
+{{ content | safe }}
+</main>
