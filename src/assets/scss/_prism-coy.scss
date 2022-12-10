@@ -6,23 +6,17 @@
 
  code[class*="language-"],
  pre[class*="language-"] {
-     color: black;
-     background: none;
      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-     font-size: 1em;
-     text-align: left;
+     font-size: var(--base-fz, 1rem);
      white-space: pre;
      word-spacing: normal;
      word-break: normal;
      word-wrap: normal;
-     line-height: 1.5;
+     line-height: var(--code-line-height, 1.5);
  
-     -moz-tab-size: 4;
-     -o-tab-size: 4;
      tab-size: 4;
  
      -webkit-hyphens: none;
-     -moz-hyphens: none;
      -ms-hyphens: none;
      hyphens: none;
  }
@@ -34,11 +28,9 @@
      box-shadow: -1px 0 0 0 #358ccb, 0 0 0 1px #dfdfdf;
      background-color: #fdfdfd;
      background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-     background-size: 3em 3em;
+     background-size: calc(var(--base-fz) * 3) calc(var(--base-fz) * 3);
      background-origin: content-box;
      background-attachment: local;
-     margin: .5em 0;
-     padding: 0 1em;
  }
  
  pre[class*="language-"] > code {
