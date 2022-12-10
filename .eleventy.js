@@ -53,7 +53,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("figImg", function (img, figCaption, alt=false) {
-    return `<figure class="card">
+    return `<figure class="card stretch-hor">
       <img src="../../../images/${img}" class="card-img-top" alt="${alt}">  
       <figcaption class="card-footer">${figCaption}</figcaption>  
     </figure>`;
