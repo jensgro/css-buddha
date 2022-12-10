@@ -1,6 +1,7 @@
 /* based on MVP.css v1.12 - https://github.com/andybrewer/mvp */
 
 :root {
+    --base-fz: 1rem;
     --active-brightness: 0.85;
     --border-radius: 5px;
     --box-shadow: 2px 2px 10px;
@@ -29,6 +30,9 @@
     --space4: 2em;
     --space5: 2.5em;
     --space6: 3em;
+
+    --post-maxWidth: 800px;
+    --post-h2-bb: 2px solid #a20000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,16 +51,12 @@
 }
 
 /* Layout */
-article aside {
-    background: var(--color-secondary-accent);
-    border-left: 4px solid var(--color-secondary);
-    padding: 0.01rem 0.8rem;
-}
 
 body {
     background: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-family);
+    font-size: var(--base-fz);
     line-height: var(--line-height);
     margin: 0;
     overflow-x: hidden;
@@ -69,6 +69,12 @@ main {
     margin: 0 auto;
     max-width: var(--width-content);
     padding: var(--space3) var(--space2);
+}
+
+article aside {
+    background: var(--color-secondary-accent);
+    border-left: 4px solid var(--color-secondary);
+    padding: 0.01rem 0.8rem;
 }
 
 hr {
@@ -96,21 +102,7 @@ section {
             box-shadow: var(--box-shadow) var(--color-bg-secondary);
         }
     }
-
-    pre {
-        overflow: auto;
-    }
 }
-
-section,
-article {
-    img {
-        max-width: 100%;
-    }
-}
-
-
-
 
 [hidden] {
     display: none;
@@ -124,25 +116,9 @@ main header {
 }
 
 header {
-    text-align: var(--justify-important);
+    text-align: var(--justify-important);   
 }
 
-header a b,
-header a em,
-header a i,
-header a strong {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-header nav img {
-    margin: 1rem 0;
-}
-
-section header {
-    padding-top: 0;
-    width: 100%;
-}
 
 /* Nav */
 nav {
@@ -151,55 +127,22 @@ nav {
     font-weight: bold;
     justify-content: space-between;
     margin-bottom: 7rem;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    li {
+        display: inline-block;
+        margin: 0 0.5rem;
+        position: relative;
+        text-align: left;
+    }    
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
 
-nav ul li {
-    display: inline-block;
-    margin: 0 0.5rem;
-    position: relative;
-    text-align: left;
-}
 
-/* Nav Dropdown */
-nav ul li:hover ul {
-    display: block;
-}
-
-nav ul li ul {
-    background: var(--color-bg);
-    border: 1px solid var(--color-bg-secondary);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow) var(--color-shadow);
-    display: none;
-    height: auto;
-    left: -2px;
-    padding: .5rem 1rem;
-    position: absolute;
-    top: 1.7rem;
-    white-space: nowrap;
-    width: auto;
-    z-index: 1;
-}
-
-nav ul li ul::before {
-    /* fill gap above to make mousing over them easier */
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -0.5rem;
-    height: 0.5rem;
-}
-
-nav ul li ul li,
-nav ul li ul li a {
-    display: block;
-}
 
 // Typography
 
@@ -212,8 +155,14 @@ h6 {
     line-height: var(--line-height);
 }
 
+h1 { font-size: calc(var(--base-fz) * 2); margin: 0.67em 0;}
+h2 { font-size: calc(var(--base-fz) * 1.5); }
+h3 { font-size: calc(var(--base-fz) * 1.25); }
+h4, h5, h6 { font-size: var(--base-fz); font-weight: bold; }
+h5 { font-style: italic;}
+
 mark {
-    padding: 0.1rem;
+    padding: 0.1em;
 }
 
 ol li,
@@ -230,13 +179,18 @@ p {
 pre {
     margin: 1rem 0;
     max-width: var(--width-card-wide);
-    padding: 1rem 0;
+    // padding: 1rem 0;
+    overflow: auto;
 
     code {
         display: block;
         max-width: var(--width-card-wide);
-        padding: 0.5rem 2rem;
+        // padding: 0.5rem 2rem;
         white-space: pre-wrap;
+    }
+
+    figure & {
+        margin: 0;
     }
 }
 
@@ -317,27 +271,6 @@ a {
         color: var(--color-link);
         display: inline-block;
         padding: 1rem 2rem;
-    }
-}
-
-// Images 
-figure {
-    margin: 2em 0;
-    padding: 0;
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-text-secondary);
-
-    img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    figcaption {
-        color: var(--color-text-secondary);
-        padding: var(--space1);
-        border-top: 1px solid var(--color-text-secondary);
     }
 }
 
@@ -515,3 +448,42 @@ input[type="submit"] {
     }
 }
 
+// Artikel
+.post {
+    --base-fz: 1.5rem;
+}
+
+.post-article {
+    max-width: var(--post-maxWidth);
+    margin-inline: auto;
+
+    h2 {
+        border-bottom: var(--post-h2-bb);
+    }
+} 
+
+// Figure mit Bild
+.card {
+    margin: 2em 0;
+    padding: 0;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-text-secondary);
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    figcaption {
+        color: var(--color-text-secondary);
+        padding: var(--space1);
+        border-top: 1px solid var(--color-text-secondary);
+    }
+}
+
+// horizontaler Stretch
+.stretch-hor {
+    margin-inline: calc((var(--space1)) * -10);
+}
