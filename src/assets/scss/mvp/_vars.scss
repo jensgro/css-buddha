@@ -29,8 +29,12 @@
     --space5: 2.5em;
     --space6: 3em;
 
-    --post-maxWidth: 800px;
+    --container-width: 1000px;
+    // --post-maxWidth: 800px;
     --post-h2-bb: 2px solid #a20000;
+
+    --site-header-bg: var(--color-bg-secondary);
+    --site-header-color: var(--color-text);
 }
 
 @media (prefers-color-scheme: dark) {

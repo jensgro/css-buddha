@@ -1,9 +1,10 @@
 .post {
     --base-fz: 1.25rem;
+    --container-width: 800px;
 }
 
 .post-article {
-    max-width: var(--post-maxWidth);
+    // max-width: var(--post-maxWidth);
     margin-inline: auto;
     padding-inline: var(--space2);
 

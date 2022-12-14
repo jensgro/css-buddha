@@ -1,12 +1,12 @@
 pre {
     margin: var(--space2) 0;
-    max-width: var(--width-card-wide);
+    // max-width: var(--width-card-wide);
     overflow: auto;
     font-size: 1rem;
 
     code {
         display: block;
-        max-width: var(--width-card-wide);
+        // max-width: var(--width-card-wide);
         padding: var(--space2);
         white-space: pre-wrap;
     }

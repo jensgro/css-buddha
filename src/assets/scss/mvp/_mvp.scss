@@ -15,14 +15,6 @@ body {
     padding: 0;
 }
 
-footer,
-header,
-main {
-    margin: 0 auto;
-    max-width: var(--width-content);
-    padding: var(--space3) var(--space2);
-}
-
 article aside {
     background: var(--color-secondary-accent);
     border-left: 4px solid var(--color-secondary);
@@ -60,80 +52,16 @@ section {
     display: none;
 }
 
-/* Headers */
-article header,
-div header,
-main header {
-    padding-top: 0;
-}
-
-header {
-    text-align: var(--justify-important);   
-}
-
+@import "layout";
 @import "nav";
 @import "headlines";
+@import "typography";
 @import "code";
 @import "links";
-
-// Typography
-
-mark {
-    padding: 0.1em;
-}
-
-ol li,
-ul li {
-    padding: 0.2rem 0;
-}
-
-p {
-    margin: 0.75rem 0;
-    padding: 0;
-    width: 100%;
-}
-
-details {
-    margin: 1.3rem 0;
-
-    summary {
-        font-weight: bold;
-        cursor: pointer;
-    }
-}
-
-small {
-    color: var(--color-text-secondary);
-}
-
-sup {
-    background-color: var(--color-secondary);
-    border-radius: var(--border-radius);
-    color: var(--color-bg);
-    font-size: xx-small;
-    font-weight: bold;
-    margin: 0.2rem;
-    padding: 0.2rem 0.3rem;
-    position: relative;
-    top: -2px;
-}
-
-/* Popups */
-dialog {
-    border: 1px solid var(--color-bg-secondary);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow) var(--color-shadow);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    z-index: 999;
-}
-
-
+@import "dialog";
 @import "post";
+@import "site-header";
 @import "card";
 @import "table";
 @import "form";
-@import "utilities";
+// @import "utilities";
