@@ -1,0 +1,6 @@
+// horizontaler Stretch
+@media (min-width: 1260px) {
+    .stretch-hor {
+        margin-inline: calc((var(--space1)) * -10);
+    }        
+}

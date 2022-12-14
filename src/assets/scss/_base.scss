@@ -100,7 +100,7 @@ pre {
 		'Liberation Mono',
 		Menlo,
 		monospace;
-	font-size: 1em;
+	font-size: 1rem;
 }
 
 pre {
@@ -109,16 +109,10 @@ pre {
   white-space: pre-wrap;
 
   /* Prism hack */
-  /* stylelint-disable declaration-no-important */
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-  /* stylelint-enable */
+  margin-block: 1em;
   overflow-x: auto;
   line-height: 1.15;
 
-  /* Prism Dracula theme hack */
-  /* stylelint-disable-next-line declaration-no-important */
-  border-radius: 0 !important;
 }
 
 code {

@@ -1,0 +1,44 @@
+a {
+    color: var(--color-link);
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+    
+    article aside & {
+        --color-link: var(--color-secondary);
+    }
+    
+    &:active {
+        filter: brightness(var(--active-brightness));
+        text-decoration: underline;
+    }
+    
+    &:hover {
+        filter: brightness(var(--hover-brightness));
+        text-decoration: underline;
+    }
+
+    b, em, i, strong {
+        border-radius: var(--border-radius);
+        display: inline-block;
+        font-size: medium;
+        font-weight: bold;
+        line-height: var(--line-height);
+        margin: 0.5rem 0;
+        padding: 1rem 2rem;
+    }
+
+    b, strong {
+        background-color: var(--color-link);
+        border: 2px solid var(--color-link);
+        color: var(--color-bg);
+    }
+
+    em, i {
+        border: 2px solid var(--color-link);
+        border-radius: var(--border-radius);
+        color: var(--color-link);
+        display: inline-block;
+        padding: 1rem 2rem;
+    }
+}

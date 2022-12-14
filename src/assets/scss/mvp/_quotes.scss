@@ -1,0 +1,17 @@
+blockquote {
+    display: block;
+    font-size: x-large;
+    line-height: var(--line-height);
+    margin: 1rem auto;
+    max-width: var(--width-card-medium);
+    padding: 1.5rem 1rem;
+    text-align: var(--justify-important);
+
+    footer {
+        color: var(--color-text-secondary);
+        display: block;
+        font-size: small;
+        line-height: var(--line-height);
+        padding: 1.5rem 0;
+    }
+}

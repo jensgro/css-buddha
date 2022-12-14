@@ -1,0 +1,92 @@
+form {
+    border: 1px solid var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow) var(--color-shadow);
+    display: block;
+    max-width: var(--width-card-wide);
+    min-width: var(--width-card);
+    padding: 1.5rem;
+    text-align: var(--justify-normal);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    display: block;
+    font-size: inherit;
+    max-width: var(--width-card-wide);
+}
+
+input,
+select,
+textarea {
+    display: block;
+    font-size: inherit;
+    max-width: var(--width-card-wide);
+    border: 1px solid var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.8rem;
+}
+
+input {
+    &[type="checkbox"],
+    &[type="radio"] {
+        display: inline-block;
+    
+        + label {
+            display: inline-block;
+            font-weight: normal;
+            position: relative;
+            top: 1px;
+        }
+    }
+    &[type="range"] {
+        padding: 0.4rem 0;
+    }
+}
+
+input[type="text"],
+textarea {
+    width: calc(100% - 1.6rem);
+}
+
+input[readonly],
+textarea[readonly] {
+    background-color: var(--color-bg-secondary);
+}
+
+// Buttons
+button,
+input[type="submit"] {
+    background-color: var(--color-link);
+    border: 2px solid var(--color-link);
+    color: var(--color-bg);
+    border-radius: var(--border-radius);
+    display: inline-block;
+    font-size: medium;
+    font-weight: bold;
+    line-height: var(--line-height);
+    margin: 0.5rem 0;
+    padding: 1rem 2rem;
+    font-family: var(--font-family);
+
+    &:active {
+        filter: brightness(var(--active-brightness));
+    }
+    &:hover, &:focus {
+        cursor: pointer;
+        filter: brightness(var(--hover-brightness));
+    }
+
+    &:disabled {
+        background: var(--color-bg-secondary);
+        border-color: var(--color-bg-secondary);
+        color: var(--color-text-secondary);
+        cursor: not-allowed;
+
+        &:hover, &::focus {
+            filter: none;
+        }
+    }
+}

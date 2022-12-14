@@ -1,0 +1,26 @@
+pre {
+    margin: var(--space2) 0;
+    max-width: var(--width-card-wide);
+    overflow: auto;
+    font-size: 1rem;
+
+    code {
+        display: block;
+        max-width: var(--width-card-wide);
+        padding: var(--space2);
+        white-space: pre-wrap;
+    }
+
+    figure & {
+        margin: 0;
+    }
+}
+
+code {
+    background-color: var(--color-accent);
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    display: inline-block;
+    margin: 0 0.1rem;
+    padding: 0 0.5rem;
+}

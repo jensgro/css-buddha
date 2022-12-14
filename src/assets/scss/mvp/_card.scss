@@ -1,0 +1,21 @@
+
+// Figure mit Bild
+.card {
+    margin: 2em 0;
+    padding: 0;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-text-secondary);
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    figcaption {
+        color: var(--color-text-secondary);
+        padding: var(--space1);
+        border-top: 1px solid var(--color-text-secondary);
+    }
+}

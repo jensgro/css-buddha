@@ -1,0 +1,12 @@
+.post {
+    --base-fz: 1.25rem;
+}
+
+.post-article {
+    max-width: var(--post-maxWidth);
+    margin-inline: auto;
+
+    h2 {
+        border-bottom: var(--post-h2-bb);
+    }
+}
