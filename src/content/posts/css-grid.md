@@ -1,54 +1,77 @@
 ---
 title: Einführung in CSS-Grid
-lead: Seit ein paar Jahren gibt es mit Flexbox ein erstes, echtes Layoutmodul in CSS. Vorher behalfen sich Webworker mit Techniken, die für Seitenlayouts nur bedingt geeignet und nie gedacht waren. Mit CSS-Grids wurde kurz danach eine zweite Layouttechnik eingeführt, die von allen modernen Browsern unterstützt wird.
+lead: Seit ein paar Jahren gibt es mit Flexbox ein erstes, echtes Layoutmodul in CSS. Vorher behalfen wir uns mit Techniken, die für Seitenlayouts nur bedingt geeignet und nie gedacht waren. Mit CSS-Grids wurde kurz danach eine zweite Layouttechnik eingeführt, die von allen modernen Browsern unterstützt wird.
 ---
 
-Ein "Grid" ist in der Gestaltung ein alter Hut und demnach auch in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Bisherige Raster sind grundsätzlich eindimensional ausgerichtet. In unserer westlichen Leserichtung sind die Gridspalten vertikal ausgerichtet. Viele Jahre haben wir - nachdem Layouttabellen endlich ausgestorben waren - diese Grids mit Floats realisiert. Die Umsetzung war manchmal hakelig. Deshalb waren generalisierte Lösungen beliebt. Die von Bootstrap ist sicherlich die bekannteste.
+Ein "Grid" ist in der Gestaltung ein alter Hut und demnach auch in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Bisherige Raster sind grundsätzlich eindimensional ausgerichtet. In unserer westlichen Leserichtung sind die Gridspalten vertikal ausgerichtet. Viele Jahre haben wir - nachdem Layouttabellen endlich ausgestorben waren - diese Grids mit Floats realisiert. Die Umsetzung war manchmal hakelig, es gab einige störende Browser-Bugs. Deshalb waren generalisierte Lösungen beliebt. Die von Bootstrap ist sicherlich die bekannteste.
 
-{% figImg "css-grid/beispiel-grid.png", "Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden mittels Floats darauf platziert." %}
+{% figImg "css-grid/beispiel-grid.png", "Die vertikalen, grauen Balken stellen das Grid dar, das im Hintergrund existiert. Die Inhalte werden mittels Floats darauf platziert.", "Ein Layout wird von einem halbdurchsichtigen Grid überlagert." %}
 
 Floats waren niemals für Seitenlayouts vorgesehen. Sie werden nur mangels besserer Alternativen am Häufigsten genutzt. Alternativ kommen gelegentlich auch absolute Positionierung oder display: inline-block zum Einsatz. Als 2011 mit der Spezifikation von CSS-Grids begonnen wurde, hatten Webworker schon Erfahrungen mit teils komplizierten Layouts gemacht. Es waren auch Limitierungen der bislang verwendeten Techniken bekannt.
 
 ## Andere Herangehensweise
 
-Wie schon bei Flexbox haben wir es bei CSS-Grids mit einer anderen als der gewohnten Herangehensweise und Benamung zu tun. Bislang waren wir es gewohnt, mit links, rechts, oben und unten zu arbeiten. Schon bei Flexbox wurde dieses Schema durch zwei Achsen ersetzt, die man in der Richtung drehen konnte.
+Wie schon bei Flexbox haben wir es bei CSS-Grids mit einer anderen als der gewohnten Herangehensweise und Benamung zu tun. 
 
-Bei den CSS-Grids werden die einzelnen Layoutblöcke Grid-Items genannt. Der sie umgebende Container ist der Grid-Container. Das Grid wird durchzogen von Grid-Lines, also Linien, die die Grid-Items umgeben. Diese Linien werden im Grid-Inspector von Firefox (Teil der Developer Tools) visualisiert.
+Bislang waren wir es gewohnt, mit links, rechts, oben und unten zu arbeiten. Bei Flexbox wurde dieses Schema durch zwei Achsen ersetzt, die man in der Richtung drehen konnte. Die Namen der Achsen sind mit Haupt- und Kreuzachse neutral benannt. 
 
-{% figImg "css-grid/grid-inspector-2.png", "Sie müssen im Grid-Inspector erst auswählen, für welchen Grid-Container der Inspector die Markierungen anzeigen soll." %}
+Grid hingegen macht Anleihen bei Tabellen. Wir sprechen hier von Reihen und Spalten. Eine Reihe oder auch eine Spalte, also der Bereich zwischen zwei Grid-Lines, wird auch als Grid-Track bezeichnet. Die kleinste Einheit, vergleichbar mit einer Tabellenzelle, ist die Grid-Cell. Und ein Bereich aus einer oder mehrerer Grid-Zellen, die zusammen von vier Grid-Lines begrenzt werden, ist eine Grid-Area. Ein Grid-Item ist immer Teil einer Grid-Area.
 
-Sie sehen in diesem Beispiel, dass die äußeren Enden des Grids immer mit Linien versehen sind. Es existieren deshalb immer eine Linie mehr als Reihen oder Spalten.
+{% figImg "css-grid/track-area-cell.png", "Die schwarzen Elemente symbolisieren die jeweiligen Begriffe.", "Screenshot einer Visualisierung der relevanten Grundbegriffe von CSS-Grids." %}
 
-Im Gegensatz zu Flexbox, das richtungsagnostische Begriffe verwendet, wird bei Grids von Spalten und Reihen gesprochen, ganz wie bei Tabellen. Eine Reihe oder auch eine Spalte, also der Bereich zwischen zwei Grid-Lines, wird auch als Grid-Track bezeichnet. Die kleinste Einheit, vergleichbar mit einer Tabellenzelle, ist die Grid-Cell. Und ein Bereich aus einer oder mehrerer Grid-Zellen, die zusammen von vier Grid-Lines begrenzt werden, ist eine Grid-Area. Ein Grid-Item ist immer Teil einer Grid-Area.
+Wie bei Flexbox ist es das Elternelement, das wesentliche Steuerungsaufgaben übernimmt. Die Kindelemente werden automatisch zu Grid-Items. Auch das ist eine Analogie zu Flexbox, wo die Kindelemente des Flex-Containers zu Flex-Items werden. 
 
-{% figImg "css-grid/track-area-cell.png", "Die schwarzen Elemente symbolisieren die jeweiligen Begriffe." %}
+Bei den CSS-Grids werden die einzelnen Layoutblöcke Grid-Items genannt. Der sie umgebende Container ist der Grid-Container. Das Grid wird durchzogen von Grid-Lines, also Linien, die die Grid-Items umgeben. Diese Linien werden mittlerweile in allen Devtools der Browser visualisiert. Pionier war hier Firefox, der sicherlich noch die besten Tools für Grid und Flexbox zu bieten hat.
+
+{% figImg "css-grid/grid-inspector-2.png", "Sie müssen im Grid-Inspector erst auswählen, für welchen Grid-Container der Inspector die Markierungen anzeigen soll.", "Screenshot des Grid-Inspectors der Firefox-Devtools." %}
+
+Man sieht in diesem Beispiel, dass die äußeren Enden des Grids immer mit Linien versehen sind. Es existieren deshalb immer eine Linie mehr als Reihen oder Spalten.
+
+## CSS-Grid oder Flexbox nutzen?
 
 Ein entscheidender Unterschied zwischen CSS-Grids und Flexbox ist, dass die Grids zweidimensional konstruiert sind. Eventuell macht die Spezifikation deshalb sprachliche Anleihen an Tabellen. Flexbox ist hingegen eindimensional. Um dies zu unterstreichen spricht die Spezifikation nur von Haupt- und Kreuzachse, nutzt also eine recht neutrale Sprache.
 
+Beide Techniken existieren gleichberechtigt nebeneinander und ergänzen unser bisheriges Toolset. Es ist deshalb immer die Herausforderung, für die jeweilige Layoutaufgabe das passende Tool zu wählen. Das kann mal die Flexbox, mal das Grid sein. Und in engen Grenzen gibt es immernoch Anwendungen für Floats. Die unterschiedlichen Formen der Positionierung hingegen werden sicherlich nie vollständig von anderen Techniken ersetzt werden können. 
+
+Nur weil eine Technik neu ist, ist sie nicht per se nützlich und für alles zu gebrauchen.
 ## Ein Grid erstellen
 
-Durch die Zuweisung von display: grid; an den Grid-Container werden dessen direkte Kindelemente automatisch zu Grid-Items. Dieses Prinzip kennen Sie bestimmt schon von Flexbox. Zusätzlich wird die Art des Rasters am Grid-Container bestimmt. Sie müssen also noch die Breite und Anzahl der Spalten (grid-template-columns) und eventuelle Zwischenräume (grid-gap) definieren. Der Code für ein erstes Grid könnte folgendermassen aussehen:
+Wir erstellen ein Grid, in dem wir dem Elterncontainer ``display: grid;``zuweisen. Die direkten Kindelemente dieses Grid-Containers werden dadurch automatisch zu Grid-Items. Es ist das gleiche Prinzip wie bei Flexbox.
 
-```css
+Zusätzlich wird an dem Grid-Container die Art des Rasters bestimmt. Dies geschieht über die Definition der Breite und Anzahl der Spalten (``grid-template-columns``) und eventueller Zwischenräume (``gap`` bzw. ``row-gap``und ``column-gap``) definieren. Der Code für ein erstes Grid könnte folgendermassen aussehen:
+
+<figure class="card">
+    {% highlight "css" %}
 .grid-container {
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
+    gap: 20px;
+}
+    {% endhighlight %}
+    <figcaption class="card-footer">
+        <p>Ein einfacher Grid-Container entsteht. Den Code gibt es auf <a href="https://cdpn.io/e/mpVjGQ">Codepen</a>.</p>
+    </figcaption>
+</figure>
+
+ Durch `grid-template-columns` wird in diesem Beispiel ein vierspaltiges Layout definiert, dessen Spalten jeweils 100px breit sind. Mit jedem fünften Grid-Item wird eine neue visuelle Zeile eröffnet. Dafür müssen keine neuen Grid-Container erstellt werden. Sie werden erst dann notwendig, wenn sich die Art des Layouts ändert, also die Breiten und die Anzahl der Spalten. Um die Spalten nicht direkt aneinander kleben zu lassen, empfiehlt es sich, einen Abstand zwischen Spalten und Zeilen zu definieren. Mit ``row-gap`` und ``column-gap`` kann man dies explizit steuern. Einfacher ist es – wenn es das Layout gestattet, mit der Kurzschreibweise ``gap``. Wie bei ``padding``und ``margin`` kann mit dieser Kurzschreibweise sowohl ein Wert für beide Eigeschaften zugewiesen werden, als auch einfach ein wenig Tipparbeit gespart werden. Der erste Wert bezieht sich auf die Zeilen, der zweite auf die Spalten:
+
+<figure class="card">
+    {% highlight "css" %}
+.grid-container-1 {
     grid-gap: 20px;
 }
-```
-
-Den Code finden Sie auf [Codepen](https://cdpn.io/e/mpVjGQ). Durch `grid-template-columns` wurde ein vierspaltiges Layout definiert, dessen Spalten jeweils 100px breit sind. Mit jedem fünften Grid-Item wird eine neue visuelle Zeile eröffnet. Dafür müssen keine neuen Grid-Container erstellt werden. Sie werden erst dann notwendig, wenn sich die Art des Layouts ändert, also die Breiten und die Anzahl der Spalten. Um die Spalten nicht direkt aneinander kleben zu lassen, empfiehlt es sich, einen Abstand zwischen Spalten und Zeilen zu definieren. Mit grid-row-gap und `grid-column-gap` können Sie eine explizite Steuerung vornehmen. Einfacher ist es – wenn es das Layout gestattet, mit der Kurzschreibweise grid-gap. Damit können Sie den gleichen Abstand sowohl für die Spalten, als auch für die Zeilen definieren. Aber auch in der Kurzschreibweise können Sie unterschiedliche Werte transportieren. Der erste Wert bezieht sich auf die Zeilen, der zweite auf die Spalten:
-
-```css
-.grid-container {
+.grid-container-2 {
     grid-gap: 20px 10px;
 }
-```
+    {% endhighlight %}
+    <figcaption class="card-footer">
+        <p>Zwei unterschiedliche Arten des Umgangs mit ``gap``.</p>
+    </figcaption>
+</figure>
 
-Die äusseren Ränder des Grids werden dabei nicht in die Berechnung der grid-gaps einbezogen. Der Zwischenraum zwischen Spalten und Zeilen beginnt erst zwischen der ersten und zweiten Zeile bzw. Spalte und endet vor der jeweils letzten.
+Sehr wichtig ist, dass die äusseren Ränder des Grids dabei nicht in die Berechnung der Zwischenräume (gaps) einbezogen werden. Der Zwischenraum zwischen Spalten und Zeilen beginnt erst zwischen der ersten und zweiten Zeile bzw. Spalte und endet vor der jeweils letzten.
 
-Im ersten Beispiel werden absolute Breiten genutzt. Diese sind selbstverständlich möglich, in Zeiten einer unübersichtlichen Endgerätevielfalt aber eher hinderlich. Für die Erstellung responsiver Layouts sind deshalb
- relative Breitenangaben sinnvoller.
+Im ersten Beispiel werden absolute Breiten genutzt. Diese sind selbstverständlich möglich, in Zeiten einer unübersichtlichen Endgerätevielfalt aber eher hinderlich. Für die Erstellung responsiver Layouts sind deshalb relative Breitenangaben sinnvoller.
 
 Mit dem Grid-Modul wird eine neue relative Einheit eingeführt: fraction (fr). Mittels „fraction“ wird der zur Verfügung stehende Platz aufgeteilt. Sie können sich dies wie die Portionierung eines Kuchens vorstellen. Eine genauere Betrachtung dieser neuen Einheit folgt im Anschluss an dieses Kapitel. Im folgenden Beispiel wird ein Grid-Container [in vier gleich große Stücke aufgeteilt](https://cdpn.io/e/WdrgJp):
 
