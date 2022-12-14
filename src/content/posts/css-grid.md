@@ -107,11 +107,11 @@ Sie können nun mit sehr wenig Code [das Bootstrap-Grid](https://cdpn.io/e/LeRPr
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-12col {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 10px;
-    }
+.grid-12col {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Bootstrap-Grid - Ausgangsposition
@@ -121,11 +121,11 @@ Sie können nun mit sehr wenig Code [das Bootstrap-Grid](https://cdpn.io/e/LeRPr
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-4-12 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 10px;
-    }
+.grid-4-12 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Vier gleich große Spalten
@@ -162,9 +162,13 @@ Das Beispiel mit den Prozentwerten müsste der Web-Autor mittels `calc()` folgen
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-prozent-2 {
-        grid-template-columns: calc(25% - 10px) calc(25% - 20px) calc(25% - 20px) calc(25% - 10px);
-    }
+.grid-prozent-2 {
+    grid-template-columns: 
+        calc(25% - 10px) 
+        calc(25% - 20px) 
+        calc(25% - 20px) 
+        calc(25% - 10px);
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Breitenkorrektur mit calc()
@@ -177,15 +181,15 @@ Selbstverständlich kann die Einheit fr mit anderen Einheiten vermischt werden. 
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-fr-1 {
-        grid-template-columns: 100px 1fr 1fr 3fr;
-    }
-    .grid-fr-2 {
-        grid-template-columns: 100px 20% 1fr 3fr;
-    }
-    .grid-fr-3 {
-        grid-template-columns: 1fr 30% 15rem 100px;
-    }
+.grid-fr-1 {
+    grid-template-columns: 100px 1fr 1fr 3fr;
+}
+.grid-fr-2 {
+    grid-template-columns: 100px 20% 1fr 3fr;
+}
+.grid-fr-3 {
+    grid-template-columns: 1fr 30% 15rem 100px;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Andere mögliche Breiten-Kombinationen
@@ -209,9 +213,9 @@ Grids können Sie auch in der Höhe flexibel begrenzen. [Im entsprechenden Codep
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-minmax-2 {
-        grid-template-rows: 150px minmax(80px, 2fr) 1fr 1fr;
-    }
+.grid-minmax-2 {
+    grid-template-rows: 150px minmax(80px, 2fr) 1fr 1fr;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Minimale und maximale Höhe
@@ -223,15 +227,15 @@ In der Funktion `minmax()` darf die Einheit `fr` nur als Maximalwert, nicht als 
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-minmax-3 {
-        grid-template-columns: 150px minmax(100px, auto) 1fr 1fr;
-    }
-    .grid-minmax-4 {
-        grid-template-columns: 150px minmax(min-content, 360px) 1fr 1fr;
-    }
-    .grid-minmax-5 {
-        grid-template-columns: 150px minmax(150px, max-content) 3fr 1fr;
-    }
+.grid-minmax-3 {
+    grid-template-columns: 150px minmax(100px, auto) 1fr 1fr;
+}
+.grid-minmax-4 {
+    grid-template-columns: 150px minmax(min-content, 360px) 1fr 1fr;
+}
+.grid-minmax-5 {
+    grid-template-columns: 150px minmax(150px, max-content) 3fr 1fr;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Schlüsselbegriffe bei minmax()
@@ -244,16 +248,18 @@ Der erste Parameter der `repeat()`-Funktion ist die Anzahl der Wiederholungen de
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-container-autofill {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
-        grid-gap: 10px;
-    }
-    .grid-container-autofit {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
-        grid-gap: 10px;
-    }
+.grid-container-autofill {
+    display: grid;
+    grid-template-columns: 
+        repeat(auto-fill, minmax(100px,1fr));
+    grid-gap: 10px;
+}
+.grid-container-autofit {
+    display: grid;
+    grid-template-columns: 
+        repeat(auto-fit, minmax(100px,1fr));
+    grid-gap: 10px;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         auto-fill und auto-fit im Einsatz
@@ -276,16 +282,16 @@ Diese Eigenschaften werden übrigens vom IE nicht unterstützt, egal ob nun bena
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-with-a-name {
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: repeat(3, 80px);
-        grid-gap: 10px;
-        grid-template-areas:
-        "kopf kopf kopf"
-        "navigation hauptinhalt werbung"
-        "fuss fuss fuss";
-    }
+.grid-with-a-name {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(3, 80px);
+    grid-gap: 10px;
+    grid-template-areas:
+    "kopf kopf kopf"
+    "navigation hauptinhalt werbung"
+    "fuss fuss fuss";
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Benannte Bereiche (areas)
@@ -296,21 +302,21 @@ Nachdem die Bereiche des Grids benannt worden sind, müssen diese noch mit Inhal
 
 <figure class="card">
     {% highlight "css" %}
-    .main-header {
-        grid-area: kopf;
-    }
-    .main-navigation {
-        grid-area: navigation;
-    }
-    .main-content {
-        grid-area: hauptinhalt;
-    }
-    .main-aside {
-        grid-area: werbung;
-    }
-    .main-footer {
-        grid-area: fuss;
-    }
+.main-header {
+    grid-area: kopf;
+}
+.main-navigation {
+    grid-area: navigation;
+}
+.main-content {
+    grid-area: hauptinhalt;
+}
+.main-aside {
+    grid-area: werbung;
+}
+.main-footer {
+    grid-area: fuss;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Den Inhalten die Grid-Areas zuweisen
@@ -325,13 +331,13 @@ Beachten Sie, dass die Anzahl der Namen mit der Anzahl der zur Verfügung stehen
 
 <figure class="card">
     {% highlight "css" %}
-    .grid-with-a-name-2 {
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-areas:
-                            "kopf kopf kopf"
-                            "navigation hauptinhalt werbung"
-                            "fuss fuss .";
-    }
+.grid-with-a-name-2 {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas:
+                "kopf kopf kopf"
+                "navigation hauptinhalt werbung"
+                "fuss fuss .";
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Auslassung einer Zelle
@@ -417,15 +423,15 @@ Der große Unterschied von CSS-Grids zu Floats und dem ebenfalls recht neuen Fle
 
 <figure class="card">
     {% highlight "css" %}
-    .container{
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-        grid-template-areas:
-            "header header"
-            "main sidebar"
-            "footer sidebar";
-        grid-gap: 60px;
-    }
+.container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "header header"
+        "main sidebar"
+        "footer sidebar";
+    grid-gap: 60px;
+}
     {% endhighlight %}
     <figcaption class="card-footer">
         Zwei-Dimensionale Verteilung mit CSS-Grids
@@ -448,22 +454,22 @@ Durch die Hinzugabe der Eigenschaft flex-direction: column; würden die Flex-Ite
 
 <figure class="card">
     {% highlight "html" %}
-    <!-- Die Flexbox-Variante -->
-    <div class="container">
-        <header class="page-header"> </header>
-        <main class="main-and-sidebar">
-            <section class="main"> </section>
-            <aside class="sidebar"> </aside>
-        </main>
-        <footer class="page-footer"> </footer>
-    </div>
-    <!-- Die CSS-Grid-Variante -->
-    <div class="container">
-        <header class="page-header"> </header>
-        <main class="main"> </main>
+<!-- Die Flexbox-Variante -->
+<div class="container">
+    <header class="page-header"> </header>
+    <main class="main-and-sidebar">
+        <section class="main"> </section>
         <aside class="sidebar"> </aside>
-        <footer class="page-footer"> </footer>
-    </div>
+    </main>
+    <footer class="page-footer"> </footer>
+</div>
+<!-- Die CSS-Grid-Variante -->
+<div class="container">
+    <header class="page-header"> </header>
+    <main class="main"> </main>
+    <aside class="sidebar"> </aside>
+    <footer class="page-footer"> </footer>
+</div>
     {% endhighlight %}
     <figcaption class="card-footer">
         Struktur einer einfachen Seite im Vergleich: Flexbox und CSS-Grid
