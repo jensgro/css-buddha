@@ -5,6 +5,7 @@
 .post-article {
     max-width: var(--post-maxWidth);
     margin-inline: auto;
+    padding-inline: var(--space2);
 
     h2 {
         border-bottom: var(--post-h2-bb);
