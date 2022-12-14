@@ -52,7 +52,7 @@ module.exports = function (eleventyConfig) {
     files: './_site/css/**/*.css'
   });
 
-  eleventyConfig.addShortcode("figImg", function (img, figCaption, alt=false) {
+  eleventyConfig.addShortcode("figImg", function (img, figCaption, alt) {
     return `<figure class="card">
       <img src="../../../images/${img}" class="card-img-top" alt="${alt}">  
       <figcaption class="card-footer">${figCaption}</figcaption>  
