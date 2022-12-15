@@ -273,7 +273,7 @@ In der Funktion ``minmax()`` darf die Einheit ``fr`` nur als Maximalwert, nicht 
 
 ## Autofit und Autofill
 
-Der erste Parameter der `repeat()`-Funktion ist die Anzahl der Wiederholungen des darauffolgenden Breiten-Musters. Anstatt einen konkreten Wert einzugeben, können Sie auch die Schlüsselworte `auto-fit` und `auto-fill` benutzen.
+Der erste Parameter der ``repeat()``-Funktion ist die Anzahl der Wiederholungen des darauffolgenden Breiten-Musters. Anstatt einen konkreten Wert einzugeben, kann man die Schlüsselworte ``auto-fit`` und ``auto-fill`` benutzen.
 
 <figure class="card">
     {% highlight "css" %}
@@ -291,23 +291,21 @@ Der erste Parameter der `repeat()`-Funktion ist die Anzahl der Wiederholungen de
 }
     {% endhighlight %}
     <figcaption class="card-footer">
-        auto-fill und auto-fit im Einsatz
+        auto-fill und auto-fit im Einsatz, mehr Beispiele bei [Codepen](https://codepen.io/jensgro/full/xpOvmW)
     </figcaption>
 </figure>
 
-Mit dem Schlüsselwort auto-fill versucht der Browser, so viele Grid-Items wie möglich in eine visuelle Zeile zu bekommen. Er richtet sich danach an der angegebenen Minimalgröße aus. Eventuell frei bleibender Platz wird nicht gefüllt.
+Mit dem Schlüsselwort ``auto-fill`` versucht der Browser, so viele Grid-Items wie möglich in eine visuelle Zeile zu bekommen. Er richtet sich danach an der angegebenen Minimalgröße aus. Eventuell frei bleibender Platz wird nicht gefüllt.
 
 {% figImg "css-grid/auto-fill.png", "Die auto-fill-Eigenschaft im Einsatz." %}
 
-Auch bei auto-fit versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt [kein freier Platz übrig](https://codepen.io/jensgro/full/xpOvmW).
+Auch bei ``auto-fit`` versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt kein freier Platz übrig. Bei Codepen habe ich [eine Seite zum Experimentieren](https://codepen.io/jensgro/full/xpOvmW) erstellt.
 
 {% figImg "css-grid/auto-fit.png", "Die auto-fit-Eigenschaft im Einsatz." %}
 
 ## Areas definieren
 
-Die einzelnen Zellen eines Grids können Webworker mit der Eigenschaft grid-template-areas benamen. Dabei können einfache Buchstaben genauso genommen werden wie ganze Wörter. Im folgenden Beispiel werden die Zellen eines 3x3-Rasters mit Namen versehen. Gleiche Namen sorgen dafür, dass die Zellen eine Grid Area bilden. Dabei müssen die Areas Rechtecke bilden. Die Eigenschaft `grid-area` ist nur die Kurzschreibform für `grid-row-start`, `grid-row-end` bzw. `grid-column-start` und `grid-column-end`. Die Orientierung hält sich also immer in einer visuellen Zeile oder Spalte. Deshalb ist es leider nicht möglich, ein Grid-Item in einer L-Form innerhalb eines Grids zu platzieren.
-
-Diese Eigenschaften werden übrigens vom IE nicht unterstützt, egal ob nun benamt oder ohne expliziten Namen.
+Die einzelnen Zellen eines Grids können Webworker mit der Eigenschaft ``grid-template-areas`` benamen. Dabei können einfache Buchstaben genauso genommen werden wie ganze Wörter. Im folgenden Beispiel werden die Zellen eines 3x3-Rasters mit Namen versehen. Gleiche Namen sorgen dafür, dass die Zellen eine "Grid Area" bilden. Dabei müssen die Areas Rechtecke bilden. Die Eigenschaft ``grid-area`` ist nur die Kurzschreibform für ``grid-row-start``, ``grid-row-end`` bzw. ``grid-column-start`` und ``grid-column-end``. Die Orientierung hält sich also immer in einer visuellen Zeile oder Spalte. Deshalb ist es leider nicht möglich, ein Grid-Item in einer L-Form innerhalb eines Grids zu platzieren.
 
 <figure class="card">
     {% highlight "css" %}
@@ -354,9 +352,12 @@ Nachdem die Bereiche des Grids benannt worden sind, müssen diese noch mit Inhal
 
 {% figImg "css-grid/grid-area-1.png", "Die Inhalte sind den passenden Grid-Areas zugewiesen." %}
 
-Der charmante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für [unterschiedliche Breakpoints einer responsiven Seite](https://codepen.io/jensgro/full/GyjpMM).
+<aside>
+<p>Der interessante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für <a href="https://codepen.io/jensgro/full/GyjpMM">unterschiedliche Breakpoints einer responsiven Seite</a>. Zu lässig sollte man aber mit dieser Technik nicht umgehen. Denn wie bei der Flexbox-Eigenschaft <code>order</code> steht die große visuelle Kontrolle im Konflikt mit der Usability und Accessibility. Seitenbereiche, die ich visuell an anderer Stelle darstelle, als sie nach der Codereihenfolge sein sollten, sollten keine interaktiven Elemente besitzen, die mit der Tastatur fokussiert werden können. Genauer: es sollten sich keine Buttons, Links, Formularelemente darin befinden. Die Tabreihenfolge richtet sich nach der Codereihenfolge, nicht nach der visuellen.</p>
+<p>Deshalb sind solche Umschichtungen in meinen Augen nur dann sinnvoll, wenn sie auf einer rein mobilen Darstellung angewendet werden. Auf dem Smartphone tabbe ich nicht nicht durch die Gegend.</p>
+</aside>
 
-Beachten Sie, dass die Anzahl der Namen mit der Anzahl der zur Verfügung stehenden Grid-Items pro visueller Zeile übereinstimmen muss. Eventuell gewünschte Auslassungen werden mit einem Punkt realisiert:
+Die Anzahl der Namen mit der Anzahl der zur Verfügung stehenden Grid-Items pro visueller Zeile übereinstimmen muss. Eventuell gewünschte Auslassungen werden mit einem Punkt realisiert:
 
 <figure class="card">
     {% highlight "css" %}
@@ -403,35 +404,48 @@ Der Autor markiert die Auslassungen in diesem Beispiel mit zwei Punkten. Auf die
 
 ## Browser-Support
 
-Die wohl spannendsten Fragen im Zusammenhang mit jeder neuen Technik sind die nach der Unterstützung in modernen Browsern und die nach dem Umgang mit den alten Browsern. Denn schließlich erhalten die IT-Abteilungen großer Konzerne und Behörden (aber auch viele kleine Mittelständler) alte Internet Explorer am Leben. Oder sie nutzen einen speziellen Firefox, der nur jedes vierte Release mitmacht und ein Update bekommt.
+Im ersten Halbjahr 2022 wurde der Support für den IE11 eingestellt. Aus Frontendentwickler-Sicht ist dieser Browser tot. Deshalb gibt es keinen Grund mehr, sich nicht intensiv mit allen Facetten von CSS-Grid auseinanderzusetzen. Alle modernen Browser beherrschen alle Aspekte dieser Technik.
 
-Anfang 2017 haben zuerst Mozilla, das Blink-Projekt (Chrome, Opera, Vivaldi) und das Webkit-Projekt (Safari)  CSS-Grids in ihre Browser integriert. Kurze Zeit später zog Microsoft mit Edge nach. Eine ältere Version der Grids existiert auch im Internet Explorer ab Version 10 und in Edge bis einschliesslich Version 15, sodass auch alle halbwegs modernen Browser mit CSS-Grids umgehen können. Allerdings unterstützen die Internet Explorer nicht alle aktuellen Eigenschaften. Grid-Areas gibt es im IE10 und IE11 leider nicht. Alle anderen Eigenschaften haben ein „-ms-“-Prefix. Manche werden komplett anders geschrieben. Den Umgang mit allen Unterschieden müssen Sie nicht komplett manuell pflegen. Das beliebte Tool [Autoprefixer](https://goo.gl/TLpWr8) hilft Ihnen dabei. Sie müssen die CSS-Grids allerdings in der Konfiguration aktivieren:
+### IE10 und IE11
+
+IE10 und IE11 - die wie bei Flexbox die ersten Browser waren, die CSS-Grids unterstützen - hatten ein paar Lücken in der Implementierung. Man kann in diesen alten Browsern Grid nutzen, aber nicht alle Features. Vor allem Grid-Areas werden in diesen alten Schlachtschiffen nicht unterstützt. Alle anderen Eigenschaften haben ein „-ms-“-Prefix. Manche werden komplett anders geschrieben. Da der IE wenn nicht tot, so doch fast tot ist, lohnt es sich nicht, zuviel Energie in das Lernen der spezifischen Unterschiede zu stecken. Schon gar nicht sollte man alle Unterschieden manuell pflegen. Das beliebte Tool [Autoprefixer](https://goo.gl/TLpWr8) hilft. Die CSS-Grids müssen allerdings in der Konfiguration aktiviert werden:
 
 {% highlight "js" %}
     autoprefixer({ grid: true })
 {% endhighlight %}
 
-Doch mit Autoprefixer allein ist uns beim Umgang mit dem IE nicht geholfen. Rachel Andrew führt [in einer Tabelle](https://goo.gl/RGDTLj) alle Grid-Eigenschaften und ihre möglichen IE-spezifischen Pendants auf. Dabei fällt auf, dass viele aktuelle Eigenschaften keine Entsprechung in der alten Version haben und andere wiederum so gelöst werden, dass Autoprefixer leider keine Hilfe ist. Wenn Sie ein einfaches Grid-Layout erstellen, ist die Chance hoch, dass Sie es auch für den IE zum Laufen bekommen. Im Extremfall erstellen Sie ein Float-Layout für Nicht-Grid-Browser, ein einfaches Grid für den IE und ein ausgefeiltes Grid für alle modernen Browser. Es hört sich schlimmer an, als es am Ende sein wird.
+Doch mit Autoprefixer allein ist uns beim Umgang mit dem IE nicht geholfen. Rachel Andrew führt [in einer Tabelle](https://goo.gl/RGDTLj) alle Grid-Eigenschaften und ihre möglichen IE-spezifischen Pendants auf. Dabei fällt auf, dass viele aktuelle Eigenschaften keine Entsprechung in der alten Version haben und andere wiederum so gelöst werden, dass Autoprefixer leider keine Hilfe ist. 
 
-Abseits des guten alten IE: der UC Browser - ein mobiler Browser, der vor allem auf schwachen Endgeräten in Indien oder Afrika zum Einsatz kommt – unterstützt Grids auch in der aktuellen Version nicht. Es liegt also an Ihren Projekten, ob Sie ohne Gewissensbisse mit der neuen Technik arbeiten können. Ein Blick in die eigene Statistik lohnt immer.
+Bei einem einfachen Grid-Layout ist die Chance hoch, es auch für den IE zum Laufen zu bekommen. Doch alle Theorie verblasst vor einem Blick in die eigene Statistik. Wenn der IE nur noch in Spurenelementen dort auftaucht, lohnt sich kein Beschäftigung mit dem Autoprefixer und manueller Nacharbeit.
+
+CSS-Grid ist die Zukunft des Layouts und für manchen schon die Gegenwart.
 
 {% figImg "css-grid/caniuse.png", "Can I Use gibt hoffnungsvolle Signale." %}
 
-## Progressive Enhancement
+### Progressive Enhancement
 
-Es gibt keinen Polyfill für CSS-Grids und wird wohl auch nie einen geben. Es kann also kein Ziel sein, optisch das gleiche Ergebnis für alte Browser zu servieren. Im Geiste von Progressive Enhancement oder Graceful Degredation können Sie entweder auf eine bestehende Layoutlösung die neue Technik draufsetzen, um für moderne Browser eine leicht andere Experience zu schaffen. Oder Sie geben allen Nicht-Könnern ein linearisiertes Layout. Das Gute an CSS ist ja, dass Browser ihnen unbekannte Eigenschaften einfach ignorieren, anstatt die Verarbeitung wie bei JavaScript mit einem Fehler abzubrechen.
+Bei neuen Projekten spricht nichts dagegen, gleich mit CSS-Grid (und Flexbox) loszulegen. Es sei denn, das konkrete Projekt hat zuviele Zugriffe von alten und sehr alten Browsern. Insbesondere bei Intranetprojekten und internen Tools kommen solche beschränkenden Anforderungen immernoch vor.
 
-Nutzen Sie neue Techniken wie CSS-Grid oder auch Flexbox, so ignorieren die modernen Browser mögliche alte Lösungen wie Floats, display: table-cell oder display: inline-block einfach. Sie können also schlicht [ein bestehendes Layout mit CSS-Grids erweitern](https://codepen.io/jensgro/full/JMRwBO). Sie werden sehen, dass weder eine Änderung in der Codereihenfolge (die Kaskade) noch eine Erhöhung der Spezifität etwas daran ändern kann, dass der CSS-Grid-fähige Browser die Floats ignoriert.
+Trotzdem muss man nicht auf moderne Techniken verzichten. Man kann moderne Techniken auch zu den alten, bewährten Techniken hinzufügen. Da es keinen Polyfill für CSS-Grids gibt und wird wohl auch nie einen geben wird, kommt das gute, alte "progressive Enhancement" als Strategie wieder zum Zuge. 
 
-## Feature Queries
+Ziel solte dabei nicht sein, optisch das gleiche Ergebnis für alte Browser zu servieren. Im Geiste von Progressive Enhancement oder Graceful Degredation kann man entweder auf eine bestehende Layoutlösung die neue Technik draufsetzen, um für moderne Browser eine leicht andere Experience zu schaffen. Oder man entwickelt eine schlichte Seite, die für moderne Browser dann mittels CSS-Grids aufgewertet wird. Das Gute an CSS ist ja, dass Browser ihnen unbekannte Eigenschaften einfach ignorieren, anstatt die Verarbeitung wie bei JavaScript mit einem Fehler abzubrechen.
 
-In einigen Artikeln wird die Verwendung von Feature Queries zur Unterstützung von CSS-Grid diskutiert. Während Media Queries Umgebungsvariablen des Browsers wie die Breite oder Höhe des Viewports oder die Farbtiefe des Monitors abfragen, fragen Feature Queries die Unterstützung von Eigenschaften durch einen Browser ab. Sie können also folgendermaßen vorgehen:
+Bei der Verwendung neuet Techniken wie CSS-Grid oder auch Flexbox ignorieren die modernen Browser mögliche alte Lösungen wie Floats, ``display: table-cell`` oder ``display: inline-block`` einfach. Man kann also schlicht [ein bestehendes Layout mit CSS-Grids erweitern](https://codepen.io/jensgro/full/JMRwBO). Weder eine Änderung in der Codereihenfolge (die Kaskade) noch eine Erhöhung der Spezifität ändert etwas daran, dass der CSS-Grid-fähige Browser die Floats ignoriert.
+
+### Feature Queries
+
+Egal ob die Erweiterung eines alten Projektes oder die Erstellung eines neuen Projektes ansteht, wenn alte und moderne Browser gleichermassen gut behandelt werden sollen, lohnt sich eine Beschäftigung mit [Feature Queries](https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/). Sie helfen, eine klare Trennlinie zu ziehen. Und sie machen eine Nutzung des Autoprefixers überflüssig.
+
+Analog zu Media Queries, die einige Umgebungsvariablen des Browsers abfragt, gibt es [Feature Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports). Hier kann man den Browser "fragen", ob eine bestimmte Eigenschaft mit einer konkreten Ausprägung unterstützt wird. Erst bei positiver Beantwortung der Bedingung wird der umklammerte Code ausgeführt.
+
+Im Falle von CSS-Grid ist sehr hilfreich, dass kein IE Feature Queries je beherrscht hat. Jeglicher Code innerhalb von Feature Queries ist also vor dem IE10 und IE11 versteckt:
 
 {% highlight "css" %}
 .container {
-/* Regeln für eine Floatumgebung für alte Browser */
+/* Regeln bspw. für eine Floatumgebung für alte Browser */
 }
 @supports(display: grid) {
+    /* Regeln für moderne Browser */
     .container{
         display: grid;
     }
@@ -439,14 +453,11 @@ In einigen Artikeln wird die Verwendung von Feature Queries zur Unterstützung v
 }
 {% endhighlight  %}
 
-Durch die Feature Query wären die Internet Explorer ausgegrenzt, denn zum einen benötigen display: -ms-grid diese als Eigenschaft. Und zum anderen verstehen sie die Technik der Feature Queries nicht. Eine Nutzung von @supports macht also nur Sinn, wenn neben der reinen Definition der Grids noch zusätzliche Eigenschaften modifiziert werden müssten, die Nicht-Grid-Browser auch interpretieren würden.
-
-Nehmen wir an, der Grid-Container bekommt einen hohen Innenabstand von 40px, während eine alternative Float-Umgebung keinen Innenabstand hätte. Da die Eigenschaft „padding“ von jedem Browser interpretiert wird, wäre dies ein sinnvoller Anwendungsfall für eine Feature Query.
-
+Durch Feature Queries bekommt man eine saubere Trennung von Code für alte und moderne Browser. Nach ein paar Jahren kann man dann den Legacy-Code komplett entfernen und die Feature Queries ebenso. Zurück bliebe moderner Code.
 
 ## Zweidimensional
 
-Sie stellen sich möglicherweise die Frage, ob nicht der Einsatz von Flexbox vollkommen ausreichend ist. Der  Komplexitätsgrad von CSS-Grid wirkt schon innerhalb dieses Artikels recht groß, ist aber in Wahrheit noch viel größer.
+Nachdem wir einen kleinen Einblick in die mächtige Technik der CSS-Grids bekommen haben, stellt sich trotzdem unweigerlich die Frage, ob nicht der Einsatz von Flexbox vollkommen ausreichend ist. Der  Komplexitätsgrad von CSS-Grid wirkt schon innerhalb dieses Artikels recht groß, ist aber in Wahrheit noch viel größer.
 
 Der große Unterschied von CSS-Grids zu Floats und dem ebenfalls recht neuen Flexbox ist, dass CSS-Grids zwei-dimensional agieren können. Floats funktionieren nur horizontal, Flexbox nur horizontal oder vertikal. Bei den CSS-Grids können die Grid-Items horizontal und vertikal verteilt werden:
 
@@ -469,7 +480,7 @@ Der große Unterschied von CSS-Grids zu Floats und dem ebenfalls recht neuen Fle
 
 Im obigen Beispiel wird ein Grid-Item horizontal als „header“ und ein anderes als „footer“ verteilt. In der gleichen Regel wird ein weiteres Element vertikal als „sidebar“ ausgerichtet. Diese Flexibilität innerhalb einer Regel bietet keine andere Technik.
 
-Bei der Arbeit mit Flexbox müssen Sie sich immer für eine Hauptrichtung entscheiden. Innerhalb dieser werden Ihre Flex-Items ausgerichtet. Im folgenden Beispiel werden die direkten Kindelemente des Elements mit der Klasse .flex-container horizontal ausgerichtet, es ist die Standardrichtung:
+Bei der Arbeit mit Flexbox muss man sich immer für eine Hauptrichtung entscheiden. Innerhalb dieser werden die Flex-Items ausgerichtet. Im folgenden Beispiel werden die direkten Kindelemente des Elements mit der Klasse .flex-container horizontal ausgerichtet, es ist die Standardrichtung:
 
 {% highlight "css" %}
 .flexbox-container {
@@ -477,9 +488,9 @@ Bei der Arbeit mit Flexbox müssen Sie sich immer für eine Hauptrichtung entsch
 }
 {% endhighlight %}
 
-Sie können dafür sorgen, dass Flex-Items, die nicht mehr in eine visuelle Zeile passen, in eine neue rutschen. Sie können aber nicht dafür sorgen, dass diese neue Zeile eine abweichende Höhe hat. Sie haben keine Kontrolle über die implizit entstehenden neuen Zeilen. Bei CSS-Grids haben Sie diese Kontrolle.
+Man kann dafür sorgen, dass Flex-Items, die nicht mehr in eine visuelle Zeile passen, in eine neue rutschen. Man kann aber nicht dafür sorgen, dass diese neue Zeile eine abweichende Höhe hat. Wir haben keine Kontrolle über die implizit entstehenden neuen Zeilen. Bei CSS-Grids haben wir diese Kontrolle.
 
-Durch die Hinzugabe der Eigenschaft flex-direction: column; würden die Flex-Items des obigen Beispiels nicht mehr horizontal, sondern vertikal laufen. Sie müssen zwischen beiden Optionen wählen. Bei CSS-Grids müssen Sie dies nicht. Sie können die einen Elemente horizontal, die anderen vertikal ausrichten. Und dafür benötigen Sie zudem weniger HTML. Denn da Flexbox nur in eine Richtung funktioniert, benötigen Sie zur Kombination beider Richtungen einen extra Wrapper, wie Sie an einem [einfach gehaltenen Layoutbeispiel](https://codepen.io/jensgro/full/GQgMdo) sehen können. In der [CSS-Grid-Variante](https://codepen.io/jensgro/full/jZEaQJ) wird der Wrapper nicht benötigt. Die grobe Struktur beider Varianten sieht folgendermaßen aus:
+Durch die Hinzugabe der Eigenschaft ``flex-direction: column;`` würden die Flex-Items des obigen Beispiels nicht mehr horizontal, sondern vertikal laufen. Man muss zwischen beiden Optionen wählen. Bei CSS-Grids muss man dies nicht. Man kann die einen Elemente horizontal, die anderen vertikal ausrichten. Und dafür benötigen wir zudem weniger HTML. Denn da Flexbox nur in eine Richtung funktioniert, benötigen wir zur Kombination beider Richtungen einen extra Wrapper, wie ich an einem [einfach gehaltenen Layoutbeispiel](https://codepen.io/jensgro/full/GQgMdo) demonstriere. In der [CSS-Grid-Variante](https://codepen.io/jensgro/full/jZEaQJ) wird der Wrapper nicht benötigt. Die grobe Struktur beider Varianten sieht folgendermaßen aus:
 
 <figure class="card">
     {% highlight "html" %}
@@ -507,20 +518,27 @@ Durch die Hinzugabe der Eigenschaft flex-direction: column; würden die Flex-Ite
 
 Der Browser berechnet bei Flexbox primär in eine Richtung – horizontal oder vertikal. Bei CSS-Grids hingegen rechnet er in zwei Richtungen – horizontal und vertikal. Deshalb sind mit CSS-Grids komplexere Layouts einfacher möglich. Flexbox spielt seine Stärken in einzelnen Modulen aus, also quasi für Mikro-Layout, wohingegen CSS-Grids für Seitenlayouts geschaffen wurden.
 
-Sie sollten eine Navigation mit Flexbox realisieren, nicht mit CSS-Grids. Und vergessen Sie bitte nicht die alten, traditionellen Techniken, die trotz dieser beiden neuen Techniken noch immer ihre Berechtigung haben. Wenn Ihre Navigation mit display: inline-block oder Floats wunderbar und ohne Nachteile funktioniert, gibt es keinen vernünftigen Grund, auf eine andere Technik umzusteigen. Diese lohnt nur, wenn Sie einen Vorteil bekommen. Sie sollten dann Flexbox und CSS-Grids als Progressive Enhancement nutzen. Dadurch liefern Sie immer ein angenehmes Layout aus, das sich allerdings im Detail unterscheiden kann.
+Wir sollten allerdings die alten, traditionellen Techniken nicht vergessen. Sie haben trotz dieser beiden neuen Techniken noch immer ihre Berechtigung. Wenn eine Navigation mit ``display: inline-block`` oder Floats wunderbar und ohne Nachteile funktioniert, gibt es keinen vernünftigen Grund, auf eine andere Technik umzusteigen. Diese lohnt nur, wenn sie einen Vorteil bringt. 
 
-Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen. Aber sie sind nicht allmächtig. Die beliebten Masonry-Layouts, die Inhalte – meist Bilder – vertikal anordnen und automatisch in eine neue Spalte verschieben, sind nicht mit CSS-Grids realisierbar [goo.gl/ezVNXT]. Die inneren Mechanismen der Grids stehen dagegen.
+Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen. 
+
+<aside>
 
 ## Informationsquellen
 
-CSS-Grids sind eine umfangreiche und teilweise kompliziert zu erfassende Technik. Vertiefende und erweiternde Informationen bekommen Sie an vielen Ecken des Internets, sowohl als einzelne Artikel, komplette Infoseiten und als Videotutorials unterschiedlicher Komplexität.
+CSS-Grids sind eine umfangreiche und teilweise kompliziert zu erfassende Technik. Vertiefende und erweiternde Informationen gibt es an vielen Ecken des Internets, sowohl als einzelne Artikel, komplette Infoseiten und als Videotutorials unterschiedlicher Komplexität.
 
-Die Seite [Grid by Example](https://gridbyexample.com) von Rachel Andrew sollte Ihre erste Anlaufstation sein . In kurzen Artikeln mit eingebetteten Codepen-Beispielen und Links zur W3C-Spezifikation führt sie ins Thema ein. Wer mag, kann sich die einzelnen Themen auch in kleinen Videotutorials anschauen. Zusätzlich gibt es eine Vielzahl fertiger Beispiele, anhand derer Sie selbst mit der neuen Technik experimentieren können.
+Die Seite [Grid by Example](https://gridbyexample.com) von Rachel Andrew sollte die erste Anlaufstation sein. In kurzen Artikeln mit eingebetteten Codepen-Beispielen und Links zur W3C-Spezifikation führt sie ins Thema ein. Wer mag, kann sich die einzelnen Themen auch in kleinen Videotutorials anschauen. Zusätzlich gibt es eine Vielzahl fertiger Beispiele, anhand derer man selbst mit der neuen Technik experimentieren kann.
 
 Rachel Andrew ist auch mit verantwortlich für die umfangreiche Abhandlung im [Mozilla Developer Network](https://goo.gl/FRFW8s), die teilweise in deutscher Übersetzung vorliegt. Sehr empfehlenswert ist auch der Abschnitt über CSS-Grids in der [CSS-Referenz von Codrops](https://goo.gl/wczTww).
 
-Lernen Sie gerne mit Videotutorials? Dann sind die 25 Lektionen von Wes Bos sicher eine gute Empfehlung. Der Kanadier hat – von Mozilla finanziert – seinen [kostenlosen und umfangreichen Kurs](https://cssgrid.io) erst Anfang 2018 veröffentlicht. Konkrete praktische Fragen geht Jen Simmons in ihrer Videocast-Serie [Layoutland](https://goo.gl/Bw5DAq) auf Youtube an.
+Bei CSS-Tricks gibt es den [A Complete Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/). Und auch [SELFHTML](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Grid) bietet einen gut strukturierten Bereich zum Lernen von CSS-Grid an. Und bei Mediaevent gibt es eine interessante Einführung in "[CSS Grid in vier einfachen Schritten](https://www.mediaevent.de/css/grid.html)".
+
+Oder sind ein paar Videotutorials gefällig? Dann sind die 25 Lektionen von Wes Bos sicher eine gute Empfehlung. Der Kanadier hat – von Mozilla finanziert – seinen [kostenlosen und umfangreichen Kurs](https://cssgrid.io) Anfang 2018 veröffentlicht. Inhaltlich kann daran aber kein Vergang sein. Konkrete praktische Fragen geht Jen Simmons in ihrer Videocast-Serie [Layoutland](https://goo.gl/Bw5DAq) auf Youtube an.
+
+[Griddy](https://griddy.io/) ist ein Online-Tool, mit dem man sich ein Grid zusammenklicken kann. Natürlich mit Codeausgabe. Spielerisch kann man sich dem Thema im [Grid Garden](http://cssgridgarden.com/#de) nähern. 
+</aside>
 
 ## Fazit
 
-Endlich gibt es eine ausgefeilte Technik für Seitenlayouts. Und das Beste ist, dass die Browserhersteller diese Technik in ihre aktuellen Versionen integriert haben. Im Gegensatz zu früher haben wir keine unterschiedlichen Versionen mit Vendor-Prefixes wie `-webkit-` und `-moz-`. Glücklicherweise ist die neue Technik so in die Browser integriert, dass sie alte Layoutlösungen einfach überschreibt. Sie können also in ihren aktuellen Projekten schon anfangen, für moderne Browser mit der neuen Technik zu experimentieren. Die älteren oder feature-armen Browser müssen darunter nicht leiden. Deren Nutzer werden nicht wissen, was sie verpassen. Viel Spaß bei der Gestaltung der Zukunft!
+Endlich gibt es eine ausgefeilte Technik für Seitenlayouts. Und da der IE mittlerweile tot ist, müssen wir uns auch nicht mehr in der Verwendung zurückhalten. Im Gegensatz zu früher haben wir keine unterschiedlichen Versionen mit Vendor-Prefixes wie ``-webkit-`` und ``-moz-``. Glücklicherweise ist die neue Technik so in alle modernen Browser integriert, dass sie alte Layoutlösungen einfach überschreibt. Man kann also ältere Projekte sukzessive moderniesieren und behält einen Fallback immer bei. Viel Spaß bei der Gestaltung der Zukunft!
