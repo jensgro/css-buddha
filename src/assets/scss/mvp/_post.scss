@@ -11,4 +11,14 @@
     h2 {
         border-bottom: var(--post-h2-bb);
     }
+
+    aside {
+        h2 {
+            border: none;
+            margin: 0 -0.8rem;
+            padding: var(--space2) var(--space2) var(--space2) var(--space1);
+            background-color: var(--color-secondary);
+            color: var(--color-bg);
+        }
+    }
 }
