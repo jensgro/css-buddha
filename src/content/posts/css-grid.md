@@ -36,7 +36,7 @@ Beide Techniken existieren gleichberechtigt nebeneinander und ergänzen unser bi
 Nur weil eine Technik neu ist, ist sie nicht per se nützlich und für alles zu gebrauchen.
 ## Ein Grid erstellen
 
-Wir erstellen ein Grid, in dem wir dem Elterncontainer ``display: grid;``zuweisen. Die direkten Kindelemente dieses Grid-Containers werden dadurch automatisch zu Grid-Items. Es ist das gleiche Prinzip wie bei Flexbox.
+Wir erstellen ein Grid, in dem wir dem Elterncontainer ``display: grid;`` zuweisen. Die **direkten Kindelemente** dieses Grid-Containers werden dadurch automatisch zu Grid-Items. Es ist das gleiche Prinzip wie bei Flexbox. Es ist also auch bei dieser Layoutmethode wichtig, auf eine schlanke Struktur zu achten.
 
 Zusätzlich wird an dem Grid-Container die Art des Rasters bestimmt. Dies geschieht über die Definition der Breite und Anzahl der Spalten (``grid-template-columns``) und eventueller Zwischenräume (``gap`` bzw. ``row-gap``und ``column-gap``) definieren. Der Code für ein erstes Grid könnte folgendermassen aussehen:
 
@@ -49,11 +49,11 @@ Zusätzlich wird an dem Grid-Container die Art des Rasters bestimmt. Dies geschi
 }
     {% endhighlight %}
     <figcaption class="card-footer">
-        <p>Ein einfacher Grid-Container entsteht. Den Code gibt es auf <a href="https://cdpn.io/e/mpVjGQ">Codepen</a>.</p>
+        <p>Ein einfacher Grid-Container entsteht. Den Code gibt es auf <a href="https://codepen.io/jensgro/full/mpVjGQ">Codepen</a>.</p>
     </figcaption>
 </figure>
 
- Durch `grid-template-columns` wird in diesem Beispiel ein vierspaltiges Layout definiert, dessen Spalten jeweils 100px breit sind. Mit jedem fünften Grid-Item wird eine neue visuelle Zeile eröffnet. Dafür müssen keine neuen Grid-Container erstellt werden. Sie werden erst dann notwendig, wenn sich die Art des Layouts ändert, also die Breiten und die Anzahl der Spalten. Um die Spalten nicht direkt aneinander kleben zu lassen, empfiehlt es sich, einen Abstand zwischen Spalten und Zeilen zu definieren. Mit ``row-gap`` und ``column-gap`` kann man dies explizit steuern. Einfacher ist es – wenn es das Layout gestattet, mit der Kurzschreibweise ``gap``. Wie bei ``padding``und ``margin`` kann mit dieser Kurzschreibweise sowohl ein Wert für beide Eigeschaften zugewiesen werden, als auch einfach ein wenig Tipparbeit gespart werden. Der erste Wert bezieht sich auf die Zeilen, der zweite auf die Spalten:
+ Durch `grid-template-columns` wird in diesem Beispiel ein vierspaltiges Layout definiert, dessen Spalten jeweils 100px breit sind. Mit jedem fünften Grid-Item wird eine neue visuelle Zeile eröffnet. Dafür müssen keine neuen Grid-Container erstellt werden. Sie werden erst dann notwendig, wenn sich die Art des Layouts ändert, also die Breiten und die Anzahl der Spalten. Um die Spalten nicht direkt aneinander kleben zu lassen, empfiehlt es sich, einen Abstand zwischen Spalten und Zeilen zu definieren. Mit ``row-gap`` und ``column-gap`` kann man diese Abstände explizit steuern. Einfacher ist es mit der Kurzschreibweise ``gap``. Wie bei ``padding``und ``margin`` kann mit dieser Kurzschreibweise sowohl ein Wert für beide Eigenschaften zugewiesen werden, als auch einfach ein wenig Tipparbeit gespart werden. Der erste Wert bezieht sich auf die Zeilen, der zweite auf die Spalten:
 
 <figure class="card">
     {% highlight "css" %}
@@ -69,11 +69,13 @@ Zusätzlich wird an dem Grid-Container die Art des Rasters bestimmt. Dies geschi
     </figcaption>
 </figure>
 
-Sehr wichtig ist, dass die äusseren Ränder des Grids dabei nicht in die Berechnung der Zwischenräume (gaps) einbezogen werden. Der Zwischenraum zwischen Spalten und Zeilen beginnt erst zwischen der ersten und zweiten Zeile bzw. Spalte und endet vor der jeweils letzten.
+Die äusseren Ränder des Grids werden **nicht** in die Berechnung der Zwischenräume (gap) einbezogen werden. Der Zwischenraum zwischen Spalten und Zeilen beginnt erst zwischen der ersten und zweiten Zeile bzw. Spalte und endet vor der jeweils letzten.
+
+## Einheiten
 
 Im ersten Beispiel werden absolute Breiten genutzt. Diese sind selbstverständlich möglich, in Zeiten einer unübersichtlichen Endgerätevielfalt aber eher hinderlich. Für die Erstellung responsiver Layouts sind deshalb relative Breitenangaben sinnvoller.
 
-Mit dem Grid-Modul wird eine neue relative Einheit eingeführt: fraction (fr). Mittels „fraction“ wird der zur Verfügung stehende Platz aufgeteilt. Sie können sich dies wie die Portionierung eines Kuchens vorstellen. Eine genauere Betrachtung dieser neuen Einheit folgt im Anschluss an dieses Kapitel. Im folgenden Beispiel wird ein Grid-Container [in vier gleich große Stücke aufgeteilt](https://cdpn.io/e/WdrgJp):
+Mit dem Grid-Modul wird eine neue relative Einheit eingeführt: **fraction** (``fr``). Mittels "fraction" wird der zur Verfügung stehende Platz aufgeteilt. Es funktioniert wie die Portionierung eines Kuchens. Eine genauere Betrachtung dieser neuen Einheit folgt gleich im Anschluss. Im nächsten  Beispiel wird ein Grid-Container in vier gleich große Stücke aufgeteilt ([Codepen-Beispiel](https://codepen.io/jensgro/full/WdrgJp)):
 
 ```css
 .grid-container {
@@ -83,7 +85,7 @@ Mit dem Grid-Modul wird eine neue relative Einheit eingeführt: fraction (fr). M
 }
 ```
 
-Selbstverständlich können Sie auch [Einheiten mischen](https://cdpn.io/e/VyeGxJ):
+Selbstverständlich können auch Einheiten gemischt werden ([Codepen-Beispiel](https://codepen.io/jensgro/full/VyeGxJ)):
 
 ```css
 .grid-container {
@@ -95,9 +97,9 @@ Selbstverständlich können Sie auch [Einheiten mischen](https://cdpn.io/e/VyeGx
 
 Solche Mischungen können bei Seitenlayouts sinnvoll sein, die Werbebanner beinhalten. Bannerformate sind üblicherweise nicht responsiv, sodass eine Werbespalte mit fixer Breite die richtige Lösung wäre.
 
-Wenn Sie dem Grid-Container display: inline-grid; zuweisen, wird das Grid als Inline-Element erstellt. Es produziert also keinen Absatz um sich herum. Auch bei Flexbox gibt es eine Inline-Variante. Deren sinnvoller Einsatzzweck dürfte sich auf Suchformulare in Navigationsleisten beschränken.
+Bekommt ein Grid-Container ``display: inline-grid;`` zugewiesen, wird es als Inline-Element erstellt. Es produziert also keinen Absatz um sich herum. Auch bei Flexbox gibt es eine Inline-Variante. Der sinnvolle Einsatzzweck dieser Inline-Varianten dürfte sich in engen Grenzen halten.
 
-Neben den Spalten können Sie selbstverständlich auch die Zeilen eines Layouts definieren:
+Neben den Spalten kann man selbstverständlich auch die Zeilen eines Layouts definieren:
 
 ```css
 .grid-container {
@@ -108,9 +110,9 @@ Neben den Spalten können Sie selbstverständlich auch die Zeilen eines Layouts 
 }
 ```
 
-In diesem Falle bekommen [die ersten beiden möglichen visuellen Zeilen]cdpn.io/e/WdwRXB eine Höhe. Die Höhe der weiteren Zeilen richtet sich dann nach dem höchsten Element in der Zeile.
+In diesem Falle bekommen die ersten beiden möglichen visuellen Zeilen ([Codepen-Beispiel](https://codepen.io/jensgro/full/WdwRXB)) eine Höhe. Die Höhe der weiteren Zeilen richtet sich dann nach dem höchsten Element in der Zeile.
 
-Auch für grid-template-columns und grid-template-rows gibt es eine Kurzschreibweise, hier nur für die Spalten demonstriert:
+Auch für ``grid-template-columns`` und ``grid-template-rows`` gibt es eine Kurzschreibweise, hier nur für die Spalten demonstriert:
 
 ```css
 .grid-1 {
@@ -124,9 +126,9 @@ Auch für grid-template-columns und grid-template-rows gibt es eine Kurzschreibw
 }
 ```
 
-Die repeat-Syntax ist denkbar einfach: Innerhalb des Klammerausdrucks wird erst die Anzahl der Wiederholungen notiert und danach, mit einem Komma getrennt, das zu wiederholende Muster. Bei .grid-1 werden vier gleich breite Spalten konstruiert. Bei .grid-2 werden zwei unterschiedlich breite Spalten konstruiert und diese einmal wiederholt. Und bei .grid-3 wird erst eine Spalte von 150px Breite konstruiert, danach folgen [drei gleich breite Spalten](https://cdpn.io/e/ZvWaNp).
+Die repeat-Syntax ist denkbar einfach: Innerhalb des Klammerausdrucks wird erst die Anzahl der Wiederholungen notiert und danach, mit einem Komma getrennt, das zu wiederholende Muster. Bei .grid-1 werden vier gleich breite Spalten konstruiert. Bei .grid-2 werden zwei unterschiedlich breite Spalten konstruiert und diese einmal wiederholt. Und bei .grid-3 wird erst eine Spalte von 150px Breite konstruiert, danach folgen [drei gleich breite Spalten](https://codepen.io/jensgro/full/ZvWaNp).
 
-Sie können nun mit sehr wenig Code [das Bootstrap-Grid](https://cdpn.io/e/LeRPrK) (12 Spalten) nachbauen:
+So kann man mit sehr wenig Code das Bootstrap-Grid ([Codepen-Beispiel](https://codepen.io/jensgro/full/LeRPrK))  nachbauen:
 
 <figure class="card">
     {% highlight "css" %}
@@ -158,9 +160,9 @@ Sie können nun mit sehr wenig Code [das Bootstrap-Grid](https://cdpn.io/e/LeRPr
 
 ## Die Einheit "Fraction"
 
-Eine echte Neuerung im CSS-Grid-Modul ist die Einheit fraction. Sie ermöglicht die Verteilung von Inhalten auf den übrig gebliebenen Platz. Die Einheit funktioniert analog zu den Eigenschaften flex-grow und flex-shrink. Mit diesen Einheiten wird Flex-Items ein Hinweis gegeben, in welchem Verhältnis zueinander sie wachsen oder schrumpfen dürfen. Leider sind diese Werte ohne Einheit, ein Fehler in der Flexbox-Spezifikation, den das W3C heute zugibt. Im Gegensatz zu den Flexbox-Eigenschaften können Fractions auch Kommawerte enthalten. Jedenfalls haben Tests in Chrome und Firefox dies ergeben. Denn leider wird dies weder in der Spezifikation explizit erwähnt, noch sprechen die vielen Artikel darüber. Allerdings erscheinen ganzzahlige Werte sinnvoller und intuitiver.
+Eine echte Neuerung im CSS-Grid-Modul ist die Einheit **fraction**. Sie ermöglicht die Verteilung von Inhalten auf den übrig gebliebenen Platz. Die Einheit funktioniert analog zu den Eigenschaften ``flex-grow`` und ``flex-shrink``. Mit diesen Einheiten wird Flex-Items ein Hinweis gegeben, in welchem Verhältnis zueinander sie wachsen oder schrumpfen dürfen. Leider sind diese Werte ohne Einheit, ein Versäumnis in der Flexbox-Spezifikation, wie das W3C im Lichte der neueren Techniken zugibt. Im Gegensatz zu den Flexbox-Eigenschaften können Fractions auch Kommawerte enthalten. Jedenfalls haben Tests in Chrome und Firefox dies ergeben. Denn leider wird dies weder in der Spezifikation explizit erwähnt, noch sprechen die vielen Artikel darüber. Allerdings erscheinen ganzzahlige Werte sinnvoller und intuitiver.
 
-Der große Vorteil der Einheit `fr` gegenüber Prozentwerten erschließt sich an einem einfachen Beispiel sehr schnell:
+Der große Vorteil der Einheit ``fr`` gegenüber Prozentwerten erschließt sich an einem einfachen Beispiel sehr schnell:
 
 {% highlight "css" %}
 /* Erst einmal traditionell in Prozent */
@@ -177,11 +179,11 @@ Der große Vorteil der Einheit `fr` gegenüber Prozentwerten erschließt sich an
 }
 {% endhighlight %}
 
-Die Container sind in beiden Codebeispielen gleichmäßig in vier Spalten aufgeteilt. Störfaktor ist im Beispiel mit den Prozentwerden (.grid-prozent) allerdings die Einheit `grid-gap`. Sie definiert den horizontalen und vertikalen Abstand zwischen den Grid-Items. So kämen zu den 100% Spaltenbreite beim ersten Codebeispiel noch 30px Abstand zwischen den vier Spalten hinzu. Der Browser würde einen horizontalen Scrollbalken zeigen
+Die Container sind in beiden Codebeispielen gleichmäßig in vier Spalten aufgeteilt. Störfaktor ist im Beispiel mit den Prozentwerden (``.grid-prozent``) allerdings die Einheit ``grid-gap``. Sie definiert den horizontalen und vertikalen Abstand zwischen den Grid-Items. So kämen zu den 100% Spaltenbreite beim ersten Codebeispiel noch die Abstände zwischen den vier Spalten hinzu. Der Browser würde einen horizontalen Scrollbalken zeigen.
 
-Die Fraction-Einheit funktioniert hier anders. Der Browser schaut erst, welche Breiten (oder Höhen) fest vergeben sind und welcher Platz übrig bleibt. Diesen verbleibenden Platz verteilt der Browser dann nach dem Schlüssel, den der Webworker mit den fr-Einheiten vergibt. Im zweiten Beispiel (.grid-fr) würde der Browser erst einmal den Raum zwischen den Spalten von der Gesamtbreite abziehen. Den Rest würde der Browser gleichmäßig zu vier Teilen zwischen den Grid-Items verteilen. Selbstverständlich kann der Platz auch ungleich verteilt werden.
+Die Fraction-Einheit funktioniert hier anders. Der Browser schaut erst, welche Breiten (oder Höhen) fest vergeben sind und welcher Platz übrig bleibt. Diesen verbleibenden Platz verteilt der Browser dann nach dem Schlüssel, den man mit den fr-Einheiten vergibt. Im zweiten Beispiel (``.grid-fr``) würde der Browser erst einmal den Raum zwischen den Spalten von der Gesamtbreite abziehen. Den Rest würde der Browser gleichmäßig zu vier Teilen zwischen den Grid-Items verteilen. Selbstverständlich kann der Platz auch ungleich verteilt werden.
 
-Das Beispiel mit den Prozentwerten müsste der Web-Autor mittels `calc()` folgendermassen korrigieren:
+Das Beispiel mit den Prozentwerten müsste man mittels ``calc()`` folgendermassen korrigieren:
 
 <figure class="card">
     {% highlight "css" %}
@@ -198,9 +200,9 @@ Das Beispiel mit den Prozentwerten müsste der Web-Autor mittels `calc()` folgen
     </figcaption>
 </figure>
 
-Diese Vorgehensweise ist umständlich, schlecht lesbar und fehleranfällig. Schließlich muss der Webworker dran denken, dass die Grid-Items am Rand nur ein halbes grid-gap auf einer Seite besitzen, während alle anderen auf beiden Seiten jeweils ein halbes grid-gap haben. Deshalb werden von den beiden äusseren Grid-Items nur jeweils 10px abgezogen. Die 20px der inneren Container müssen Sie sich zu gleichen Teilen nach links und rechts verteilt vorstellen. Dann erkennen Sie, dass der rechte Abstand des ersten und der linke Abstand des zweiten Containers zusammen die als grid-gap definierten 20px ergeben.
+Diese Vorgehensweise ist umständlich, schlecht lesbar und fehleranfällig. Schließlich muss man dran denken, dass die Grid-Items am Rand nur ein halbes grid-gap auf einer Seite besitzen, während alle anderen auf beiden Seiten jeweils ein halbes grid-gap haben. Deshalb werden von den beiden äusseren Grid-Items nur jeweils 10px abgezogen. Die 20px der inneren Container muss man sich zu gleichen Teilen nach links und rechts verteilt vorstellen. Der rechte Abstand des ersten und der linke Abstand des zweiten Containers ergeben zusammen die als ``grid-gap`` definierten 20px.
 
-Selbstverständlich kann die Einheit fr mit anderen Einheiten vermischt werden. Es geht schließlich hierbei in gewisserweise um "[Resteverwertung](https://cdpn.io/e/vpKxNa)".
+Selbstverständlich kann die Einheit ``fr`` mit anderen Einheiten vermischt werden. Es geht schließlich hierbei in gewisserweise um "[Resteverwertung](https://codepen.io/jensgro/full/vpKxNa)".
 
 <figure class="card">
     {% highlight "css" %}
@@ -221,7 +223,7 @@ Selbstverständlich kann die Einheit fr mit anderen Einheiten vermischt werden. 
 
 ## minmax
 
-Für flexible, responsive Layouts kann es manchmal wichtig sein, eine minimale und eine maximale Breite – respektive Höhe – angeben zu können. Bei der Grid-Spezifikation wurde daran gedacht und die Funktion `minmax()` eingeführt. Schauen wir uns zwei Beispiele an. Im ersten Beispiel bleibt die erste Spalte 150px breit, die dritte und vierte bekommen gleichermaßen eine Fraction vom Rest. Und die zweite Spalte soll mindestens 80px breit sein, darf aber maximal zwei Fractions breit werden:
+Für flexible, responsive Layouts kann es manchmal wichtig sein, eine minimale und eine maximale Breite – respektive Höhe – angeben zu können. Bei der Grid-Spezifikation wurde daran gedacht und die Funktion ``minmax()`` eingeführt. Schauen wir uns zwei Beispiele an. Im ersten Beispiel bleibt die erste Spalte 150px breit, die dritte und vierte bekommen gleichermaßen eine Fraction vom Rest. Und die zweite Spalte soll mindestens 80px breit sein, darf aber maximal zwei Fractions breit werden:
 
 {% highlight "css" %}
 .grid-minmax-1 {
@@ -229,10 +231,9 @@ Für flexible, responsive Layouts kann es manchmal wichtig sein, eine minimale u
 }
 {% endhighlight %}
 
-Im Codepen-Beispiel können Sie mittels einfacher Buttons [die Breite des Grids verändern](https://cdpn.io/e/jYrLyP). Dabei sehen Sie dann, wie sich der zweite Container an die Gegebenheiten anpasst.
+[Im Codepen-Beispiel](https://codepen.io/jensgro/full/jYrLyP) kann man mittels einfacher Buttons die Breite des Grids verändern. Dabei sieht man dann, wie sich der zweite Container an die Gegebenheiten anpasst.
 
-Grids können Sie auch in der Höhe flexibel begrenzen. [Im entsprechenden Codepen-Beispiel](https://cdpn.io/e/BJzwBj) ist einen Blindtext versteckt. Durch Klick auf den Button können Sie ihn erscheinen und wieder verschwinden lassen. Die zweite Zeile verändert dadurch ihre Höhe. Die Bedingungen dafür sind folgendermaßen gesetzt:
-
+Grids kann man auch in der Höhe flexibel begrenzen. [Im entsprechenden Codepen-Beispiel](https://codepen.io/jensgro/full/BJzwBj) ist einen Blindtext versteckt. Durch Klick auf den Button wird er angezeigt und wieder versteckt. Die zweite Zeile verändert dadurch ihre Höhe. Die Bedingungen dafür sind folgendermaßen gesetzt:
 
 <figure class="card">
     {% highlight "css" %}
@@ -241,12 +242,11 @@ Grids können Sie auch in der Höhe flexibel begrenzen. [Im entsprechenden Codep
 }
     {% endhighlight %}
     <figcaption class="card-footer">
-        Minimale und maximale Höhe
+        minimale und maximale Höhe
     </figcaption>
 </figure>
 
-In der Funktion `minmax()` darf die Einheit `fr` nur als Maximalwert, nicht als Minimalwert eingesetzt werden. Schließlich ist `fr` ein relativer Wert. Ein definitiver Minimalwert liesse sich damit nie erstellen. Zusätzlich gibt es noch die Schlüsselbegriffe `auto`, `min-content` und `max-content`. Mit `min-content` ist die Mindestbreite gemeint, die der Inhalt benötigt. Also bspw. eine Bildbreite oder das längste Wort in einem Text. Mit `max-content` ist dementsprechend das Maximum an für den Inhalt notwendigem Platz gemeint. Für den Maximalwert, also den zweiten Wert in der `minmax()`-Funktion, sind `max-content` und `auto` identisch. So ergeben sich folgende Varianten:
-
+In der Funktion ``minmax()`` darf die Einheit ``fr`` nur als Maximalwert, nicht als Minimalwert eingesetzt werden. Schließlich ist ``fr`` ein relativer Wert. Ein definitiver Minimalwert liesse sich damit nie erstellen. Zusätzlich gibt es noch die Schlüsselbegriffe ``auto``, ``min-content`` und ``max-content``. Mit ``min-content`` ist die Mindestbreite gemeint, die der Inhalt benötigt. Also bspw. eine Bildbreite oder das längste Wort in einem Text. Mit ``max-content`` ist dementsprechend das Maximum an für den Inhalt notwendigem Platz gemeint. Für den Maximalwert, also den zweiten Wert in der ``minmax()``-Funktion, sind ``max-content`` und ``auto`` identisch. So ergeben sich folgende Varianten:
 
 <figure class="card">
     {% highlight "css" %}
@@ -261,9 +261,15 @@ In der Funktion `minmax()` darf die Einheit `fr` nur als Maximalwert, nicht als 
 }
     {% endhighlight %}
     <figcaption class="card-footer">
-        Schlüsselbegriffe bei minmax()
+        Schlüsselbegriffe bei ``minmax()``
     </figcaption>
 </figure>
+
+<aside>
+<p>Ausserhalb von CSS-Grid haben die Funktionen <code>min()</code>, <code>max()</code> und <code>clamp()</code> mittlerweile für Begeisterung gesorgt. Ahmad Shadeed hat dazu einen tollen und ausführlichen <a href="https://ishadeed.com/article/css-min-max-clamp/">Einführungsartikel</a> geschrieben. In einem späteren Artikel kümmert er sich um <a href="https://ishadeed.com/article/use-cases-css-comparison-functions/">Anwendungsfälle</a> dieser Funktionen.</p>
+
+<!-- Ausserhalb von CSS-Grid haben die Funktionen ``min()``, ``max()`` und ``clamp()`` mittlerweile für Begeisterung gesorgt. Ahmad Shadeed hat dazu einen tollen und ausführlichen [Einführungsartikel](https://ishadeed.com/article/css-min-max-clamp/) geschrieben. In einem späteren Artikel kümmert er sich um [Anwendungsfälle](https://ishadeed.com/article/use-cases-css-comparison-functions/) dieser Funktionen. -->
+</aside>
 
 ## Autofit und Autofill
 
@@ -293,7 +299,7 @@ Mit dem Schlüsselwort auto-fill versucht der Browser, so viele Grid-Items wie m
 
 {% figImg "css-grid/auto-fill.png", "Die auto-fill-Eigenschaft im Einsatz." %}
 
-Auch bei auto-fit versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt [kein freier Platz übrig](https://cdpn.io/e/xpOvmW).
+Auch bei auto-fit versucht der Browser, den Platz so gut es geht mit Grid-Items zu füllen. Hier bleibt [kein freier Platz übrig](https://codepen.io/jensgro/full/xpOvmW).
 
 {% figImg "css-grid/auto-fit.png", "Die auto-fit-Eigenschaft im Einsatz." %}
 
@@ -348,7 +354,7 @@ Nachdem die Bereiche des Grids benannt worden sind, müssen diese noch mit Inhal
 
 {% figImg "css-grid/grid-area-1.png", "Die Inhalte sind den passenden Grid-Areas zugewiesen." %}
 
-Der charmante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für [unterschiedliche Breakpoints einer responsiven Seite](https://cdpn.io/e/GyjpMM).
+Der charmante Nebeneffekt dieser Technik ist, dass die Darstellung unabhängig von der Codereihenfolge ist. Der Browser weiß schließlich, welche Container in welchen Bereich des Grids sollen. Dies ist besonders praktisch für [unterschiedliche Breakpoints einer responsiven Seite](https://codepen.io/jensgro/full/GyjpMM).
 
 Beachten Sie, dass die Anzahl der Namen mit der Anzahl der zur Verfügung stehenden Grid-Items pro visueller Zeile übereinstimmen muss. Eventuell gewünschte Auslassungen werden mit einem Punkt realisiert:
 
@@ -369,7 +375,7 @@ Beachten Sie, dass die Anzahl der Namen mit der Anzahl der zur Verfügung stehen
 
 {% figImg "css-grid/grid-area-2.png", "Die rechte Zelle des Fusses wurde ausgelassen." %}
 
-Der kreative Umgang mit benamten Grid-Areas kann zu [interessanten Layoutlösungen](https://cdpn.io/e/EgNXyo) führen:
+Der kreative Umgang mit benamten Grid-Areas kann zu [interessanten Layoutlösungen](https://codepen.io/jensgro/full/EgNXyo) führen:
 
 {% figImg "css-grid/grid-area-3.png", "Eine interessante Navigationsidee dank CSS-Grids." %}
 
@@ -415,7 +421,7 @@ Abseits des guten alten IE: der UC Browser - ein mobiler Browser, der vor allem 
 
 Es gibt keinen Polyfill für CSS-Grids und wird wohl auch nie einen geben. Es kann also kein Ziel sein, optisch das gleiche Ergebnis für alte Browser zu servieren. Im Geiste von Progressive Enhancement oder Graceful Degredation können Sie entweder auf eine bestehende Layoutlösung die neue Technik draufsetzen, um für moderne Browser eine leicht andere Experience zu schaffen. Oder Sie geben allen Nicht-Könnern ein linearisiertes Layout. Das Gute an CSS ist ja, dass Browser ihnen unbekannte Eigenschaften einfach ignorieren, anstatt die Verarbeitung wie bei JavaScript mit einem Fehler abzubrechen.
 
-Nutzen Sie neue Techniken wie CSS-Grid oder auch Flexbox, so ignorieren die modernen Browser mögliche alte Lösungen wie Floats, display: table-cell oder display: inline-block einfach. Sie können also schlicht [ein bestehendes Layout mit CSS-Grids erweitern](https://cdpn.io/e/JMRwBO). Sie werden sehen, dass weder eine Änderung in der Codereihenfolge (die Kaskade) noch eine Erhöhung der Spezifität etwas daran ändern kann, dass der CSS-Grid-fähige Browser die Floats ignoriert.
+Nutzen Sie neue Techniken wie CSS-Grid oder auch Flexbox, so ignorieren die modernen Browser mögliche alte Lösungen wie Floats, display: table-cell oder display: inline-block einfach. Sie können also schlicht [ein bestehendes Layout mit CSS-Grids erweitern](https://codepen.io/jensgro/full/JMRwBO). Sie werden sehen, dass weder eine Änderung in der Codereihenfolge (die Kaskade) noch eine Erhöhung der Spezifität etwas daran ändern kann, dass der CSS-Grid-fähige Browser die Floats ignoriert.
 
 ## Feature Queries
 
@@ -473,7 +479,7 @@ Bei der Arbeit mit Flexbox müssen Sie sich immer für eine Hauptrichtung entsch
 
 Sie können dafür sorgen, dass Flex-Items, die nicht mehr in eine visuelle Zeile passen, in eine neue rutschen. Sie können aber nicht dafür sorgen, dass diese neue Zeile eine abweichende Höhe hat. Sie haben keine Kontrolle über die implizit entstehenden neuen Zeilen. Bei CSS-Grids haben Sie diese Kontrolle.
 
-Durch die Hinzugabe der Eigenschaft flex-direction: column; würden die Flex-Items des obigen Beispiels nicht mehr horizontal, sondern vertikal laufen. Sie müssen zwischen beiden Optionen wählen. Bei CSS-Grids müssen Sie dies nicht. Sie können die einen Elemente horizontal, die anderen vertikal ausrichten. Und dafür benötigen Sie zudem weniger HTML. Denn da Flexbox nur in eine Richtung funktioniert, benötigen Sie zur Kombination beider Richtungen einen extra Wrapper, wie Sie an einem [einfach gehaltenen Layoutbeispiel](https://cdpn.io/e/GQgMdo) sehen können. In der [CSS-Grid-Variante](https://cdpn.io/e/jZEaQJ) wird der Wrapper nicht benötigt. Die grobe Struktur beider Varianten sieht folgendermaßen aus:
+Durch die Hinzugabe der Eigenschaft flex-direction: column; würden die Flex-Items des obigen Beispiels nicht mehr horizontal, sondern vertikal laufen. Sie müssen zwischen beiden Optionen wählen. Bei CSS-Grids müssen Sie dies nicht. Sie können die einen Elemente horizontal, die anderen vertikal ausrichten. Und dafür benötigen Sie zudem weniger HTML. Denn da Flexbox nur in eine Richtung funktioniert, benötigen Sie zur Kombination beider Richtungen einen extra Wrapper, wie Sie an einem [einfach gehaltenen Layoutbeispiel](https://codepen.io/jensgro/full/GQgMdo) sehen können. In der [CSS-Grid-Variante](https://codepen.io/jensgro/full/jZEaQJ) wird der Wrapper nicht benötigt. Die grobe Struktur beider Varianten sieht folgendermaßen aus:
 
 <figure class="card">
     {% highlight "html" %}
