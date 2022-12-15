@@ -1,8 +1,6 @@
 a {
     color: var(--color-link);
     display: inline-block;
-    font-weight: bold;
-    text-decoration: none;
     
     article aside & {
         --color-link: var(--color-secondary);
@@ -10,12 +8,12 @@ a {
     
     &:active {
         filter: brightness(var(--active-brightness));
-        text-decoration: underline;
+        text-decoration: none;
     }
     
-    &:hover {
+    &:hover, &:focus {
         filter: brightness(var(--hover-brightness));
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     b, em, i, strong {
