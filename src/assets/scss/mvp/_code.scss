@@ -24,3 +24,8 @@ code {
     margin: 0 0.1rem;
     padding: 0 0.5rem;
 }
+tt, code, kbd, samp {
+	font-family: var(--font-family-code);
+    font-size: var(--base-fz-code);
+    font-weight: var(--base-font-weight-code);
+}

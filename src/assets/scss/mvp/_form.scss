@@ -82,7 +82,7 @@ input[type="submit"] {
     &:disabled {
         background: var(--color-bg-secondary);
         border-color: var(--color-bg-secondary);
-        color: var(--color-text-secondary);
+        color: var(--color-secondary);
         cursor: not-allowed;
 
         &:hover, &::focus {

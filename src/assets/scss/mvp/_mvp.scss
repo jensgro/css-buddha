@@ -1,6 +1,7 @@
 /* based on MVP.css v1.12 - https://github.com/andybrewer/mvp */
 
 @import "vars";
+@import "fonts";
 
 /* Layout */
 
@@ -9,6 +10,7 @@ body {
     color: var(--color-text);
     font-family: var(--font-family);
     font-size: var(--base-fz);
+    font-weight: var(--base-font-weight);
     line-height: var(--line-height);
     margin: 0;
     overflow-x: hidden;
