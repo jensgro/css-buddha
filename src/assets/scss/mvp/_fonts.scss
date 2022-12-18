@@ -1,0 +1,23 @@
+$fontBasePath: "../fonts/";
+
+@mixin ff($name, $style, $weight, $path) {
+    @font-face {
+        font-family: '#{$name}';
+        font-style: #{$style};
+        font-weight: $weight;
+        src: local(''),
+            url($fontBasePath+$path+'.woff2') format('woff2'), 
+            url($fontBasePath+$path+'.woff') format('woff'); 
+      }    
+}
+
+@include ff("Assistant", "normal", 400, "assistant/assistant-v18-latin-regular");
+@include ff("Assistant", "normal", 500, "assistant/assistant-v18-latin-500");
+@include ff("Assistant", "normal", 600, "assistant/assistant-v18-latin-600");
+@include ff("Assistant", "normal", 700, "assistant/assistant-v18-latin-700");
+@include ff("Assistant", "normal", 800, "assistant/assistant-v18-latin-800");
+
+@include ff("PT Sans", "normal", 400, "pt-sans-v17-latin-regular");
+@include ff("PT Sans", "italic", 400, "pt-sans-v17-latin-italic");
+@include ff("PT Sans", "normal", 700, "pt-sans-v17-latin-700");
+@include ff("PT Sans", "italic", 700, "pt-sans-v17-latin-700italic");
