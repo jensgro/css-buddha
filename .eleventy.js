@@ -13,6 +13,11 @@ const head = require("./src/_11ty/filters/head.js");
 const infosDescending = require("./src/_11ty/collections/infosDescending.js");
 const tagList = require("./src/_11ty/collections/tagList.js");
 
+// neu
+// const markdownLib = require('./config/plugins/markdown.js');
+// const {slugifyString} = require('./config/utils');
+
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/assets/scss/");
 
@@ -21,6 +26,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("infosDescending", infosDescending);
   eleventyConfig.addCollection("tagList", tagList);
+
+   // --------------------- layout aliases -----------------------
+   eleventyConfig.addLayoutAlias('base', 'base.njk');
+   eleventyConfig.addLayoutAlias('page', 'page.njk');
+   eleventyConfig.addLayoutAlias('post', 'post.njk');
+  //  eleventyConfig.addLayoutAlias('home', 'home.njk');
+  //  eleventyConfig.addLayoutAlias('blog', 'blog.njk');
 
   // keine Ahnung, was das tut :-)
   eleventyConfig.setDataDeepMerge(true);
@@ -55,8 +67,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("figImg", function (img, figCaption, alt) {
     return `<figure class="card">
-      <img src="../../../images/${img}" class="card-img-top" alt="${alt}">  
-      <figcaption class="card-footer">${figCaption}</figcaption>  
+      <img src="../../../images/${img}" class="card-img-top" alt="${alt}">
+      <figcaption class="card-footer">${figCaption}</figcaption>
     </figure>`;
   });
 
