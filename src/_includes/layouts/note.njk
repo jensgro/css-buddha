@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+<main>
+	<article class=" container note-article">
+		{% if lead %}
+		<p class="lead">{{ lead }}</p>
+		{% endif %}
+		{{ content | safe }}
+
+		{% if source %}
+		<div class="source">
+			{% for s in source %}
+			<a href="{{ s | url }}">Quelle</a>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<ul>
+			{% for t in tags %}
+			<li>
+				{{ t }}
+			</li>
+			{% endfor %}
+		</ul>
+	</article>
+</main>

@@ -77,23 +77,23 @@ Im ersten Beispiel werden absolute Breiten genutzt. Diese sind selbstverständli
 
 Mit dem Grid-Modul wird eine neue relative Einheit eingeführt: **fraction** (``fr``). Mittels "fraction" wird der zur Verfügung stehende Platz aufgeteilt. Es funktioniert wie die Portionierung eines Kuchens. Eine genauere Betrachtung dieser neuen Einheit folgt gleich im Anschluss. Im nächsten  Beispiel wird ein Grid-Container in vier gleich große Stücke aufgeteilt ([Codepen-Beispiel](https://codepen.io/jensgro/full/WdrgJp)):
 
-```css
+{% highlight "css" %}
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
 }
-```
+{% endhighlight %}
 
 Selbstverständlich können auch Einheiten gemischt werden ([Codepen-Beispiel](https://codepen.io/jensgro/full/VyeGxJ)):
 
-```css
+{% highlight "css" %}
 .grid-container {
     display: grid;
     grid-template-columns: 200px 2fr 1.5fr 1fr;
     grid-gap: 20px;
 }
-```
+{% endhighlight %}
 
 Solche Mischungen können bei Seitenlayouts sinnvoll sein, die Werbebanner beinhalten. Bannerformate sind üblicherweise nicht responsiv, sodass eine Werbespalte mit fixer Breite die richtige Lösung wäre.
 
@@ -101,20 +101,20 @@ Bekommt ein Grid-Container ``display: inline-grid;`` zugewiesen, wird es als Inl
 
 Neben den Spalten kann man selbstverständlich auch die Zeilen eines Layouts definieren:
 
-```css
+{% highlight "css" %}
 .grid-container {
     display: grid;
     grid-template-columns: 200px 2fr 1.5fr 1fr;
     grid-template-rows: 150px 100px;
     grid-gap: 20px;
 }
-```
+{% endhighlight %}
 
 In diesem Falle bekommen die ersten beiden möglichen visuellen Zeilen ([Codepen-Beispiel](https://codepen.io/jensgro/full/WdwRXB)) eine Höhe. Die Höhe der weiteren Zeilen richtet sich dann nach dem höchsten Element in der Zeile.
 
 Auch für ``grid-template-columns`` und ``grid-template-rows`` gibt es eine Kurzschreibweise, hier nur für die Spalten demonstriert:
 
-```css
+{% highlight "css" %}
 .grid-1 {
     grid-template-columns: repeat(4, 1fr);
 }
@@ -124,7 +124,7 @@ Auch für ``grid-template-columns`` und ``grid-template-rows`` gibt es eine Kurz
 .grid-3 {
     grid-template-columns: 150px repeat(3, 1fr);
 }
-```
+{% endhighlight %}
 
 Die repeat-Syntax ist denkbar einfach: Innerhalb des Klammerausdrucks wird erst die Anzahl der Wiederholungen notiert und danach, mit einem Komma getrennt, das zu wiederholende Muster. Bei .grid-1 werden vier gleich breite Spalten konstruiert. Bei .grid-2 werden zwei unterschiedlich breite Spalten konstruiert und diese einmal wiederholt. Und bei .grid-3 wird erst eine Spalte von 150px Breite konstruiert, danach folgen [drei gleich breite Spalten](https://codepen.io/jensgro/full/ZvWaNp).
 
