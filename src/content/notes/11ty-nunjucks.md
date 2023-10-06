@@ -1,6 +1,6 @@
 ---
 title: Nunjucks in 11ty
-tags: 
+tags:
     - 11ty
     - nunjucks
 source:
@@ -12,12 +12,15 @@ Es kann sehr sinnvoll sein, keine Markdown-Dateien, sondern Nunjucks-Dateien zu 
 Wenn man in einer Nunjucks-Seite anstelle des Links zum Template im Frontmatter das Template “extended”, dann kann man auf erweiterte Features zugreifen, die sonst nicht möglich sind.
 
 ```jsx
+{% raw %}
 {% extends 'template.njk' %}
+{% endraw %}
 ```
 
 Dann kann man auch zwei oder mehr Contentblöcke in einer Seite nutzen:
 
 ```jsx
+{% raw %}
 ---
 title: "My page"
 parameter1: lorem
@@ -35,4 +38,6 @@ parameter3: 3333
     <h2>Title content 2</h2>
     <p>Lorem ipsum</p>
 {% endblock %}
+
+{% endraw %}
 ```
