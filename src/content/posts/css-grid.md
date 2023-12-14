@@ -11,15 +11,15 @@ Floats waren niemals für Seitenlayouts vorgesehen. Sie werden nur mangels besse
 
 ## Andere Herangehensweise
 
-Wie schon bei Flexbox haben wir es bei CSS-Grids mit einer anderen als der gewohnten Herangehensweise und Benamung zu tun. 
+Wie schon bei Flexbox haben wir es bei CSS-Grids mit einer anderen als der gewohnten Herangehensweise und Benamung zu tun.
 
-Bislang waren wir es gewohnt, mit links, rechts, oben und unten zu arbeiten. Bei Flexbox wurde dieses Schema durch zwei Achsen ersetzt, die man in der Richtung drehen konnte. Die Namen der Achsen sind mit Haupt- und Kreuzachse neutral benannt. 
+Bislang waren wir es gewohnt, mit links, rechts, oben und unten zu arbeiten. Bei Flexbox wurde dieses Schema durch zwei Achsen ersetzt, die man in der Richtung drehen konnte. Die Namen der Achsen sind mit Haupt- und Kreuzachse neutral benannt.
 
 Grid hingegen macht Anleihen bei Tabellen. Wir sprechen hier von Reihen und Spalten. Eine Reihe oder auch eine Spalte, also der Bereich zwischen zwei Grid-Lines, wird auch als Grid-Track bezeichnet. Die kleinste Einheit, vergleichbar mit einer Tabellenzelle, ist die Grid-Cell. Und ein Bereich aus einer oder mehrerer Grid-Zellen, die zusammen von vier Grid-Lines begrenzt werden, ist eine Grid-Area. Ein Grid-Item ist immer Teil einer Grid-Area.
 
 {% figImg "css-grid/track-area-cell.png", "Die schwarzen Elemente symbolisieren die jeweiligen Begriffe.", "Screenshot einer Visualisierung der relevanten Grundbegriffe von CSS-Grids." %}
 
-Wie bei Flexbox ist es das Elternelement, das wesentliche Steuerungsaufgaben übernimmt. Die Kindelemente werden automatisch zu Grid-Items. Auch das ist eine Analogie zu Flexbox, wo die Kindelemente des Flex-Containers zu Flex-Items werden. 
+Wie bei Flexbox ist es das Elternelement, das wesentliche Steuerungsaufgaben übernimmt. Die Kindelemente werden automatisch zu Grid-Items. Auch das ist eine Analogie zu Flexbox, wo die Kindelemente des Flex-Containers zu Flex-Items werden.
 
 Bei den CSS-Grids werden die einzelnen Layoutblöcke Grid-Items genannt. Der sie umgebende Container ist der Grid-Container. Das Grid wird durchzogen von Grid-Lines, also Linien, die die Grid-Items umgeben. Diese Linien werden mittlerweile in allen Devtools der Browser visualisiert. Pionier war hier Firefox, der sicherlich noch die besten Tools für Grid und Flexbox zu bieten hat.
 
@@ -31,7 +31,7 @@ Man sieht in diesem Beispiel, dass die äußeren Enden des Grids immer mit Linie
 
 Ein entscheidender Unterschied zwischen CSS-Grids und Flexbox ist, dass die Grids zweidimensional konstruiert sind. Eventuell macht die Spezifikation deshalb sprachliche Anleihen an Tabellen. Flexbox ist hingegen eindimensional. Um dies zu unterstreichen spricht die Spezifikation nur von Haupt- und Kreuzachse, nutzt also eine recht neutrale Sprache.
 
-Beide Techniken existieren gleichberechtigt nebeneinander und ergänzen unser bisheriges Toolset. Es ist deshalb immer die Herausforderung, für die jeweilige Layoutaufgabe das passende Tool zu wählen. Das kann mal die Flexbox, mal das Grid sein. Und in engen Grenzen gibt es immernoch Anwendungen für Floats. Die unterschiedlichen Formen der Positionierung hingegen werden sicherlich nie vollständig von anderen Techniken ersetzt werden können. 
+Beide Techniken existieren gleichberechtigt nebeneinander und ergänzen unser bisheriges Toolset. Es ist deshalb immer die Herausforderung, für die jeweilige Layoutaufgabe das passende Tool zu wählen. Das kann mal die Flexbox, mal das Grid sein. Und in engen Grenzen gibt es immernoch Anwendungen für Floats. Die unterschiedlichen Formen der Positionierung hingegen werden sicherlich nie vollständig von anderen Techniken ersetzt werden können.
 
 Nur weil eine Technik neu ist, ist sie nicht per se nützlich und für alles zu gebrauchen.
 ## Ein Grid erstellen
@@ -188,10 +188,10 @@ Das Beispiel mit den Prozentwerten müsste man mittels ``calc()`` folgendermasse
 <figure class="card">
     {% highlight "css" %}
 .grid-prozent-2 {
-    grid-template-columns: 
-        calc(25% - 10px) 
-        calc(25% - 20px) 
-        calc(25% - 20px) 
+    grid-template-columns:
+        calc(25% - 10px)
+        calc(25% - 20px)
+        calc(25% - 20px)
         calc(25% - 10px);
 }
     {% endhighlight %}
@@ -279,13 +279,13 @@ Der erste Parameter der ``repeat()``-Funktion ist die Anzahl der Wiederholungen 
     {% highlight "css" %}
 .grid-container-autofill {
     display: grid;
-    grid-template-columns: 
+    grid-template-columns:
         repeat(auto-fill, minmax(100px,1fr));
     grid-gap: 10px;
 }
 .grid-container-autofit {
     display: grid;
-    grid-template-columns: 
+    grid-template-columns:
         repeat(auto-fit, minmax(100px,1fr));
     grid-gap: 10px;
 }
@@ -406,54 +406,7 @@ Der Autor markiert die Auslassungen in diesem Beispiel mit zwei Punkten. Auf die
 
 Im ersten Halbjahr 2022 wurde der Support für den IE11 eingestellt. Aus Frontendentwickler-Sicht ist dieser Browser tot. Deshalb gibt es keinen Grund mehr, sich nicht intensiv mit allen Facetten von CSS-Grid auseinanderzusetzen. Alle modernen Browser beherrschen alle Aspekte dieser Technik.
 
-### IE10 und IE11
-
-IE10 und IE11 - die wie bei Flexbox die ersten Browser waren, die CSS-Grids unterstützen - hatten ein paar Lücken in der Implementierung. Man kann in diesen alten Browsern Grid nutzen, aber nicht alle Features. Vor allem Grid-Areas werden in diesen alten Schlachtschiffen nicht unterstützt. Alle anderen Eigenschaften haben ein „-ms-“-Prefix. Manche werden komplett anders geschrieben. Da der IE wenn nicht tot, so doch fast tot ist, lohnt es sich nicht, zuviel Energie in das Lernen der spezifischen Unterschiede zu stecken. Schon gar nicht sollte man alle Unterschieden manuell pflegen. Das beliebte Tool [Autoprefixer](https://goo.gl/TLpWr8) hilft. Die CSS-Grids müssen allerdings in der Konfiguration aktiviert werden:
-
-{% highlight "js" %}
-    autoprefixer({ grid: true })
-{% endhighlight %}
-
-Doch mit Autoprefixer allein ist uns beim Umgang mit dem IE nicht geholfen. Rachel Andrew führt [in einer Tabelle](https://goo.gl/RGDTLj) alle Grid-Eigenschaften und ihre möglichen IE-spezifischen Pendants auf. Dabei fällt auf, dass viele aktuelle Eigenschaften keine Entsprechung in der alten Version haben und andere wiederum so gelöst werden, dass Autoprefixer leider keine Hilfe ist. 
-
-Bei einem einfachen Grid-Layout ist die Chance hoch, es auch für den IE zum Laufen zu bekommen. Doch alle Theorie verblasst vor einem Blick in die eigene Statistik. Wenn der IE nur noch in Spurenelementen dort auftaucht, lohnt sich kein Beschäftigung mit dem Autoprefixer und manueller Nacharbeit.
-
-CSS-Grid ist die Zukunft des Layouts und für manchen schon die Gegenwart.
-
-{% figImg "css-grid/caniuse.png", "Can I Use gibt hoffnungsvolle Signale." %}
-
-### Progressive Enhancement
-
-Bei neuen Projekten spricht nichts dagegen, gleich mit CSS-Grid (und Flexbox) loszulegen. Es sei denn, das konkrete Projekt hat zuviele Zugriffe von alten und sehr alten Browsern. Insbesondere bei Intranetprojekten und internen Tools kommen solche beschränkenden Anforderungen immernoch vor.
-
-Trotzdem muss man nicht auf moderne Techniken verzichten. Man kann moderne Techniken auch zu den alten, bewährten Techniken hinzufügen. Da es keinen Polyfill für CSS-Grids gibt und wird wohl auch nie einen geben wird, kommt das gute, alte "progressive Enhancement" als Strategie wieder zum Zuge. 
-
-Ziel solte dabei nicht sein, optisch das gleiche Ergebnis für alte Browser zu servieren. Im Geiste von Progressive Enhancement oder Graceful Degredation kann man entweder auf eine bestehende Layoutlösung die neue Technik draufsetzen, um für moderne Browser eine leicht andere Experience zu schaffen. Oder man entwickelt eine schlichte Seite, die für moderne Browser dann mittels CSS-Grids aufgewertet wird. Das Gute an CSS ist ja, dass Browser ihnen unbekannte Eigenschaften einfach ignorieren, anstatt die Verarbeitung wie bei JavaScript mit einem Fehler abzubrechen.
-
-Bei der Verwendung neuet Techniken wie CSS-Grid oder auch Flexbox ignorieren die modernen Browser mögliche alte Lösungen wie Floats, ``display: table-cell`` oder ``display: inline-block`` einfach. Man kann also schlicht [ein bestehendes Layout mit CSS-Grids erweitern](https://codepen.io/jensgro/full/JMRwBO). Weder eine Änderung in der Codereihenfolge (die Kaskade) noch eine Erhöhung der Spezifität ändert etwas daran, dass der CSS-Grid-fähige Browser die Floats ignoriert.
-
-### Feature Queries
-
-Egal ob die Erweiterung eines alten Projektes oder die Erstellung eines neuen Projektes ansteht, wenn alte und moderne Browser gleichermassen gut behandelt werden sollen, lohnt sich eine Beschäftigung mit [Feature Queries](https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/). Sie helfen, eine klare Trennlinie zu ziehen. Und sie machen eine Nutzung des Autoprefixers überflüssig.
-
-Analog zu Media Queries, die einige Umgebungsvariablen des Browsers abfragt, gibt es [Feature Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports). Hier kann man den Browser "fragen", ob eine bestimmte Eigenschaft mit einer konkreten Ausprägung unterstützt wird. Erst bei positiver Beantwortung der Bedingung wird der umklammerte Code ausgeführt.
-
-Im Falle von CSS-Grid ist sehr hilfreich, dass kein IE Feature Queries je beherrscht hat. Jeglicher Code innerhalb von Feature Queries ist also vor dem IE10 und IE11 versteckt:
-
-{% highlight "css" %}
-.container {
-/* Regeln bspw. für eine Floatumgebung für alte Browser */
-}
-@supports(display: grid) {
-    /* Regeln für moderne Browser */
-    .container{
-        display: grid;
-    }
-/* Und viele weitere Regeln ... */
-}
-{% endhighlight  %}
-
-Durch Feature Queries bekommt man eine saubere Trennung von Code für alte und moderne Browser. Nach ein paar Jahren kann man dann den Legacy-Code komplett entfernen und die Feature Queries ebenso. Zurück bliebe moderner Code.
+Es ist deshalb weder notwendig, mit Feature Queries oder mit Autoprefixer zu arbeiten.
 
 ## Zweidimensional
 
@@ -518,9 +471,9 @@ Durch die Hinzugabe der Eigenschaft ``flex-direction: column;`` würden die Flex
 
 Der Browser berechnet bei Flexbox primär in eine Richtung – horizontal oder vertikal. Bei CSS-Grids hingegen rechnet er in zwei Richtungen – horizontal und vertikal. Deshalb sind mit CSS-Grids komplexere Layouts einfacher möglich. Flexbox spielt seine Stärken in einzelnen Modulen aus, also quasi für Mikro-Layout, wohingegen CSS-Grids für Seitenlayouts geschaffen wurden.
 
-Wir sollten allerdings die alten, traditionellen Techniken nicht vergessen. Sie haben trotz dieser beiden neuen Techniken noch immer ihre Berechtigung. Wenn eine Navigation mit ``display: inline-block`` oder Floats wunderbar und ohne Nachteile funktioniert, gibt es keinen vernünftigen Grund, auf eine andere Technik umzusteigen. Diese lohnt nur, wenn sie einen Vorteil bringt. 
+Wir sollten allerdings die alten, traditionellen Techniken nicht vergessen. Sie haben trotz dieser beiden neuen Techniken noch immer ihre Berechtigung. Wenn eine Navigation mit ``display: inline-block`` oder Floats wunderbar und ohne Nachteile funktioniert, gibt es keinen vernünftigen Grund, auf eine andere Technik umzusteigen. Diese lohnt nur, wenn sie einen Vorteil bringt.
 
-Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen. 
+Es ist zudem ein Irrtum, dass CSS-Grids alle anderen Techniken ersetzen. Jede Technik hat ihre Berechtigung, ihre Vor- und Nachteile. CSS-Grids füllen eine Lücke, die vorher nur mit Müh und Not mit Hilfe von dazu nicht primär nicht gedachten Techniken gestopft wurde. Grids können in sehr vielen Situationen ihre Stärken ausspielen.
 
 <aside>
 
@@ -536,7 +489,7 @@ Bei CSS-Tricks gibt es den [A Complete Guide to CSS Grid](https://css-tricks.com
 
 Oder sind ein paar Videotutorials gefällig? Dann sind die 25 Lektionen von Wes Bos sicher eine gute Empfehlung. Der Kanadier hat – von Mozilla finanziert – seinen [kostenlosen und umfangreichen Kurs](https://cssgrid.io) Anfang 2018 veröffentlicht. Inhaltlich kann daran aber kein Vergang sein. Konkrete praktische Fragen geht Jen Simmons in ihrer Videocast-Serie [Layoutland](https://goo.gl/Bw5DAq) auf Youtube an.
 
-[Griddy](https://griddy.io/) ist ein Online-Tool, mit dem man sich ein Grid zusammenklicken kann. Natürlich mit Codeausgabe. Spielerisch kann man sich dem Thema im [Grid Garden](http://cssgridgarden.com/#de) nähern. 
+[Griddy](https://griddy.io/) ist ein Online-Tool, mit dem man sich ein Grid zusammenklicken kann. Natürlich mit Codeausgabe. Spielerisch kann man sich dem Thema im [Grid Garden](http://cssgridgarden.com/#de) nähern.
 </aside>
 
 ## Fazit
