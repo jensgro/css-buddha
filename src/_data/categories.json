@@ -1,3 +1,4 @@
 [
-    { "title": "Artikel", "cat": "post"}
+    { "title": "Artikel", "cat": "post"},
+    { "title": "Notizen", "cat": "notes"}
   ]

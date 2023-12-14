@@ -20,4 +20,13 @@ eleventyNavigation:
       {% endfor %}
     {% endif %}
 
+    {% if "notes" in item.cat %}
+      {% for note in collections.notes %}
+        {% if loop.first %}<ul>{% endif %}
+          <li>
+            <a href="{{ note.url }}">{{ note.data.title }}</a>
+          </li>
+        {% if loop.last %}</ul>{% endif %}
+      {% endfor %}
+    {% endif %}
 {% endfor -%}
