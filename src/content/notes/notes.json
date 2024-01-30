@@ -1,5 +1,6 @@
 {
     "layout": "note.njk",
     "permalink": "notes/{{title | slugify}}.html",
-    "bodyClass": "note"
+    "bodyClass": "note",
+    "tags": "notes"
   }
