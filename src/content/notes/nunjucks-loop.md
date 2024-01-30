@@ -4,33 +4,29 @@ tags:
     - nunjucks
     - template
     - 11ty
+
 source: 
     - "http://mozilla.github.io/nunjucks/templating.html#for"
 
 ---
 
-{% highlight "js" %}
-
-{% raw %}{% for images in index %}{% endraw %}
+```twig
+<ol>
+{% raw %}{% for listitem in list %}{% endraw %}
 {% raw %}{% if (loop.index <= 5) %}{% endraw %}
-    <div class="spacer col-md-2 col-sm-6"> 
-    
-    </div>
-    <div class="yellp-img col-md-2 col-sm-6">
-        <img src="/uploads/images/{{ images.image.filename }}" />
-    </div>
+    <li>{% raw %}{{ listitem.item }}{% endraw %}</li>
 {% raw %}{% endif %}{% endraw %}
 {% raw %}{% endfor %}{% endraw %}
+</ol>
+``` 
 
-{% endhighlight %}
+In Loops gibt es einige spezielle, eingebaute Variablen:
 
-Inside loops, you have access to a few special variables:
-
-- `loop.index`: the current iteration of the loop (1 indexed)
-- `loop.index0`: the current iteration of the loop (0 indexed)
-- `loop.revindex`: number of iterations until the end (1 indexed)
-- `loop.revindex0`: number of iterations until the end (0 based)
-- `loop.first`: boolean indicating the first iteration
-- `loop.last`: boolean indicating the last iteration
-- `loop.length`: total number of items
+- `loop.index`: die aktuelle Iteration der Schleife (beginnend mit 1)
+- `loop.index0`: die aktuelle Iteration der Schleife (beginnend mit 0)
+- `loop.revindex`: Anzahl der Iterationen bis zum Ende (beginnend mit 1)
+- `loop.revindex0`: Anzahl der Iterationen bis zum Ende (beginnend mit 0)
+- `loop.first`: Die erste Iteration (Boolean)
+- `loop.last`: Die letzte Iteration (Boolean)
+- `loop.length`: Absolute Anzahl an Items
 
