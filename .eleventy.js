@@ -71,7 +71,9 @@ module.exports = function (eleventyConfig) {
       <figcaption class="card-footer">${figCaption}</figcaption>
     </figure>`;
   });
-
+  eleventyConfig.addShortcode("myImg", function (img, alt) {
+    return `<img src="../../../images/${img}" class="my-image" alt="${alt}"`;
+  });
   return {
     templateFormats: [
       "md",
