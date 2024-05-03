@@ -1,8 +1,8 @@
-:root {    
+:root {
     --active-brightness: 0.85;
     --hover-brightness: 1.2;
 
-    --border-radius: 5px;
+    --border-radius: 6px;
     --box-shadow: 2px 2px 10px;
 
     --color-accent: #118bee15;
@@ -21,7 +21,7 @@
     --base-fz-code: var(--base-fz);
     --base-font-weight: 500;
     --base-font-weight-code: 500;
-    
+
     --line-height: 1.5;
 
     --justify-important: center;
@@ -31,7 +31,7 @@
     --width-card-medium: 460px;
     --width-card-wide: 800px;
     --width-content: 1080px;
-    
+
     --space1: 0.5em;
     --space2: 1em;
     --space3: 1.5em;
@@ -42,8 +42,11 @@
     --container-width: 1000px;
     // --post-maxWidth: 800px;
 
-    --site-header-bg: var(--color-bg-secondary);
-    --site-header-color: var(--color-text);
+    --site-header-bg: #c63;
+    --site-header-color: #fff;
+
+    --bgcol-1: #fc6;
+    --section-bgcol: var(--bgcol-1);
 }
 
 @media (prefers-color-scheme: dark) {

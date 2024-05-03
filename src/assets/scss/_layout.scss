@@ -37,14 +37,10 @@ main {
     // margin-inline: auto;
 }
 
-.site-header {
-    background-color: var(--siteHeaderBG);
-    border: 1px solid var(--siteHeaderBG);
-    padding: var(--space) calc(var(--space)*2);
-}
 
 .site-nav {
     display: flex;
     list-style-type: none;
     gap: 10px;
 }
+
