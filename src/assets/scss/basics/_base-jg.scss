@@ -28,6 +28,69 @@
 	text-rendering: optimizeSpeed;
     min-height: 100vh;
 }
+// ================== 
+:where(abbr[title]) {
+	text-decoration: underline dotted;
+    cursor: help;
+}
+
+:where(b, strong) {
+	font-weight: bolder;
+}
+
+:where(small) {
+	font-size: 80%;
+}
+
+:where(sub, sup) {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+:where(sub) {
+	bottom: -0.25em;
+}
+
+:where(sup) {
+	top: -0.5em;
+}
+// ================== 
+
+:where(code, kbd, samp, pre) {
+	font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace;
+	font-size: 1rem;
+}
+
+:where(pre) {
+  background-color: var(--code-background-color);
+  padding: var(--space);
+  white-space: pre-wrap;
+
+  // Prism hack 
+  margin-block: 1em;
+  overflow-x: auto;
+  line-height: 1.15;
+
+}
+
+:where(code) {
+  padding: var(--space);
+  color: var(--code-text-color);
+  background-color: var(--code-background-color);
+}
+
+:where(pre code) {
+  padding: unset;
+  background-color: inherit;
+}
 
 // ================== Formulare 
 :where(button) {
@@ -56,12 +119,17 @@
 	cursor: not-allowed;
 }
 
+:where(fieldset > label:first-child) {
+    margin-top: 0;
+}
+
 // =============================== 
 :where(a) {
     color: currentColor;
 	text-underline-offset: 0.2ex;
 }
 
+// ======================= Listen 
 /* 
     barrierefreies Entfernen der Marker, auch für Voice Over
     https://matuzo.at/blog/2023/removing-list-styles-without-affecting-semantics
@@ -71,15 +139,36 @@
     padding-left: 0;
 }
 
+
+:where(dt){
+    font-weight: bold;
+}
+  
+:where(dd) {
+    margin-bottom: 1rem;
+}
+  
+:where(li) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 // ==== Medien ==== 
 
 :where(img, svg, video, canvas, audio, iframe, embed, object) {
 	display: block;
+    vertical-align: middle;
+    max-width: 100%;
+    border: none;
 }
 
 :where(img, picture, svg, video) {
 	max-width: 100%;
 	height: auto;
+}
+
+:where(svg) {
+    overflow: hidden;
 }
 
 /* SVG's without a fill attribute */
@@ -95,6 +184,20 @@
 /* Set a size for SVG's without a width attribute */
 :where(svg):where(:not([width])) {
 	inline-size: 5rem;
+}
+
+:where(figure) {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+  
+:where(figure > *) {
+    text-align: initial;
+}
+
+:where(figure > figcaption) {
+    text-align: center;
 }
 
 // ========= Headlines ======= 
@@ -173,3 +276,43 @@ h3 { font-size: var(--h3-fontsize); }
 h4 { font-size: var(--h4-fontsize); }
 h5 { font-size: var(--h5-fontsize); }
 h6 { font-size: var(--h6-fontsize); }
+
+// ================== Tabellen
+
+:where(table) {
+    display: block;
+    overflow-x: auto;
+    text-indent: 0;
+    border-color: inherit;
+  }
+  
+  :where(td, th, details) {
+    padding: 0.5rem;
+  }
+  
+// ================== 
+:where(dialog) {
+    max-height: calc(100% - 1rem);
+    overflow-y: auto;
+    border: none;
+}
+
+// ================== 
+
+:where(blockquote) {
+  padding: 1rem 2rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+:where(blockquote > p:first-child) {
+    margin-top: 0;
+}
+
+:where(blockquote > p:last-child) {
+  margin-bottom: 0;
+}
+
+// ================== 
+
+// ================== 

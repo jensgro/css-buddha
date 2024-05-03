@@ -1,3 +1,5 @@
+@use "functions" as *;
+
 :root {
   --base-font-size: 16px;
   --body-font-size: 1.25rem;
@@ -7,12 +9,12 @@
   --body-color: #000;
   --body-bgcolor: #fff;
 
-  --h1-fontsize: rem(40);
-  --h2-fontsize: rem(32);
-  --h3-fontsize: rem(26);
-  --h4-fontsize: rem(22);
-  --h5-fontsize: rem(18);
-  --h6-fontsize: rem(16);
+  --h1-fontsize: #{rem(40)};
+  --h2-fontsize: #{rem(32)};
+  --h3-fontsize: #{rem(26)};
+  --h4-fontsize: #{rem(22)};
+  --h5-fontsize: #{rem(18)};
+  --h6-fontsize: #{rem(16)};
 }
 
 :root {
