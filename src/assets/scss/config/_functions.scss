@@ -1,0 +1,16 @@
+@use "sass:math";
+
+// Berechung der REM-Werte aus Pixeln
+// Anwendung ohne Änderung der Basis-Schriftgröße
+//.test1 {
+//    font-size: rem(18);
+//  }
+// Anwendung MIT Änderung der Basis-Schriftgröße
+//  .test2 {
+//    font-size: rem(18, $base: 24);
+//  }
+
+@function rem($fontsize, $base: 16) {
+    $rem: math.div($fontsize, $base) * 1rem;
+    @return $rem;
+}

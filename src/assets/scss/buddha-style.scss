@@ -1,21 +1,6 @@
-// @import "variables";
+@use "config";
+@use "basics";
 
-// Basic Styling
-// @import "cssremedy/remedy";
-// @import "cssremedy/reminders";
-// @import "cssremedy/quotes";
+@use "prism";
 
-// @import "base";
-@import "layout";
-
-@import "fonts";
-
-
-@import "mvp/mvp";
-// @import "highlight-addition";
-// @import "prism-coy";
-// @import "prism";
-// @import "prism-gh-colors";
-@import "prism-one-light";
-// @import "prism-atom-dark";
-// @import "prism-vs";
+@import "modules";

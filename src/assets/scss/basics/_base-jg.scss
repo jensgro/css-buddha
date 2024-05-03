@@ -1,0 +1,175 @@
+@use "../config";
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+// “ ” ‘ ’ 
+:root { quotes: '\201c' '\201d' '\2018' '\2019' } 
+// „ “ ‚ ‘ 
+:root:lang(de),
+:not(:lang(de)) > :lang(de) { quotes: '\201e' '\201c' '\201a' '\2018' } 
+
+:where(html) {
+    font-size: var(--base-font-size);
+    -webkit-text-size-adjust: none;
+    color-scheme: dark light;
+    tab-size: 2;
+}
+
+:where(body) {
+    color: var(--body-color);
+    background-color: var(--body-bgcolor);
+    font-size: var(--body-font-size);
+    font-family: var(--body-ff);
+    line-height: var(--body-line-height);
+    -webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+    min-height: 100vh;
+}
+
+// ================== Formulare 
+:where(button) {
+	all: unset;
+}
+
+:where(input, button, textarea, select) {
+	font: inherit;
+	color: inherit;
+}
+
+:where(textarea) {
+	resize: vertical;
+	resize: block;
+}
+
+:where(button, label, select, summary, [role='button'], [role='option']) {
+	cursor: pointer;
+}
+
+:where(:disabled) {
+	cursor: not-allowed;
+}
+
+:where(label:has(> input:disabled), label:has(+ input:disabled)) {
+	cursor: not-allowed;
+}
+
+// =============================== 
+:where(a) {
+    color: currentColor;
+	text-underline-offset: 0.2ex;
+}
+
+/* 
+    barrierefreies Entfernen der Marker, auch für Voice Over
+    https://matuzo.at/blog/2023/removing-list-styles-without-affecting-semantics
+*/
+:where(ul, ol)[class], :where(ul, ol)[role="list"] {
+    list-style-type: "";
+    padding-left: 0;
+}
+
+// ==== Medien ==== 
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+	display: block;
+}
+
+:where(img, picture, svg, video) {
+	max-width: 100%;
+	height: auto;
+}
+
+/* SVG's without a fill attribute */
+:where(svg):where(:not([fill])) {
+	/* Remove fill and set stroke colour to the inherited font colour */
+	stroke: currentColor;
+	fill: none;
+	/* Rounded stroke */
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* Set a size for SVG's without a width attribute */
+:where(svg):where(:not([width])) {
+	inline-size: 5rem;
+}
+
+// ========= Headlines ======= 
+
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--headline-ff);
+    text-wrap: balance;
+    overflow-wrap: break-word; 
+}
+
+// ========================== 
+
+:where(hr) {
+	border: none;
+	border-block-start: 1px solid;
+	color: inherit;
+	block-size: 0;
+	overflow: visible;
+}
+
+// ================================= 
+
+:where(:focus-visible) {
+	outline: 3px solid CanvasText;
+	box-shadow: 0 0 0 5px Canvas;
+	outline-offset: 1px;
+}
+
+:where(:focus-visible, :target) {
+	scroll-margin-block: 8vh;
+}
+
+// ===== .visually-hidden 
+:where(.visually-hidden:not(:focus-within, :active)) {
+	clip-path: inset(50%) !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+// ============ prefers-reduced-motion 
+
+@media (prefers-reduced-motion: no-preference) {
+	:where(html:focus-within) {
+		scroll-behavior: smooth;
+	}
+}
+
+// Remove decorative motion for users who don’t want them. 
+// https://keithjgrant.com/posts/2024/01/my-css-resets/
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+	  animation-duration: 0.01ms !important;
+	  animation-iteration-count: 1 !important;
+	  transition-duration: 0.01ms !important;
+	  scroll-behavior: auto !important;
+	}
+}
+
+// ===============================
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+
+h1 { font-size: var(--h1-fontsize); }
+h2 { font-size: var(--h2-fontsize); }
+h3 { font-size: var(--h3-fontsize); }
+h4 { font-size: var(--h4-fontsize); }
+h5 { font-size: var(--h5-fontsize); }
+h6 { font-size: var(--h6-fontsize); }
