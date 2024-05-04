@@ -1,4 +1,4 @@
-@use "../config";
+@use "../config" as *;
 *,
 ::after,
 ::before {
@@ -31,6 +31,12 @@
     margin: 0;
     overflow-wrap: break-word;
 }
+// ===============================
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
 // ==================
 :where(abbr[title]) {
 	text-decoration: underline dotted;
@@ -167,6 +173,7 @@
 
 :where(img, picture, svg, video) {
 	max-width: 100%;
+    width: 100%;
 	height: auto;
 }
 
@@ -190,8 +197,8 @@
 }
 
 :where(figure) {
-    margin-right: 0;
-    margin-left: 0;
+    margin-inline: 0;
+    margin-block: var(--space4);
     text-align: center;
   }
 
@@ -200,8 +207,14 @@
 }
 
 :where(figure > figcaption) {
-    text-align: center;
+    background-color: var(--figcaption-bgcol);
+    padding: var(--space2);
 }
+
+:where(figure > img + figcaption) {
+    margin-top: var(--space1);
+}
+
 
 // ========= Headlines =======
 
@@ -210,6 +223,14 @@
     text-wrap: balance;
     overflow-wrap: break-word;
 }
+
+
+h1 { font-size: var(--h1-fontsize); }
+h2 { font-size: var(--h2-fontsize); }
+h3 { font-size: var(--h3-fontsize); }
+h4 { font-size: var(--h4-fontsize); }
+h5 { font-size: var(--h5-fontsize); }
+h6 { font-size: var(--h6-fontsize); }
 
 // ==========================
 
@@ -265,20 +286,6 @@
 	  scroll-behavior: auto !important;
 	}
 }
-
-// ===============================
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
-
-
-h1 { font-size: var(--h1-fontsize); }
-h2 { font-size: var(--h2-fontsize); }
-h3 { font-size: var(--h3-fontsize); }
-h4 { font-size: var(--h4-fontsize); }
-h5 { font-size: var(--h5-fontsize); }
-h6 { font-size: var(--h6-fontsize); }
 
 // ================== Tabellen
 

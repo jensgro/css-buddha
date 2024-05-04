@@ -5,8 +5,18 @@ $orange-1: #c63;
 $mittelbraun: #c90;
 $hellbraun: #fc6;
 
-:root {
+$greengrey: #588189; 
+$mediumblue: #069;
+$lightblue: #09c;
+$dirtyyellow: #cc9;
+$mylightorange: #f1c40f; 
+$mydarkorange: #e67e22; 
+$myred: #a20000; 
+$grau: #666;
 
+$gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
+
+:root {
   --base-font-size: 16px;
   --body-font-size: 1.25rem;
   --body-ff: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -16,13 +26,14 @@ $hellbraun: #fc6;
   --body-bgcolor: #fff;
 
   --container-width: 1000px;
-  // --post-maxWidth: 800px;
 
   --site-header-bg: #{$orange-1};
   --site-header-color: #fff;
 
   --bgcol-1: #fc6;
   --section-bgcol: var(--bgcol-1);
+  --border-col: #{$mydarkorange};
+  --figcaption-bgcol: #{$hellgrau};
 
   --max-body-width: 48rem;
   --bodyColor: rgb(58, 58, 58);
@@ -35,6 +46,9 @@ $hellbraun: #fc6;
   --space4: 2em;
   
   --textColor: #000;
+
+  --post-headline-col: var(--site-header-bg);
+  // --post-headline-col: #{$myred};
 // ==============================
 
   --h1-fontsize: #{rem(60)};

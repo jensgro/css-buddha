@@ -1,0 +1,17 @@
+.teaserlist {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space2);
+
+    li {
+        border: 1px solid var(--border-col);
+        padding: var(--space1);
+
+        a:hover, a:focus {
+            text-decoration: none;
+        }
+    }
+}

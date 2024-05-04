@@ -1,3 +1,5 @@
+@use "../config/variables" as *;
+
 .site-header {
     background-color: var(--site-header-bg);
     color: var(--site-header-color);
@@ -21,7 +23,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
+            background: $gradient1;
           }
     }
 }
