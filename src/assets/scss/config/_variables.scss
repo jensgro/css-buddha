@@ -1,15 +1,45 @@
 @use "functions" as *;
 
+$hellgrau: #f0f0f0;
+$orange-1: #c63;
+$mittelbraun: #c90;
+$hellbraun: #fc6;
+
 :root {
+
   --base-font-size: 16px;
   --body-font-size: 1.25rem;
   --body-ff: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-  --headline-ff: serif;
+  --headline-ff: 'Quando Regular',serif;
   --body-line-height: 1.5;
   --body-color: #000;
   --body-bgcolor: #fff;
 
-  --h1-fontsize: #{rem(40)};
+  --container-width: 1000px;
+  // --post-maxWidth: 800px;
+
+  --site-header-bg: #{$orange-1};
+  --site-header-color: #fff;
+
+  --bgcol-1: #fc6;
+  --section-bgcol: var(--bgcol-1);
+
+  --max-body-width: 48rem;
+  --bodyColor: rgb(58, 58, 58);
+  --mainColor: #fff;
+
+  // === TODO: durchdenken!!!!
+  --space: 10px;
+  --space1: 0.5em;
+  --space2: 1em;
+  --space3: 1.5em;
+  --space4: 2em;
+  --space5: 2.5em;
+  --space6: 3em;
+  --textColor: #000;
+// ==============================
+
+  --h1-fontsize: #{rem(60)};
   --h2-fontsize: #{rem(32)};
   --h3-fontsize: #{rem(26)};
   --h4-fontsize: #{rem(22)};
@@ -67,11 +97,3 @@
     }
   }
 
-:root {
-  --max-body-width: 48rem;
-  --bodyColor: rgb(58, 58, 58);
-  --mainColor: #fff;
-  --space: 10px;
-  --textColor: #000;
-  --siteHeaderBG: rgb(22, 134, 255);
-}

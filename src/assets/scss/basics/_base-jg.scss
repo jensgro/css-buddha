@@ -5,11 +5,11 @@
     box-sizing: border-box;
 }
 
-// “ ” ‘ ’ 
-:root { quotes: '\201c' '\201d' '\2018' '\2019' } 
-// „ “ ‚ ‘ 
+// “ ” ‘ ’
+:root { quotes: '\201c' '\201d' '\2018' '\2019' }
+// „ “ ‚ ‘
 :root:lang(de),
-:not(:lang(de)) > :lang(de) { quotes: '\201e' '\201c' '\201a' '\2018' } 
+:not(:lang(de)) > :lang(de) { quotes: '\201e' '\201c' '\201a' '\2018' }
 
 :where(html) {
     font-size: var(--base-font-size);
@@ -27,8 +27,11 @@
     -webkit-font-smoothing: antialiased;
 	text-rendering: optimizeSpeed;
     min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-wrap: break-word;
 }
-// ================== 
+// ==================
 :where(abbr[title]) {
 	text-decoration: underline dotted;
     cursor: help;
@@ -56,7 +59,7 @@
 :where(sup) {
 	top: -0.5em;
 }
-// ================== 
+// ==================
 
 :where(code, kbd, samp, pre) {
 	font-family:
@@ -74,7 +77,7 @@
   padding: var(--space);
   white-space: pre-wrap;
 
-  // Prism hack 
+  // Prism hack
   margin-block: 1em;
   overflow-x: auto;
   line-height: 1.15;
@@ -92,7 +95,7 @@
   background-color: inherit;
 }
 
-// ================== Formulare 
+// ================== Formulare
 :where(button) {
 	all: unset;
 }
@@ -123,14 +126,14 @@
     margin-top: 0;
 }
 
-// =============================== 
+// ===============================
 :where(a) {
     color: currentColor;
 	text-underline-offset: 0.2ex;
 }
 
-// ======================= Listen 
-/* 
+// ======================= Listen
+/*
     barrierefreies Entfernen der Marker, auch für Voice Over
     https://matuzo.at/blog/2023/removing-list-styles-without-affecting-semantics
 */
@@ -143,17 +146,17 @@
 :where(dt){
     font-weight: bold;
 }
-  
+
 :where(dd) {
     margin-bottom: 1rem;
 }
-  
+
 :where(li) {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-// ==== Medien ==== 
+// ==== Medien ====
 
 :where(img, svg, video, canvas, audio, iframe, embed, object) {
 	display: block;
@@ -191,7 +194,7 @@
     margin-left: 0;
     text-align: center;
   }
-  
+
 :where(figure > *) {
     text-align: initial;
 }
@@ -200,15 +203,15 @@
     text-align: center;
 }
 
-// ========= Headlines ======= 
+// ========= Headlines =======
 
 :where(h1, h2, h3, h4, h5, h6) {
     font-family: var(--headline-ff);
     text-wrap: balance;
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 
-// ========================== 
+// ==========================
 
 :where(hr) {
 	border: none;
@@ -218,7 +221,7 @@
 	overflow: visible;
 }
 
-// ================================= 
+// =================================
 
 :where(:focus-visible) {
 	outline: 3px solid CanvasText;
@@ -230,7 +233,7 @@
 	scroll-margin-block: 8vh;
 }
 
-// ===== .visually-hidden 
+// ===== .visually-hidden
 :where(.visually-hidden:not(:focus-within, :active)) {
 	clip-path: inset(50%) !important;
 	height: 1px !important;
@@ -241,7 +244,7 @@
 	border: 0 !important;
 }
 
-// ============ prefers-reduced-motion 
+// ============ prefers-reduced-motion
 
 @media (prefers-reduced-motion: no-preference) {
 	:where(html:focus-within) {
@@ -249,7 +252,7 @@
 	}
 }
 
-// Remove decorative motion for users who don’t want them. 
+// Remove decorative motion for users who don’t want them.
 // https://keithjgrant.com/posts/2024/01/my-css-resets/
 
 @media (prefers-reduced-motion: reduce) {
@@ -285,19 +288,19 @@ h6 { font-size: var(--h6-fontsize); }
     text-indent: 0;
     border-color: inherit;
   }
-  
+
   :where(td, th, details) {
     padding: 0.5rem;
   }
-  
-// ================== 
+
+// ==================
 :where(dialog) {
     max-height: calc(100% - 1rem);
     overflow-y: auto;
     border: none;
 }
 
-// ================== 
+// ==================
 
 :where(blockquote) {
   padding: 1rem 2rem;
@@ -313,6 +316,6 @@ h6 { font-size: var(--h6-fontsize); }
   margin-bottom: 0;
 }
 
-// ================== 
+// ==================
 
-// ================== 
+// ==================

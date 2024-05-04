@@ -1,0 +1,34 @@
+.site-header {
+    background-color: var(--site-header-bg);
+    color: var(--site-header-color);
+    padding-block: 0 var(--space1);
+    padding-inline: var(--space2);
+    width: 100%;
+
+    .wrap {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+        max-width: 1000px;
+        position: relative;
+        margin-inline: auto;
+        padding-top: var(--space4);
+
+        &:before {
+            content: "";
+            position: absolute;
+            height: 1em;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
+          }
+    }
+}
+.my-image {
+    width: 200px;
+}
+.site-title {
+    font-family: "Quando Regular", system-ui, sans-serif;
+    font-size: max(24px, 4rem);
+}
