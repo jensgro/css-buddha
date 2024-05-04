@@ -1,0 +1,5 @@
+{% if loop.first %}<ul>{% endif %}
+    <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+    </li>
+{% if loop.last %}</ul>{% endif %}
