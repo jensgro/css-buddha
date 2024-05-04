@@ -9,7 +9,7 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         gap: 20px;
-        max-width: 1000px;
+        max-width: var(--container-width);
         position: relative;
         margin-inline: auto;
         padding-top: var(--space4);

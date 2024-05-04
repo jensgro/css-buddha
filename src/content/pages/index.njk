@@ -7,8 +7,9 @@ eleventyNavigation:
   key: home
   order: 1
 ---
-
 {%- for item in categories %}
+<section>
+  <div class="container">
     <h2>{{ item.title }}</h2>
     {% if "post" in item.cat %}
       {% for post in collections.post %}
@@ -30,4 +31,6 @@ eleventyNavigation:
       {% endfor %}
     {% endif %}
 
+  </div>
+</section>
 {% endfor -%}
