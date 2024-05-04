@@ -105,7 +105,7 @@ pre {
 
 pre {
   background-color: var(--code-background-color);
-  padding: var(--space);
+  padding: var(--space1);
   white-space: pre-wrap;
 
   /* Prism hack */
@@ -116,7 +116,7 @@ pre {
 }
 
 code {
-  padding: var(--space);
+  padding: var(--space1);
   color: var(--code-text-color);
   background-color: var(--code-background-color);
 }
