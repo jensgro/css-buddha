@@ -2,4 +2,9 @@
     h2 {
         color: var(--post-headline-col);
     }
+    &-date {
+        display: inline-block;
+        margin-left: var(--space4);
+        font-size: 1rem;
+    }
 }

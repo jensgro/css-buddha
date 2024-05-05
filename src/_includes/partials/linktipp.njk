@@ -1,0 +1,9 @@
+<div class="linktipp">	
+    {% for link in linktipp %}
+        {% if loop.first %}<ul class="simple-list">{% endif %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a> 
+            </li>
+        {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+</div>	

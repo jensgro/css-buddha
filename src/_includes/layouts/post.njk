@@ -7,5 +7,14 @@ layout: base.njk
 		<p class="lead">{{ lead }}</p>
 		{% endif %}
 		{{ content | safe }}
+		{% if tags %}
+			{% include "partials/tags.njk" %}
+		{% endif %}
+		{% if source %}
+			<div class="source"><a href="{{source.url | url}}">{{source.name}}</a></div>	
+		{% endif %}
+		{% if linktipp %}
+			{% include "partials/linktipp.njk" %}
+		{% endif %}
 	</article>
 </main>

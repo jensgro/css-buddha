@@ -2,6 +2,10 @@
 title: Einführung in CSS-Grid
 lead: Seit ein paar Jahren gibt es mit Flexbox ein erstes, echtes Layoutmodul in CSS. Vorher behalfen wir uns mit Techniken, die für Seitenlayouts nur bedingt geeignet und nie gedacht waren. Mit CSS-Grids wurde kurz danach eine zweite Layouttechnik eingeführt, die von allen modernen Browsern unterstützt wird.
 date: 2024-05-01
+tags:
+    - css
+    - css-grid
+
 ---
 
 Ein "Grid" ist in der Gestaltung ein alter Hut und demnach auch in der Frontend-Entwicklung bekannt. Er bezeichnet die Verteilung von Inhalten nach einem unsichtbaren Raster (engl.: grid). Bisherige Raster sind grundsätzlich eindimensional ausgerichtet. In unserer westlichen Leserichtung sind die Gridspalten vertikal ausgerichtet. Viele Jahre haben wir - nachdem Layouttabellen endlich ausgestorben waren - diese Grids mit Floats realisiert. Die Umsetzung war manchmal hakelig, es gab einige störende Browser-Bugs. Deshalb waren generalisierte Lösungen beliebt. Die von Bootstrap ist sicherlich die bekannteste.
@@ -495,4 +499,4 @@ Oder sind ein paar Videotutorials gefällig? Dann sind die 25 Lektionen von Wes 
 
 ## Fazit
 
-Endlich gibt es eine ausgefeilte Technik für Seitenlayouts. Und da der IE mittlerweile tot ist, müssen wir uns auch nicht mehr in der Verwendung zurückhalten. Im Gegensatz zu früher haben wir keine unterschiedlichen Versionen mit Vendor-Prefixes wie ``-webkit-`` und ``-moz-``. Glücklicherweise ist die neue Technik so in alle modernen Browser integriert, dass sie alte Layoutlösungen einfach überschreibt. Man kann also ältere Projekte sukzessive moderniesieren und behält einen Fallback immer bei. Viel Spaß bei der Gestaltung der Zukunft!
+Endlich gibt es eine ausgefeilte Technik für Seitenlayouts. Und da der IE mittlerweile tot ist, müssen wir uns auch nicht mehr in der Verwendung zurückhalten. Im Gegensatz zu früher haben wir keine unterschiedlichen Versionen mit Vendor-Prefixes wie ``-webkit-`` und ``-moz-``. Glücklicherweise ist die neue Technik so in alle modernen Browser integriert, dass sie alte Layoutlösungen einfach überschreibt. Man kann also ältere Projekte sukzessive modernisieren und behält einen Fallback immer bei. Viel Spaß bei der Gestaltung der Zukunft!
