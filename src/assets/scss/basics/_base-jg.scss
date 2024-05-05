@@ -14,7 +14,6 @@
 :where(html) {
     font-size: var(--base-font-size);
     -webkit-text-size-adjust: none;
-    color-scheme: dark light;
     tab-size: 2;
 }
 
@@ -79,7 +78,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 :where(pre) {
-  background-color: var(--code-background-color);
   padding: var(--space1);
   white-space: pre-wrap;
 
@@ -92,8 +90,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 :where(code) {
   padding: var(--space1);
-  color: var(--code-text-color);
-  background-color: var(--code-background-color);
 }
 
 :where(pre code) {

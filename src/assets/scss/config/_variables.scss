@@ -17,40 +17,47 @@ $grau: #666;
 $gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
 
 :root {
+  // ====== Abstände
+  --space1: 0.5em;
+  --space2: 1em;
+  --space3: 1.5em;
+  --space4: 2em;
+
+  // ====== Farben generell
+  --bgcol-1: #fc6;
+
+  // ====== Schriften
   --base-font-size: 16px;
   --body-font-size: 1.25rem;
   --body-ff: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   --headline-ff: 'Quando Regular',serif;
+
+  // ====== Seite selber
   --body-line-height: 1.5;
   --body-color: #000;
   --body-bgcolor: #fff;
-
   --container-width: 1000px;
 
+  // ====== Header und Footer
   --site-header-bg: #{$orange-1};
   --site-header-color: #fff;
+  --site-footer-bg: var(--site-header-bg);
+  --site-footer-color: #fff;
 
-  --bgcol-1: #fc6;
+
   --section-bgcol: var(--bgcol-1);
   --border-col: #{$mydarkorange};
   --figcaption-bgcol: #{$hellgrau};
   --marker-col: #{$mydarkorange};
 
-  --max-body-width: 48rem;
-  --bodyColor: rgb(58, 58, 58);
-  --mainColor: #fff;
+  // ====== Navigation
+  --nav-gap: var(--space1);
 
-  // === TODO: durchdenken!!!!
-  --space1: 0.5em;
-  --space2: 1em;
-  --space3: 1.5em;
-  --space4: 2em;
-  
-  --textColor: #000;
-
+  // ====== Posts
   --post-headline-col: var(--site-header-bg);
   // --post-headline-col: #{$myred};
-// ==============================
+
+  // ====== Schriftgrößen
 
   --h1-fontsize: #{rem(60)};
   --h2-fontsize: #{rem(32)};
@@ -61,9 +68,10 @@ $gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%,
 }
 
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-
-//   }
-// }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bgcolor: #000;
+    --body-color: #fff;
+  }
+}
 

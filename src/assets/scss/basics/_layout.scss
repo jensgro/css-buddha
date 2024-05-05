@@ -1,8 +1,15 @@
+body, html {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
 
 main {
     max-width: var(--width-content);
     padding: var(--space1) calc(var(--space1)*4);
-    background-color: var(--mainColor);
 }
 
 .container {
@@ -10,3 +17,9 @@ main {
     margin-inline: auto;
 }
 
+.site-footer {
+    color: var(--site-footer-color);
+    background-color: var(--site-footer-bg);
+    padding: var(--space1) var(--space2);
+    margin-top: auto;
+}

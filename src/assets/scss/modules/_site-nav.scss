@@ -1,6 +1,12 @@
-.site-nav {
+.nav {
     display: flex;
     list-style-type: none;
-    gap: 10px;
+    gap: var(--nav-gap);
 }
 
+.footer-nav {
+    --nav-gap: var(--space4);
+    .nav-link--distance {
+        margin-right: auto;
+    }
+}
