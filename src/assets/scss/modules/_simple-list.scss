@@ -1,0 +1,14 @@
+.simple-list {
+    list-style-type: disc;
+    padding-left: 0.5rem;
+    
+    ::marker {
+        color: var(--marker-col);
+    }
+
+    a {
+        text-decoration-color: var(--marker-col);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+    }
+}
