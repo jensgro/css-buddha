@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Notizen
+bodyClass: subindex
+permalink: /notizen.html
+eleventyNavigation:
+  key: notes
+  title: Notizen
+  order: 2
+---
+{%- for item in categories %}
+    {% if "notes" in item.cat %}
+    <section>
+    <div class="container">
+        <h2>{{ item.title }}</h2>
+      {% for post in collections.getAllNotes %}
+        {% include "partials/simple-list.njk" %}
+      {% endfor %}
+    </div>
+    </section>
+    {% endif %}
+{% endfor %}

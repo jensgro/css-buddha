@@ -4,7 +4,7 @@ title: CSS-Buddha
 permalink: /index.html
 bodyClass: index
 eleventyNavigation:
-  key: home
+  key: Startseite
   order: 1
 ---
 {%- for item in categories %}
@@ -12,13 +12,13 @@ eleventyNavigation:
   <div class="container">
     <h2>{{ item.title }}</h2>
     {% if "post" in item.cat %}
-      {% for post in collections.post %}
+      {% for post in collections.getAllPosts %}
         {% include "partials/simple-list.njk" %}
       {% endfor %}
     {% endif %}
 
     {% if "notes" in item.cat %}
-      {% for post in collections.notes %}
+      {% for post in collections.getAllNotes %}
         {% include "partials/simple-list.njk" %}
       {% endfor %}
     {% endif %}

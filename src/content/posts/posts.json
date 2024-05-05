@@ -2,5 +2,5 @@
     "layout": "post.njk",
     "permalink": "post/{{title | slugify}}.html",
     "bodyClass": "post",
-    "tags": "post"
+    "category": "post"
   }

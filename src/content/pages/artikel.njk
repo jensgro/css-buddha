@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: Meine Artikel
+bodyClass: subindex
+permalink: /artikel.html
+eleventyNavigation:
+  key: posts
+  title: Meine Artikel
+  order: 3
+---
+{%- for item in categories %}
+    {% if "post" in item.cat %}
+    <section>
+    <div class="container">
+        <h2>{{ item.title }}</h2>
+      {% for post in collections.getAllPosts %}
+        {% include "partials/simple-list.njk" %}
+      {% endfor %}
+    </div>
+    </section>
+    {% endif %}
+{% endfor %}

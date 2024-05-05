@@ -10,8 +10,15 @@ const htmlDateString = require("./src/_11ty/filters/date.js").htmlDateString;
 const head = require("./src/_11ty/filters/head.js");
 
 // collections
-const infosDescending = require("./src/_11ty/collections/infosDescending.js");
-const tagList = require("./src/_11ty/collections/tagList.js");
+// const infosDescending = require("./src/_11ty/collections/infosDescending.js");
+// const tagList = require("./src/_11ty/collections/tagList.js");
+
+const {
+  getAllPosts,
+  getAllNotes
+} = require("./src/_11ty/collections/index.js");
+
+const configPath = "./src/_11ty/";
 
 // neu
 // const markdownLib = require('./config/plugins/markdown.js');
@@ -24,8 +31,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("htmlDateString", htmlDateString);
   eleventyConfig.addFilter("head", head);
 
-  eleventyConfig.addCollection("infosDescending", infosDescending);
-  eleventyConfig.addCollection("tagList", tagList);
+  // eleventyConfig.addCollection("infosDescending", infosDescending);
+  // eleventyConfig.addCollection("tagList", tagList);
+  eleventyConfig.addCollection("getAllPosts", getAllPosts);
+  eleventyConfig.addCollection("getAllNotes", getAllNotes);
+
+  eleventyConfig.addPlugin(pluginNavigation);
 
    // --------------------- layout aliases -----------------------
    eleventyConfig.addLayoutAlias('base', 'base.njk');
@@ -39,13 +50,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({
     "./src/assets/images": "/images",
-    "./src/assets/fonts": "/fonts"
-  });
-  eleventyConfig.addPassthroughCopy("css");
-  // eleventyConfig.addPassthroughCopy({"./src/assets/scss/fonts": "css/fonts"});
-  eleventyConfig.addPassthroughCopy({
+    "./src/assets/fonts": "/fonts",
     "./src/static/": "/"
   });
+  eleventyConfig.addPassthroughCopy("css");
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -61,9 +69,14 @@ module.exports = function (eleventyConfig) {
   });
 
   // Watch CSS files for changes
-  eleventyConfig.setBrowserSyncConfig({
-    files: './_site/css/**/*.css'
-  });
+  // eleventyConfig.setBrowserSyncConfig({
+  //   files: './_site/css/**/*.css'
+  // });
+
+  eleventyConfig.setServerOptions({
+    showAllHosts: true,
+    showVersion: true
+  }); 
 
   eleventyConfig.addShortcode("figImg", function (img, figCaption, alt) {
     return `<figure class="card">
@@ -84,6 +97,7 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
+    passthroughFileCopy: true,
     dir: {
       input: "src",
       includes: "_includes",
