@@ -1,5 +1,6 @@
 .nav {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     gap: var(--nav-gap);
 }
@@ -8,5 +9,19 @@
     --nav-gap: var(--space4);
     .nav-link--distance {
         margin-right: auto;
+    }
+}
+
+.main-nav {
+    &__nav {
+        --nav-gap: var(--space4);
+    }
+    &__link {
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
     }
 }

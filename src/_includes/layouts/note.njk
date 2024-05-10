@@ -15,12 +15,8 @@ layout: base.njk
 			{% endfor %}
 		</div>
 		{% endif %}
-		<ul>
-			{% for t in tags %}
-			<li>
-				{{ t }}
-			</li>
-			{% endfor %}
-		</ul>
+		{% if tags %}
+			{% include "partials/tags.njk" %}
+		{% endif %}
 	</article>
 </main>

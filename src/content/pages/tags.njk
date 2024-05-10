@@ -1,0 +1,23 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - notes
+    - posts
+    - all
+    - getAllPosts
+    - getAllNotes
+  addAllPagesToCollections: true
+layout: post.njk
+bodyClass: tag
+renderData:
+  title: Kategorie "{{ tag }}"
+permalink: /tags/{{ tag }}/
+eleventyExcludeFromCollections: true
+
+---
+{% set tags = collections[ tag ] %}
+{% include "partials/tags.njk" %}
+

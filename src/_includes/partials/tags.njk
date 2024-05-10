@@ -1,10 +1,11 @@
+    <h2>{{ tag }}</h2>
     <div class="tags">
       <ul class="taglist">
-        {%- for tag in tags -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        {%- for t in tags -%}
+        {% set tagUrl %}/tags/{{ t }}/{% endset %}
         <li class="taglist__item">
           <a class="taglist__link" href="{{ tagUrl | url }}">
-            {{ tag }}
+            {{ t }}
           </a>
         </li>
         {%- endfor -%}
