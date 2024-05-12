@@ -1,16 +1,16 @@
 {# -------- #}
 <footer class="site-footer">
   <div class="container no-print">
-    <ul class="nav footer-nav">
-      <li{% if bodyClass == "index" %} class="nav-link--distance"{% endif %}>
-      <a href="https://grochtdreis.de">Jens Grochtdreis</a>  
+    <ul class="nav nav--footer">
+      <li{% if bodyClass == "index" %} class="nav__item--distance"{% endif %}>
+      <a class="nav__link" href="https://grochtdreis.de">Jens Grochtdreis</a>  
       </li>
       {% if bodyClass != "index" %}
-      <li class="nav-link nav-link--distance"><a href="{{ '/' | url }}">zurück zur Startseite</a></li>
+      <li class="nav__item nav__item--distance"><a class="nav__link" href="{{ '/' | url }}">zurück zur Startseite</a></li>
       {% endif %}
-      <li class="nav-link"><a href="/impressum.html">Impressum</a></li>
-      <li class="nav-link"><a href="/kolophon.html">Kolophon</a></li>
-      {# <li class="nav-link"><a href="/bilderrechte/">Bilderrechte</a></li> #}
+      <li class="nav__item"><a class="nav__link" href="/impressum.html">Impressum<item/li>
+      <li class="nav__item"><a class="nav__link" href="/kolophon.html">Kolophon</a></li>
+      {# <li class="nav__item"><a class="nav__link" href="/bilderrechte/">Bilderrechte</a></li> #}
     </ul>
   </div>
 </footer>

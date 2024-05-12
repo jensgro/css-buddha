@@ -1,0 +1,10 @@
+    <h2>{{ tag | capitalize }}</h2>
+    <ul>
+    {%- for t in tags -%}
+        <li>
+            <a href="{{ t.url | url }}">
+            {{ t.data.title }}
+            </a>
+        </li>
+    {%- endfor -%}
+    </ul>

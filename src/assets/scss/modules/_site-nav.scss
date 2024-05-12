@@ -3,20 +3,14 @@
     flex-wrap: wrap;
     list-style-type: none;
     gap: var(--nav-gap);
-}
 
-.footer-nav {
-    --nav-gap: var(--space4);
-    .nav-link--distance {
+    &__item--distance {
         margin-right: auto;
     }
-}
 
-.main-nav {
-    &__nav {
-        --nav-gap: var(--space4);
-    }
     &__link {
+        display: block;
+        padding: var(--_link-padding, 0);
         text-decoration-thickness: 3px;
         text-underline-offset: 3px;
 
@@ -25,3 +19,23 @@
         }
     }
 }
+
+.nav--main {
+    --nav-gap: var(--space2);
+    --_link-padding: var(--space1) var(--space2);
+
+    .nav__link--active {
+        background-color: #fff;
+        color: var(--site-header-bg);
+        
+
+        &:hover, &:focus{
+            text-decoration: none;
+        }
+    }
+}
+
+
+// .nav--footer {
+    
+// }

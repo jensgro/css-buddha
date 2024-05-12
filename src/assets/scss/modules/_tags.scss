@@ -1,0 +1,21 @@
+.tags {
+
+}
+
+.taglist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nav-gap);
+    padding-top: var(--space2);
+    border-top: 2px solid var(--border-col);
+    
+    &__link {
+        text-decoration-color: var(--marker-col);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+}

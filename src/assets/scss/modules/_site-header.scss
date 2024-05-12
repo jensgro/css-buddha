@@ -33,4 +33,15 @@
 .site-title {
     font-family: "Quando Regular", system-ui, sans-serif;
     font-size: max(24px, 4rem);
+
+    a {
+        text-decoration: none;
+
+        &:hover, &:focus {
+            text-decoration: underline;
+            text-decoration-color: var(--site-header-color);
+            text-decoration-thickness: 6px;
+            text-underline-offset: 4px;
+        }
+    }
 }

@@ -5,18 +5,14 @@ bodyClass: subindex
 permalink: /artikel.html
 eleventyNavigation:
   key: posts
-  title: Meine Artikel
+  title: Artikel
   order: 3
 ---
-{%- for item in categories %}
-    {% if "post" in item.cat %}
-    <section>
-    <div class="container">
-        <h2>{{ item.title }}</h2>
-      {% for post in collections.getAllPosts %}
-        {% include "partials/simple-list.njk" %}
-      {% endfor %}
-    </div>
-    </section>
-    {% endif %}
-{% endfor %}
+<section>
+  <div class="container">
+      <h2>{{ title }}</h2>
+    {% for post in collections.getAllPosts %}
+      {% include "partials/simple-list.njk" %}
+    {% endfor %}
+  </div>
+</section>

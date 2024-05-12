@@ -1,7 +1,27 @@
 <header class="site-header">
     <div class="wrap">
-        <h1 class="site-title">{{ metadata.title }}</h1>
+        <h1 class="site-title">
+        {% if bodyClass != "index" %}
+        <a href="/">
+        {% endif %}
+        {{ metadata.title }}
+        {% if bodyClass != "index" %}
+        </a>
+        {% endif %}
+        </h1>
         {% myImg "css-buddha/blue_v1.min.svg", "Eine ältere Karikatur meinerselbst als Buddha. Ich winke wohlbeleibt mit einem Laptop in der Hand." %}
     </div>
-    {% include "partials/navigation.njk" %}
+    <nav>
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+        <ul class="nav nav--main">
+        {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav__item">
+                <a  class="nav__link{% if entry.url == page.url or entry.key == category %} nav__link--active{% endif %}"
+                    href="{{ entry.url | url }}">
+                    {{ entry.title }}
+                </a>
+            </li>
+        {%- endfor %}
+        </ul>
+    </nav>
 </header>
