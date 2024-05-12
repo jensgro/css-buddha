@@ -5,3 +5,9 @@
         margin: 0;
     }
 }
+
+.card-footer {
+    > p:only-child {
+        margin-block: 0;
+    }
+}
