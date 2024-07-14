@@ -1,24 +1,28 @@
 ---
 title: Einen Teil eines Loops durchlaufen
-tags: 
+tags:
     - nunjucks
     - template
     - 11ty
 
-source: 
+source:
     - "http://mozilla.github.io/nunjucks/templating.html#for"
 
 ---
 
-```twig
+{% highlight "twig" %}
+{% raw %}
 <ol>
-{% raw %}{% for listitem in list %}{% endraw %}
-{% raw %}{% if (loop.index <= 5) %}{% endraw %}
-    <li>{% raw %}{{ listitem.item }}{% endraw %}</li>
-{% raw %}{% endif %}{% endraw %}
-{% raw %}{% endfor %}{% endraw %}
+    {% for listitem in list %}
+    {% if (loop.index <= 5) %}
+        <li>{{ listitem.item }}</li>
+    {% endif %}
+    {% endfor %}
 </ol>
-``` 
+{% endraw %}
+{% endhighlight %}
+
+In diesem Beispiel gehe ich davon aus, dass das Array aus Objekten besteht, die mindestens ein ``"item"`` haben.
 
 In Loops gibt es einige spezielle, eingebaute Variablen:
 
