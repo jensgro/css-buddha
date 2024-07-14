@@ -1,5 +1,5 @@
 ---
-title: String concatenation in Nunjucks
+title: Nutzung von Variablen in Nunjucks
 tags:
     - nunjucks
     - template
