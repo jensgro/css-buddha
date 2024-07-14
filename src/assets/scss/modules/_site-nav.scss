@@ -21,21 +21,26 @@
 }
 
 .nav--main {
-    --nav-gap: var(--space2);
-    --_link-padding: var(--space1) var(--space2);
+    --nav-gap: var(--space1);
+    --_link-padding: 0.25em;
 
     .nav__link--active {
         background-color: #fff;
         color: var(--site-header-bg);
-        
+
 
         &:hover, &:focus{
             text-decoration: none;
         }
     }
+
+    @media (min-width: 410px) {
+        --nav-gap: var(--space2);
+        --_link-padding: var(--space1) var(--space2);
+    }
 }
 
 
-// .nav--footer {
-    
-// }
+.nav--main, .nav--footer {
+    margin-block: 0;
+}

@@ -1,9 +1,9 @@
 @use "../config/variables" as *;
 
 .site-header {
-    background-color: var(--site-header-bg);
-    color: var(--site-header-color);
-    padding-block: 0 var(--space1);
+    // background-color: var(--site-header-bg);
+    // color: var(--site-header-color);
+    // padding-block: 0 var(--space1);
     padding-inline: var(--space2);
     width: 100%;
 
@@ -14,7 +14,7 @@
         max-width: var(--container-width);
         position: relative;
         margin-inline: auto;
-        padding-top: var(--space4);
+        padding-top: var(--space2);
 
         &:before {
             content: "";
@@ -24,7 +24,11 @@
             left: 0;
             right: 0;
             background: $gradient1;
-          }
+        }
+
+        nav {
+            grid-column: -3 / -1;
+        }
     }
 }
 .my-image {
