@@ -5,16 +5,24 @@ $orange-1: #c63;
 $mittelbraun: #c90;
 $hellbraun: #fc6;
 
-$greengrey: #588189; 
+$greengrey: #588189;
 $mediumblue: #069;
 $lightblue: #09c;
 $dirtyyellow: #cc9;
-$mylightorange: #f1c40f; 
-$mydarkorange: #e67e22; 
-$myred: #a20000; 
+$mylightorange: #f1c40f;
+$mydarkorange: #e67e22;
+$myred: #a20000;
 $grau: #666;
 
-$gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
+//$gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%, #09c 48%, #cc9 48%, #cc9 56%, #f1c40f 56%, #f1c40f 68%, #e67e22 68%, #e67e22 76%, #a20000 76%, #a20000 90%, #666 90%, #666 100%);
+$gradient1: linear-gradient(to right, $greengrey 10%,
+                                      $mediumblue 10%, $mediumblue 25%,
+                                      $lightblue 25%, $lightblue 48%,
+                                      $dirtyyellow 48%, $dirtyyellow 56%,
+                                      $mylightorange 56%, $mylightorange 68%,
+                                      $mydarkorange 68%, $mydarkorange 76%,
+                                      $myred 76%, $myred 90%,
+                                      $grau 90%, $grau 100%);
 
 :root {
   // ====== Abstände
@@ -41,14 +49,14 @@ $gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%,
   // ====== Header und Footer
   --site-header-bg: #{$orange-1};
   --site-header-color: #fff;
-  --site-footer-bg: var(--site-header-bg);
+  --site-footer-bg: #{$myred};
   --site-footer-color: #fff;
 
 
   --section-bgcol: var(--bgcol-1);
   --border-col: #{$mydarkorange};
   --figcaption-bgcol: #{$hellgrau};
-  --marker-col: #{$mydarkorange};
+  --marker-col: #{$myred};
 
   // ====== Navigation
   --nav-gap: var(--space1);
@@ -59,7 +67,7 @@ $gradient1: linear-gradient(to right, #588189 10%, #069 10%, #069 25%, #09c 25%,
 
   // ====== Schriftgrößen
 
-  --h1-fontsize: #{rem(60)};
+  --h1-fontsize: #{rem(48)};
   --h2-fontsize: #{rem(32)};
   --h3-fontsize: #{rem(26)};
   --h4-fontsize: #{rem(22)};
