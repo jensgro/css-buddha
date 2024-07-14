@@ -1,27 +1,23 @@
 ---
 title: String concatenation in Nunjucks
-tags: 
+tags:
     - nunjucks
     - template
     - 11ty
-source: 
+source:
     - https://github.com/11ty/eleventy/issues/297
     - https://michaelheap.com/nunjucks-concatenate-string/
 ---
 
-I think you want to use set to set a variable.
-
-Two ways:
+Es gibt mehrere Wege, Variablen in Nunjucks zu setzen und zu nutzen.
 
 {% highlight "js" %}
 {% raw %}
-
 {% set canonical = config.baseUrl + page.url %}
-
 {% endraw %}
 {% endhighlight %}
 
-or
+Wenn es mehrere Operationen benötigt und alles ein wenig unübersichtlich zu werden droht, kann man auch diesen Weg beschreiten:
 
 {% highlight "js" %}
 {% raw %}
@@ -33,25 +29,7 @@ or
 {% endraw %}
 {% endhighlight %}
 
-The latter is useful if you want to capture a bunch of things, potentially with a lot of content.
-
----------
-
-I recently needed to dynamically create a URL using `nunjucks`.
-
-My first attempt was to use string interpolation:
-
-{% highlight "js" %}
-{% raw %}
-
-{% set url = "/bits/{{ data.slug }}" %}
-
-{% endraw %}
-{% endhighlight %}
-
-This didn't work.
-
-It turns out that to build a string from multiple parts, you should use an array and the `join` filter:
+Aufpassen muss man aber, wenn man nicht nur Variablen miteinander kombiniert, sondern auch Text dazu kommt. Dann muss ein anderer Weg beschritten werden:
 
 {% highlight "js" %}
 {% raw %}
@@ -61,5 +39,4 @@ It turns out that to build a string from multiple parts, you should use an array
 {% endraw %}
 {% endhighlight %}
 
-This worked as intended
-
+Hier wird ein Array erstellt, dessen Bestandteile dann mit ``join`` zusammengefasst werden.
