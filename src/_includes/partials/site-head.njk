@@ -1,6 +1,11 @@
 <header class="site-header">
     <div class="wrap">
+        {% if bodyClass == "index" %}
         <h1 class="site-title">
+        {% endif %}
+        {% if bodyClass != "index" %}
+        <div class="site-title">
+        {% endif %}
         {% if bodyClass != "index" %}
         <a href="/">
         {% endif %}
@@ -8,7 +13,12 @@
         {% if bodyClass != "index" %}
         </a>
         {% endif %}
+        {% if bodyClass != "index" %}
+        </div>
+        {% endif %}
+        {% if bodyClass == "index" %}
         </h1>
+        {% endif %}
         {% myImg "css-buddha/blue_v1.min.svg", "Eine ältere Karikatur meinerselbst als Buddha. Ich winke wohlbeleibt mit einem Laptop in der Hand." %}
     </div>
     <nav>

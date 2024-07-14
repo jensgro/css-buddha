@@ -34,9 +34,14 @@
 .my-image {
     width: 200px;
 }
+// NOTE: Wiederholungen von Regeln von h1, da die Überschrift nur auf der Startseite eine h1 ist.
 .site-title {
     font-family: "Quando Regular", system-ui, sans-serif;
     font-size: max(24px, 4rem);
+    margin-block: .7em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    font-weight: bold;
 
     a {
         text-decoration: none;
