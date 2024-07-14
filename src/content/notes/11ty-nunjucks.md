@@ -7,19 +7,19 @@ source:
     - https://github.com/11ty/eleventy/issues/2611
 ---
 
-Es kann sehr sinnvoll sein, keine Markdown-Dateien, sondern Nunjucks-Dateien zu erstellen und dann spezielle Nunjucks-Features zu nutzen.
+Es kann sehr sinnvoll sein, in 11ty keine Markdown-Dateien, sondern Nunjucks-Dateien zu erstellen um spezielle Nunjucks-Features zu nutzen.
 
-Wenn man in einer Nunjucks-Seite anstelle des Links zum Template im Frontmatter das Template “extended”, dann kann man auf erweiterte Features zugreifen, die sonst nicht möglich sind.
+Hierfür muss man den Verweis auf das Template aus dem Frontmatter lösen. Das FRontmatter kann trrotzdem weiter genutzt werden. Für die Verwendung des Templates "extended" man die Nunjucks-Datei.
 
-```jsx
+{% highlight "twig" %}
 {% raw %}
 {% extends 'template.njk' %}
 {% endraw %}
-```
+{% endhighlight %}
 
 Dann kann man auch zwei oder mehr Contentblöcke in einer Seite nutzen:
 
-```jsx
+{% highlight "twig" %}
 {% raw %}
 ---
 title: "My page"
@@ -40,4 +40,4 @@ parameter3: 3333
 {% endblock %}
 
 {% endraw %}
-```
+{% endhighlight %}
