@@ -1,9 +1,8 @@
-{# -------- #}
 <footer class="site-footer">
   <div class="container no-print">
     <ul class="nav nav--footer">
       <li{% if bodyClass == "index" %} class="nav__item--distance"{% endif %}>
-      <a class="nav__link" href="https://grochtdreis.de">Jens Grochtdreis</a>  
+      <a class="nav__link" href="https://grochtdreis.de">Jens Grochtdreis</a>
       </li>
       {% if bodyClass != "index" %}
       <li class="nav__item nav__item--distance"><a class="nav__link" href="{{ '/' | url }}">zurück zur Startseite</a></li>
@@ -14,3 +13,6 @@
     </ul>
   </div>
 </footer>
+<div class="container only-print">
+  gedruckt von der Seite: {{metadata.url}}{{ page.url | url }}
+</div>

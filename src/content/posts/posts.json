@@ -1,6 +1,0 @@
-{
-    "layout": "post.njk",
-    "permalink": "post/{{title | slugify}}.html",
-    "bodyClass": "post",
-    "category": "post"
-  }

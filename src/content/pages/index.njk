@@ -12,18 +12,6 @@ eleventyNavigation:
   <div class="container">
     <h2>{{ item.title }}</h2>
 
-    {% if "notes" in item.cat %}
-      {% for post in collections.getAllNotes %}
-        {% include "partials/simple-list.njk" %}
-      {% endfor %}
-    {% endif %}
-
-    {% if "post" in item.cat %}
-      {% for post in collections.getAllPosts %}
-        {% include "partials/simple-list.njk" %}
-      {% endfor %}
-    {% endif %}
-
     {% if "codepen" in item.cat %}
       {% for post in collections.codepen %}
         {% include "partials/simple-list.njk" %}
