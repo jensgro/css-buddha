@@ -29,6 +29,7 @@
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.0.5",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@manustays/eleventy-plugin-codepen-iframe": "^2.0.1",
     "@toycode/markdown-it-class": "^1.2.4",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",

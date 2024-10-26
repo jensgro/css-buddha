@@ -1,4 +1,5 @@
 [
   { "title": "Notizen", "cat": "notes"},
-  { "title": "Artikel", "cat": "post"}
+  { "title": "Artikel", "cat": "post"},
+  { "title": "Meine Codepen", "cat": "codepen"}
 ]

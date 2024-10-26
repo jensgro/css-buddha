@@ -1,0 +1,7 @@
+<div class="codepen-list-wrapper">
+  <ul class="codepenlist">
+    {% for pen in codepenlist %}
+    <li><a href="{{ pen.url | url }}">{{ pen.title }}</a></<li>
+    {% endfor %}
+  </ul>
+</div>

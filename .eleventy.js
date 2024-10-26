@@ -4,6 +4,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const embedCodePen = require("@manustays/eleventy-plugin-codepen-iframe");
 
 // filters
 const htmlDateString = require("./src/_11ty/filters/date.js").htmlDateString;
@@ -37,6 +38,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("getAllNotes", getAllNotes);
 
   eleventyConfig.addPlugin(pluginNavigation);
+
+  eleventyConfig.addPlugin(embedCodePen, {
+		tabs: "html, css, js,result",
+		user: "jensgro",
+    height: 500,
+    theme: "flocke"
+	});
 
    // --------------------- layout aliases -----------------------
    eleventyConfig.addLayoutAlias('base', 'base.njk');
@@ -76,7 +84,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({
     showAllHosts: true,
     showVersion: true
-  }); 
+  });
 
   eleventyConfig.addShortcode("figImg", function (img, figCaption, alt) {
     return `<figure class="card">

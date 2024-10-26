@@ -24,6 +24,12 @@ eleventyNavigation:
       {% endfor %}
     {% endif %}
 
+    {% if "codepen" in item.cat %}
+      {% for post in collections.codepen %}
+        {% include "partials/simple-list.njk" %}
+      {% endfor %}
+    {% endif %}
+
   </div>
 </section>
 {% endfor -%}
